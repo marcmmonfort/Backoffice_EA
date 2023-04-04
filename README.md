@@ -109,7 +109,7 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 _Poner los nombres y los GitHubs_
 
 * **Óscar Boullosa** - *Trabajo Inicial* - [oscarboullosa](https://github.com/oscarboullosa)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
+* **Victor Fernandez** - *Documentación* - [VictorFerndezEscriva](https://github.com/VictorFerndezEscriva)
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
 

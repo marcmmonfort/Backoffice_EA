@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AppComponent } from './components/app/app.component';
@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: 'location', component: LocationComponent }
 
 
-
 ];
 
 @NgModule({
@@ -32,6 +31,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)

@@ -1,9 +1,19 @@
-<h1>Lista de usuarios</h1>
-
-<ul>
-  <li>Usuario 1</li>
-  <li>Usuario 2</li>
-  <li>Usuario 3</li>
-</ul>
+<h2>Lista de usuarios</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user._id }}</td>
+      <td>{{ user.nameUser }}</td>
+      <td>{{ user.mailUser }}</td>
+    </tr>
+  </tbody>
+</table>
 <button routerLink="/">Ir a la Home</button>
 

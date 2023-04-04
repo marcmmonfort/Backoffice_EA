@@ -13,12 +13,13 @@ export class UserService {
   message!: String;
   private userSource = new BehaviorSubject(this.user);
   currentUser = this.userSource.asObservable();
-  private apiURL = 'http://localhost:5432/api/users/';
+  private apiURL = 'http://localhost:8001/api/user/';
+  private apiURLGetAll='http://localhost:8001/user/all';
   constructor(private http: HttpClient) { }
 
   // OK
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiURL);
+    return this.http.get<User[]>(this.apiURLGetAll);
   }
 
   // OK
@@ -28,7 +29,7 @@ export class UserService {
 
   // OK
   logIn(userData:LogIn): Observable<HttpResponse<User>>{
-    return this.http.post<User>('http://localhost:5432/api/auth/login/', userData, {observe: 'response'})
+    return this.http.post<User>('http://localhost:8001/api/auth/login/', userData, {observe: 'response'})
   }
 
   newUserLogged(user: User) {

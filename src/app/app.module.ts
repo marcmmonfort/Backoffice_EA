@@ -1,37 +1,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-//import { LogInComponent } from './components/log-in/log-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListUserComponent } from './components/list-user/list-user.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './home/app.component';
+
+import { ListUserComponent } from './components/list-user/list-user.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { AppComponent } from './components/app/app.component';
+import { HomeComponent } from './components/home/home.component';
+import { CommentComponent } from './components/comment/comment.component';
+import { LocationComponent } from './components/location/location.component';
 
 const routes: Routes = [
-  //{ path: '', component: AppComponent },
-  { path: 'listUsers', component: ListUserComponent }
+  { path: '', component: HomeComponent },
+  { path: 'listUsers', component: ListUserComponent },
+  { path: 'app', component: AppComponent },
+  { path: 'comment', component: CommentComponent },
+  { path: 'location', component: LocationComponent }
+
+
+
 ];
 
 @NgModule({
   declarations: [
     ListUserComponent,
+    NavigationComponent,
     AppComponent,
-    //NavigationComponent,
-    //ListUserComponent,
-    //LogInComponent
+    HomeComponent,
+    CommentComponent,
+    LocationComponent
   ],
-  
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
-    AppRoutingModule,
-    FormsModule, //La he añadido por el tutorial
-    ReactiveFormsModule //La he añadido por el tutorial
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }

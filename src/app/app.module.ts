@@ -9,13 +9,17 @@ import { AppComponent } from './components/app/app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { LocationComponent } from './components/location/location.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'listUsers', component: ListUserComponent },
   { path: 'app', component: AppComponent },
   { path: 'comment', component: CommentComponent },
-  { path: 'location', component: LocationComponent }
+  { path: 'location', component: LocationComponent },
+  { path: 'user-details', component: UserDetailsComponent }
+
+
 
 
 ];
@@ -27,7 +31,8 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     CommentComponent,
-    LocationComponent
+    LocationComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

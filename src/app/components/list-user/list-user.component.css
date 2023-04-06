@@ -8,6 +8,10 @@
 .table tbody td:nth-child(2) {
   width: 25%;
 }
+.mb-4 {
+  margin-top: 1.5rem;
+}
+
 
 .table thead th:nth-child(3),
 .table tbody td:nth-child(3) {

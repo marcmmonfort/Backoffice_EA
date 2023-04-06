@@ -17,10 +17,7 @@ const routes: Routes = [
   { path: 'app', component: AppComponent },
   { path: 'comment', component: CommentComponent },
   { path: 'location', component: LocationComponent },
-  { path: 'user-details', component: UserDetailsComponent }
-
-
-
+  { path: 'user-details/:id', component: UserDetailsComponent }
 
 ];
 

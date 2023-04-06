@@ -21,7 +21,7 @@
           <span *ngIf="!user.deletedUser" class="badge badge-success" class="font-weight-bold">Activado <i class="fas fa-check" style="color: green;"></i></span>
           <span *ngIf="user.deletedUser" class="badge badge-danger" class="font-weight-bold">Desactivado <i class="fas fa-times" style="color: red;"></i></span>
         </td>
-        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="btn btn-primary">Detalles</button></a></td>
+        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="btn btn-primary" (click)="showDetails(user.id)">Detalles</button></a></td>
         <td><button type="button" class="btn btn-secondary">Editar</button></td>
         <td><button type="button" class="btn btn-secondary">Eliminar</button></td>
       </tr>
@@ -29,3 +29,4 @@
   </table>
 </div>
 <button routerLink="/">Ir a la Home</button>
+<button routerLink="/user-details">Ir a detalles</button>

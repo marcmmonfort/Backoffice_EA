@@ -1,33 +1,40 @@
-<h2>Detalles del usuario</h2>
-
-<div *ngIf="userData">
-  <p><strong>Nick:</strong> {{ userData.appUser }}</p>
-  <p><strong>Nombre:</strong> {{ userData.nameUser }}</p>
-  <p><strong>Apellido:</strong> {{ userData.surnameUser }}</p>
-  <p><strong>Correo electrónico:</strong> {{ userData.mailUser }}</p>
-  <p><strong>Fecha de nacimiento:</strong> {{ userData.birthdateUser }}</p>
-  <p><strong>Género:</strong> {{ userData.genderUser }}</p>
-  <p><strong>Ocupación:</strong> {{ userData.ocupationUser }}</p>
-  <p><strong>Descripción:</strong> {{ userData.descriptionUser }}</p>
-  <p><strong>Privacidad:</strong> {{ userData.privacyUser }}</p>
-  <p><strong>Rol:</strong> {{ userData.roleUser }}</p>
-  <p><strong>Estado:</strong> {{ userData.deletedUser }}</p>
-  <p><strong>Seguidores:</strong> {{ userData.followersUser }}</p>
-  <p><strong>Seguidos:</strong> {{ userData.followedUser }}</p>
-  <p><strong>ID:</strong> {{ userData._id }}</p>
-  <p><strong>Fecha de creación:</strong> {{ userData.createdAt }}</p>
-  <p><strong>Fecha de última actualización:</strong> {{ userData.updatedAt }}</p>
-
-
-
-  <p><strong>Email:</strong> {{ userData.mailUser }}</p>
-  <p><strong>Role:</strong> {{ userData.roleUser }}</p>
+<div class="container">
+    <h1 class="text-center">{{ userData.mailUser }}</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5">
+          <div class="card-header">
+            <h2 class="text-center">Detalles del usuario</h2>
+          </div>
+          <div class="card-body">
+            <div *ngIf="userData">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Nick:</strong> {{ userData.appUser }}</li>
+                <li class="list-group-item"><strong>Nombre:</strong> {{ userData.nameUser }}</li>
+                <li class="list-group-item"><strong>Apellido:</strong> {{ userData.surnameUser }}</li>
+                <li class="list-group-item"><strong>Correo electrónico:</strong> {{ userData.mailUser }}</li>
+                <li class="list-group-item"><strong>Fecha de nacimiento:</strong> {{ userData.birthdateUser }}</li>
+                <li class="list-group-item"><strong>Género:</strong> {{ userData.genderUser === 'male' ? 'Masculino' : 'Femenino' }}</li>
+                <li class="list-group-item"><strong>Ocupación:</strong> {{ userData.ocupationUser }}</li>
+                <li class="list-group-item"><strong>Descripción:</strong> {{ userData.descriptionUser }}</li>
+                <li class="list-group-item"><strong>Privacidad:</strong> <span *ngIf="userData.privacyUser; else privacidadPublica"><i class="fas fa-lock"></i> Privado</span><ng-template #privacidadPublica><i class="fas fa-unlock"></i> Público</ng-template></li>
+                <li class="list-group-item"><strong>Rol:</strong> {{ getRolText(userData.roleUser) }}</li>
+                <li class="list-group-item"><strong>Estado:</strong> <span [ngClass]="{'text-danger': !userData.deletedUser, 'text-success': userData.deletedUser}">{{ userData.deletedUser ? 'Activo' : 'Desactivado' }}</span></li>
+                <li class="list-group-item"><strong>Seguidores:</strong> {{ userData.followersUser }} <button class="btn btn-primary" routerLink="/followers/{{userData._id}}">Ver seguidores</button></li>
+                <li class="list-group-item"><strong>Seguidos:</strong> {{ userData.followedUser }} <button class="btn btn-primary" routerLink="/followed/{{userData._id}}">Ver seguidos</button></li>
+                
+                <li class="list-group-item"><strong>ID:</strong> {{ userData._id }}</li>
+                <li class="list-group-item"><strong>Fecha de creación:</strong> {{ userData.createdAt }}</li>
+                <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ userData.updatedAt }}</li>
+              </ul>
+            </div>
   
-  <!-- Añade aquí los demás campos que quieras mostrar -->
-</div>
-
-<div *ngIf="!userData">
-  <p>Cargando datos...</p>
-</div>
-
-
+            <div *ngIf="!userData" class="text-center mt-5">
+              <p>Cargando datos...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

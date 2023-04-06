@@ -28,4 +28,19 @@ export class UserDetailsComponent implements OnInit{
       this.userData=userData;
     });
   }
+  getRolText(rol: string): string {
+    switch (rol) {
+      case 'admin':
+        return 'Administrador/a';
+      case 'common':
+        return 'Cuenta común';
+      case 'verified':
+        return 'Cuenta verificada';
+      case 'business':
+        return 'Cuenta de Empresa';
+      default:
+        return rol;
+    }
+  }
+  
 }

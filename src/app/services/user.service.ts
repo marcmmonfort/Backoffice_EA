@@ -34,6 +34,10 @@ export class UserService {
     return this.http.post<User>('http://localhost:8001/api/auth/login/', userData, {observe: 'response'})
   }
 
+  updateUser(user: User,id:string): Observable<User> {
+    return this.http.put<User>(this.apiURL + id, user)
+  }
+
   newUserLogged(user: User) {
     this.userSource.next(user);
   }

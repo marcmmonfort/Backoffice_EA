@@ -20,4 +20,7 @@ export class ListUserComponent implements OnInit {
   showDetails(user: any): void {
     this.router.navigate(['/user-details', user.id]);
   }
+  showEdit(user: any): void {
+    this.router.navigate(['/user-edit', user.id]);
+  }
 }

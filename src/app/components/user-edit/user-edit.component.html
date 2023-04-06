@@ -1,3 +1,5 @@
+<confirmation-modal [isOpen]="isModalOpen" (acceptChanges)="onAcceptChanges()" (cancelChanges)="onCancelChanges()"></confirmation-modal>
+
 <h2 class="text-center">Editar usuario</h2>
 <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -77,5 +79,5 @@
                 <label class="form-check-label" for="deletedUser">Eliminado</label>
                 </div>
   
-  <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
 </form>

@@ -1,0 +1,10 @@
+<div class="modal-overlay" *ngIf="isOpen">
+    <div class="modal-container">
+      <h3>¿Estás seguro de estos cambios?</h3>
+      <div class="modal-buttons">
+        <button class="modal-button modal-button-accept" (click)="onAccept()">Aceptar</button>
+        <button class="modal-button modal-button-cancel" (click)="onCancel()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  

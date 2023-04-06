@@ -13,6 +13,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserFollowersComponent } from './components/user-followers/user-followers.component';
 import { UserFollowedComponent } from './components/user-followed/user-followed.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
     UserDetailsComponent,
     UserFollowersComponent,
     UserFollowedComponent,
-    UserEditComponent
+    UserEditComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,

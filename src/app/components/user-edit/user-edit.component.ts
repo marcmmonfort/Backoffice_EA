@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserEditComponent {
   userData: any;
   userId!: string;
+  isModalOpen:boolean=false;
   
   constructor(private route: ActivatedRoute, private userService: UserService,private router:Router) {}
 
@@ -27,10 +28,29 @@ export class UserEditComponent {
     });
   }
   onSubmit():void{
+      this.openModal();
+    
+  }
+  openModal(): void {
+    this.isModalOpen = true;
+  }
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
+  confirmChanges(): void {
     this.userService.updateUser(this.userData, this.userId).subscribe(() => {
-      alert('Los datos se han actualizado correctamente.');
+      this.closeModal();
     });
   }
+  onAcceptChanges(): void {
+    this.confirmChanges();
+  }
+  
+  onCancelChanges(): void {
+    this.isModalOpen = false;
+    this.loadUserData();
+  }
+  
   getRolText(rol: string): string {
     switch (rol) {
       case 'admin':

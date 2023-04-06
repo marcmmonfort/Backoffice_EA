@@ -13,7 +13,7 @@ export class UserService {
   message!: String;
   private userSource = new BehaviorSubject(this.user);
   currentUser = this.userSource.asObservable();
-  private apiURL = 'http://localhost:8001/api/user/';
+  private apiURL = 'http://localhost:8001/user/';
   private apiURLGetAll='http://localhost:8001/user/all';
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,9 @@ export class UserService {
     return this.http.get<User[]>(this.apiURLGetAll);
   }
 
-  // OK
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>(this.apiURL + id);
+  }  // OK
   delete(id: string): Observable<User> {
     return this.http.delete<User>(this.apiURL + id);
   }

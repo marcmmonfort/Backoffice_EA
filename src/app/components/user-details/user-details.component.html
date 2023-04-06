@@ -1,1 +1,33 @@
-<p>user-details works!</p>
+<h2>Detalles del usuario</h2>
+
+<div *ngIf="userData">
+  <p><strong>Nick:</strong> {{ userData.appUser }}</p>
+  <p><strong>Nombre:</strong> {{ userData.nameUser }}</p>
+  <p><strong>Apellido:</strong> {{ userData.surnameUser }}</p>
+  <p><strong>Correo electrónico:</strong> {{ userData.mailUser }}</p>
+  <p><strong>Fecha de nacimiento:</strong> {{ userData.birthdateUser }}</p>
+  <p><strong>Género:</strong> {{ userData.genderUser }}</p>
+  <p><strong>Ocupación:</strong> {{ userData.ocupationUser }}</p>
+  <p><strong>Descripción:</strong> {{ userData.descriptionUser }}</p>
+  <p><strong>Privacidad:</strong> {{ userData.privacyUser }}</p>
+  <p><strong>Rol:</strong> {{ userData.roleUser }}</p>
+  <p><strong>Estado:</strong> {{ userData.deletedUser }}</p>
+  <p><strong>Seguidores:</strong> {{ userData.followersUser }}</p>
+  <p><strong>Seguidos:</strong> {{ userData.followedUser }}</p>
+  <p><strong>ID:</strong> {{ userData._id }}</p>
+  <p><strong>Fecha de creación:</strong> {{ userData.createdAt }}</p>
+  <p><strong>Fecha de última actualización:</strong> {{ userData.updatedAt }}</p>
+
+
+
+  <p><strong>Email:</strong> {{ userData.mailUser }}</p>
+  <p><strong>Role:</strong> {{ userData.roleUser }}</p>
+  
+  <!-- Añade aquí los demás campos que quieras mostrar -->
+</div>
+
+<div *ngIf="!userData">
+  <p>Cargando datos...</p>
+</div>
+
+

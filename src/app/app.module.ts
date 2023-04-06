@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { LocationComponent } from './components/location/location.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserFollowersComponent } from './components/user-followers/user-followers.component';
+import { UserFollowedComponent } from './components/user-followed/user-followed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +19,10 @@ const routes: Routes = [
   { path: 'app', component: AppComponent },
   { path: 'comment', component: CommentComponent },
   { path: 'location', component: LocationComponent },
-  { path: 'user-details/:id', component: UserDetailsComponent }
+  { path: 'user-details/:id', component: UserDetailsComponent },
+  {path:'user-details/followers/:id',component:UserFollowersComponent},
+  {path:'user-details/followed/:id',component:UserFollowedComponent}
+
 
 ];
 
@@ -29,7 +34,9 @@ const routes: Routes = [
     HomeComponent,
     CommentComponent,
     LocationComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserFollowersComponent,
+    UserFollowedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/models/user.model';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { format } from 'date-fns';
+
 
 @Component({
   selector: 'app-user-details', 
@@ -12,8 +13,8 @@ export class UserDetailsComponent implements OnInit{
 
   userData: any;
   userId!: string;
-
-  constructor(private route: ActivatedRoute, private userService: UserService) {}
+  
+  constructor(private route: ActivatedRoute, private userService: UserService,private router:Router) {}
 
   ngOnInit(): void {
     this.loadUserData();
@@ -42,5 +43,11 @@ export class UserDetailsComponent implements OnInit{
         return rol;
     }
   }
-  
+
+  showFollowers(user:any):void{
+    this.router.navigate(['user-details/followers',user.id])
+  }
+  showFollowed(user:any):void{
+    this.router.navigate(['user-details/followed',user.id])
+  }
 }

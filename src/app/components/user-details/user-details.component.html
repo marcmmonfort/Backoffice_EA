@@ -20,9 +20,8 @@
                 <li class="list-group-item"><strong>Privacidad:</strong> <span *ngIf="userData.privacyUser; else privacidadPublica"><i class="fas fa-lock"></i> Privado</span><ng-template #privacidadPublica><i class="fas fa-unlock"></i> Público</ng-template></li>
                 <li class="list-group-item"><strong>Rol:</strong> {{ getRolText(userData.roleUser) }}</li>
                 <li class="list-group-item"><strong>Estado:</strong> <span [ngClass]="{'text-danger': !userData.deletedUser, 'text-success': userData.deletedUser}">{{ userData.deletedUser ? 'Activo' : 'Desactivado' }}</span></li>
-                <li class="list-group-item"><strong>Seguidores:</strong> {{ userData.followersUser }} <button class="btn btn-primary" routerLink="/followers/{{userData._id}}">Ver seguidores</button></li>
-                <li class="list-group-item"><strong>Seguidos:</strong> {{ userData.followedUser }} <button class="btn btn-primary" routerLink="/followed/{{userData._id}}">Ver seguidos</button></li>
-                
+                <li class="list-group-item"><strong>Seguidores:</strong><a [routerLink]="['/user-details/followers', userData._id]"><button type="button" class="btn btn-primary" (click)="showFollowers(userData._id)">Seguidores</button></a></li>
+                <li class="list-group-item"><strong>Seguidos:</strong><a [routerLink]="['/user-details/followed', userData._id]"><button type="button" class="btn btn-primary" (click)="showFollowed(userData._id)">Seguidos</button></a></li>
                 <li class="list-group-item"><strong>ID:</strong> {{ userData._id }}</li>
                 <li class="list-group-item"><strong>Fecha de creación:</strong> {{ userData.createdAt }}</li>
                 <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ userData.updatedAt }}</li>

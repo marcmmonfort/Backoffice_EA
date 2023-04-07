@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class ListUserComponent implements OnInit {
   users: any[] = [];
+  filteredUsers: any[] = [];
+  searchTerm: string = '';
+
   constructor(private userService: UserService, private router: Router){};
   ngOnInit(): void {
     this.userService.getUsers()
@@ -23,4 +26,12 @@ export class ListUserComponent implements OnInit {
   showEdit(user: any): void {
     this.router.navigate(['/user-edit', user.id]);
   }
+  search() {
+    this.ngOnInit();
+if (this.searchTerm.trim() !== '') {
+this.filteredUsers = this.users.filter(user => user.mailUser.toLowerCase().includes(this.searchTerm.toLowerCase()));
+} else {
+this.filteredUsers = this.users;
+}
+}
 }

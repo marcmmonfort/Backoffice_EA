@@ -14,6 +14,7 @@ import { UserFollowersComponent } from './components/user-followers/user-followe
 import { UserFollowedComponent } from './components/user-followed/user-followed.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { UserCreateComponent } from './components/user-create/user-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'location', component: LocationComponent },
   { path: 'user-details/:id', component: UserDetailsComponent },
   { path: 'user-edit/:id', component: UserEditComponent },
+  { path: 'user-create', component: UserCreateComponent },
+
   {path:'user-details/followers/:id',component:UserFollowersComponent},
   {path:'user-details/followed/:id',component:UserFollowedComponent}
 
@@ -41,7 +44,8 @@ const routes: Routes = [
     UserFollowersComponent,
     UserFollowedComponent,
     UserEditComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,

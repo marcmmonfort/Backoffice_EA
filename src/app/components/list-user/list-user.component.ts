@@ -27,7 +27,6 @@ export class ListUserComponent implements OnInit {
     this.router.navigate(['/user-edit', user.id]);
   }
   search() {
-    this.ngOnInit();
 if (this.searchTerm.trim() !== '') {
 this.filteredUsers = this.users.filter(user => user.mailUser.toLowerCase().includes(this.searchTerm.toLowerCase()));
 } else {

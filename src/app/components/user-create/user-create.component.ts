@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UserCreateComponent implements OnInit {
 
   userForm: FormGroup | any;
+  isModalOpen:boolean=false;
 
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
@@ -41,6 +42,7 @@ export class UserCreateComponent implements OnInit {
     if (this.userForm.invalid) {
       return;
     }
+    this.openModal();
   
     const userData = this.userForm.value;
     this.userService.addUser(userData).subscribe(
@@ -54,5 +56,33 @@ export class UserCreateComponent implements OnInit {
       }
     );
   }
+  confirmChanges(): void {
+    const userData = this.userForm.value;
+    this.userService.addUser(userData).subscribe(
+      (response) => {
+        console.log('Usuario guardado correctamente:', response);
+        // Aquí podrías redirigir a la página de éxito, por ejemplo
+      },
+      (error) => {
+        console.error('Error al guardar usuario:', error);
+        // Aquí podrías mostrar un mensaje de error al usuario
+      }
+    );
+    this.closeModal();
+  }
+  onAcceptChanges(): void {
+    this.confirmChanges();
+    this.ngOnInit();
 
+  }
+  onCancelChanges(): void {
+    this.isModalOpen = false;
+  }
+  openModal(): void {
+    this.isModalOpen = true;
+  }
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
 }
+

@@ -1,5 +1,7 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+<confirmation-modal [isOpen]="isModalOpen" (acceptChanges)="onAcceptChanges()" (cancelChanges)="onCancelChanges()"></confirmation-modal>
+<h2 class="text-center">Crear usuario</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="row g-3">
+        <div class="form-group">
         <label for="appUser">Usuario:</label>
         <input type="text" id="appUser" formControlName="appUser" class="form-control">
         <div *ngIf="userForm.controls.appUser.invalid && (userForm.controls.appUser.dirty || userForm.controls.appUser.touched)">
@@ -80,6 +82,5 @@
                 </div>
 
   
-    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Crear usuario</button>
-  </form>
+                <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>  </form>
   

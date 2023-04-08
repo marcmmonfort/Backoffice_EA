@@ -1,0 +1,79 @@
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+<h2 class="text-center">Crear localización</h2>
+
+<form [formGroup]="locForm" (ngSubmit)="onSubmit()" class="row g-3">
+  <div class="form-group">
+    <label for="nameLocation">Nombre:</label>
+    <input
+      type="text"
+      id="nameLocation"
+      formControlName="nameLocation"
+      class="form-control"
+    />
+    <div
+      *ngIf="
+        locForm.controls.nameLocation.invalid &&
+        (locForm.controls.nameLocation.dirty ||
+          locForm.controls.nameLocation.touched)
+      "
+    >
+      <div *ngIf="locForm.controls.nameLocation.errors.required">
+        Este campo es requerido.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="latLocation">Latitud:</label>
+    <input
+      type="text"
+      id="latLocation"
+      formControlName="latLocation"
+      class="form-control"
+    />
+    <div
+      *ngIf="
+        locForm.controls.latLocation.invalid &&
+        (locForm.controls.latLocation.dirty || locForm.controls.latLocation.touched)
+      "
+    >
+      <div *ngIf="locForm.controls.latLocation.errors.required">
+        Este campo es requerido.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lonLocation">Longitud:</label>
+    <input
+      type="text"
+      id="lonLocation"
+      formControlName="lonLocation"
+      class="form-control"
+    />
+    <div
+      *ngIf="
+        locForm.controls.lonLocation.invalid &&
+        (locForm.controls.lonLocation.dirty ||
+          locForm.controls.lonLocation.touched)
+      "
+    >
+      <div *ngIf="locForm.controls.lonLocation.errors.required">
+        Este campo es requerido.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="descriptionLocation">Descripción:</label>
+    <input
+      type="string"
+      id="descriptionLocation"
+      formControlName="descriptionLocation"
+      class="form-control"
+    />
+  </div>
+  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+</form>

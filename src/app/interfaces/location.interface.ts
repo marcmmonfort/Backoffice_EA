@@ -7,7 +7,7 @@ export class Location {
 
 
     constructor(idLocation: string, nameLocation: string, latLocation: string, lonLocation: string, descriptionLocation: string) {
-        this.idLocation =
+        this.idLocation = idLocation;
         this.nameLocation = nameLocation;
         this.latLocation = latLocation;
         this.lonLocation = lonLocation; 

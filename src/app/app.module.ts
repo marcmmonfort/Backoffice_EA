@@ -8,13 +8,16 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { AppComponent } from './components/app/app.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommentComponent } from './components/comment/comment.component';
-import { LocationComponent } from './components/location/location.component';
+import { LocationComponent } from './components/location-components/location/location.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserFollowersComponent } from './components/user-followers/user-followers.component';
 import { UserFollowedComponent } from './components/user-followed/user-followed.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { UserCreateComponent } from './components/user-create/user-create.component';
+import { LocationCreateComponent } from './components/location-components/location-create/location-create.component';
+import { LocationDetailsComponent } from './components/location-components/location-details/location-details.component';
+import { LocationEditComponent } from './components/location-components/location-edit/location-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +28,9 @@ const routes: Routes = [
   { path: 'user-details/:id', component: UserDetailsComponent },
   { path: 'user-edit/:id', component: UserEditComponent },
   { path: 'user-create', component: UserCreateComponent },
+  { path: 'location-create', component: LocationCreateComponent },
+  { path: 'location-details/:id', component: LocationDetailsComponent },
+  { path: 'location-edit/:id', component: LocationEditComponent },
 
   {path:'user-details/followers/:id',component:UserFollowersComponent},
   {path:'user-details/followed/:id',component:UserFollowedComponent}
@@ -45,7 +51,10 @@ const routes: Routes = [
     UserFollowedComponent,
     UserEditComponent,
     ConfirmationModalComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    LocationCreateComponent,
+    LocationDetailsComponent,
+    LocationEditComponent
   ],
   imports: [
     BrowserModule,

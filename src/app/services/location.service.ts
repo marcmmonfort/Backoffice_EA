@@ -13,12 +13,22 @@ export class LocationService {
   message!: String;
   private locationSource = new BehaviorSubject(this.location);
   currentLocation = this.locationSource.asObservable();
-  private apiURL = 'http://localhost:5432/api/users/';
+  private apiURL = 'http://localhost:8001/location/';
+  private apiURLGetAll='http://localhost:8001/location/all';
+  private apiRegister='http://localhost:8001/auth/register';
   constructor(private http: HttpClient) { }
 
   // OK
   getLocations(): Observable<Location[]> {
     return this.http.get<Location[]>(this.apiURL);
+  }
+
+  getLocation(id: string): Observable<Location> {
+    return this.http.get<Location>(this.apiURL + id);
+  }  // OK
+
+  updateLocation(location: Location,id:string): Observable<Location> {
+    return this.http.put<Location>(this.apiURL + id, location)
   }
 
   // OK
@@ -28,15 +38,15 @@ export class LocationService {
 
   // OK
   logIn(locationData:Location): Observable<HttpResponse<Location>>{
-    return this.http.post<Location>('http://localhost:5432/api/auth/login/', locationData, {observe: 'response'})
+    return this.http.post<Location>('http://localhost:8001/api/auth/login/', locationData, {observe: 'response'})
   }
 
-  newLocationLogged(user: Location) {
-    this.locationSource.next(user);
+  newLocationLogged(location: Location) {
+    this.locationSource.next(location);
   }
 
   // OK
-  addLocation(user: Location): Observable<Location> {
+  addLocation(location: Location): Observable<Location> {
     return this.http.post<Location>(this.apiURL, location)
   }
 }

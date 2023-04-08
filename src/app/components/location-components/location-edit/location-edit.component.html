@@ -1,0 +1,57 @@
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nameLocation">Nombre de la localización</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nameLocation"
+      name="nameLocation"
+      [(ngModel)]="locData.nameLocation"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="latLocation">Latitud</label>
+    <input
+      type="text"
+      class="form-control"
+      id="latLocation"
+      name="latLocation"
+      [(ngModel)]="locData.latLocation"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="lonLocation">Apellido</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lonLocation"
+      name="lonLocation"
+      [(ngModel)]="locData.lonLocation"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionLocation">Correo electrónico</label>
+    <input
+      type="email"
+      class="form-control"
+      id="descriptionLocation"
+      name="descriptionLocation"
+      [(ngModel)]="locData.descriptionLocation"
+      required
+    />
+  </div>
+
+  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+</form>

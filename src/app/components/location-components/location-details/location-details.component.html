@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 class="text-center">{{ locData.nameLocation }}</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5">
+          <div class="card-header">
+            <h2 class="text-center">Detalles de la localización</h2>
+          </div>
+          <div class="card-body">
+            <div *ngIf="locData">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Nombre:</strong> {{ locData.nameLocation }}</li>
+                <li class="list-group-item"><strong>Latitud:</strong> {{ locData.latLocation }}</li>
+                <li class="list-group-item"><strong>Longitud:</strong> {{ locData.lonLocation }}</li>
+                <li class="list-group-item"><strong>Descripción:</strong> {{ locData.descriptionLocation }}</li>
+                <li class="list-group-item"><strong>ID:</strong> {{ locData._id }}</li>
+                <li class="list-group-item"><strong>Fecha de creación:</strong> {{ locData.createdAt }}</li>
+                <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ locData.updatedAt }}</li>
+              </ul>
+            </div>
+  
+            <div *ngIf="!locData" class="text-center mt-5">
+              <p>Cargando datos...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

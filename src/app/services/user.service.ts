@@ -27,8 +27,8 @@ export class UserService {
   }
 
   // OK
-  logIn(userData:LogIn): Observable<HttpResponse<User>>{
-    return this.http.post<User>('http://localhost:5432/api/auth/login/', userData, {observe: 'response'})
+  logIn(userData:LogIn): Observable<HttpResponse<LogIn>>{
+    return this.http.post<LogIn>('http://localhost:5432/api/auth/login/', userData, {observe: 'response'})
   }
 
   newUserLogged(user: User) {

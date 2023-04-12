@@ -14,11 +14,12 @@ export class LocationCreateComponent {
   constructor(private formBuilder: FormBuilder, private locationService: LocationService, private router: Router) { }
 
   ngOnInit(): void {
+
     this.locForm = this.formBuilder.group({
       nameLocation: ['', Validators.required],
-      LatitudeLocation: ['', Validators.required],
-      LongitudeLocation: ['', [Validators.required]],
-      DescriptionLocation: ['', Validators.required],
+      latLocation: ['', Validators.required],
+      lonLocation: ['', Validators.required],
+      descriptionLocation: ['', Validators.required],
     });
   }
 
@@ -31,7 +32,8 @@ export class LocationCreateComponent {
       return;
     }
     this.openModal();
-  
+  }
+  confirmChanges(): void {
     const locData = this.locForm.value;
     this.locationService.addLocation(locData).subscribe(
       (response) => {
@@ -39,20 +41,7 @@ export class LocationCreateComponent {
         // Aquí podrías redirigir a la página de éxito, por ejemplo
       },
       (error) => {
-        console.error('Error al guardar localización:', error);
-        // Aquí podrías mostrar un mensaje de error al usuario
-      }
-    );
-  }
-  confirmChanges(): void {
-    const locData = this.locForm.value;
-    this.locationService.addLocation(locData).subscribe(
-      (response) => {
-        console.log('Usuario guardado correctamente:', response);
-        // Aquí podrías redirigir a la página de éxito, por ejemplo
-      },
-      (error) => {
-        console.error('Error al guardar usuario:', error);
+        console.error('Error al guardar location:', error);
         // Aquí podrías mostrar un mensaje de error al usuario
       }
     );
@@ -61,7 +50,6 @@ export class LocationCreateComponent {
   onAcceptChanges(): void {
     this.confirmChanges();
     this.ngOnInit();
-
   }
   onCancelChanges(): void {
     this.isModalOpen = false;
@@ -72,5 +60,4 @@ export class LocationCreateComponent {
   closeModal(): void {
     this.isModalOpen = false;
   }
-
 }

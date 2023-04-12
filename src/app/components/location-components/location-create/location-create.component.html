@@ -10,7 +10,7 @@
   <div class="form-group">
     <label for="nameLocation">Nombre:</label>
     <input
-      type="text"
+      type="string"
       id="nameLocation"
       formControlName="nameLocation"
       class="form-control"
@@ -30,7 +30,7 @@
   <div class="form-group">
     <label for="latLocation">Latitud:</label>
     <input
-      type="text"
+      type="string"
       id="latLocation"
       formControlName="latLocation"
       class="form-control"
@@ -38,7 +38,8 @@
     <div
       *ngIf="
         locForm.controls.latLocation.invalid &&
-        (locForm.controls.latLocation.dirty || locForm.controls.latLocation.touched)
+        (locForm.controls.latLocation.dirty ||
+          locForm.controls.latLocation.touched)
       "
     >
       <div *ngIf="locForm.controls.latLocation.errors.required">
@@ -49,7 +50,7 @@
   <div class="form-group">
     <label for="lonLocation">Longitud:</label>
     <input
-      type="text"
+      type="string"
       id="lonLocation"
       formControlName="lonLocation"
       class="form-control"

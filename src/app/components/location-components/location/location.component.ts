@@ -28,7 +28,7 @@ export class LocationComponent implements OnInit {
   search() {
     if (this.searchTerm.trim() !== '') {
       this.filteredLocations = this.locations.filter((location) =>
-        location.mailUser.toLowerCase().includes(this.searchTerm.toLowerCase())
+        location.nameLocation.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     } else {
       this.filteredLocations = this.locations;

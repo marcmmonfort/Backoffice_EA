@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="text-center">{{ userData.mailUser }}</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5">
+          <div class="card-header">
+            <h2 class="text-center">Detalles del usuario</h2>
+          </div>
+          <div class="card-body">
+            <div *ngIf="userData">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>Nick:</strong> {{ userData.appUser }}</li>
+                <li class="list-group-item"><strong>Nombre:</strong> {{ userData.nameUser }}</li>
+                <li class="list-group-item"><strong>Apellido:</strong> {{ userData.surnameUser }}</li>
+                <li class="list-group-item"><strong>Correo electrónico:</strong> {{ userData.mailUser }}</li>
+                <li class="list-group-item"><strong>Fecha de nacimiento:</strong> {{ userData.birthdateUser }}</li>
+                <li class="list-group-item"><strong>Género:</strong> {{ userData.genderUser === 'male' ? 'Masculino' : 'Femenino' }}</li>
+                <li class="list-group-item"><strong>Ocupación:</strong> {{ userData.ocupationUser }}</li>
+                <li class="list-group-item"><strong>Descripción:</strong> {{ userData.descriptionUser }}</li>
+                <li class="list-group-item"><strong>Privacidad:</strong> <span *ngIf="userData.privacyUser; else privacidadPublica"><i class="fas fa-lock"></i> Privado</span><ng-template #privacidadPublica><i class="fas fa-unlock"></i> Público</ng-template></li>
+                <li class="list-group-item"><strong>Rol:</strong> {{ getRolText(userData.roleUser) }}</li>
+                <li class="list-group-item"><strong>Estado:</strong> <span [ngClass]="{'text-danger': userData.deletedUser, 'text-success': !userData.deletedUser}">{{ userData.deletedUser ? 'Desactivado' : 'Activo' }}</span></li>
+                <li class="list-group-item"><strong>Seguidores:</strong><a [routerLink]="['/user-details/followers', userData._id]"><button type="button" class="btn btn-primary" (click)="showFollowers(userData._id)">Seguidores</button></a></li>
+                <li class="list-group-item"><strong>Seguidos:</strong><a [routerLink]="['/user-details/followed', userData._id]"><button type="button" class="btn btn-primary" (click)="showFollowed(userData._id)">Seguidos</button></a></li>
+                <li class="list-group-item"><strong>ID:</strong> {{ userData._id }}</li>
+                <li class="list-group-item"><strong>Fecha de creación:</strong> {{ userData.createdAt }}</li>
+                <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ userData.updatedAt }}</li>
+              </ul>
+            </div>
+  
+            <div *ngIf="!userData" class="text-center mt-5">
+              <p>Cargando datos...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -7,7 +7,7 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AppComponent } from './components/app/app.component';
 import { HomeComponent } from './components/home/home.component';
-import { CommentComponent } from './components/comment/comment.component';
+import { CommentComponent } from './components/comment-components/comment/comment.component';
 import { LocationComponent } from './components/location/location.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserFollowersComponent } from './components/user-followers/user-followers.component';
@@ -15,6 +15,9 @@ import { UserFollowedComponent } from './components/user-followed/user-followed.
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { UserCreateComponent } from './components/user-create/user-create.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { CommentEditComponent } from './components/comment-components/comment-edit/comment-edit.component';
+import { CommentDetailsComponent } from './components/comment-components/comment-details/comment-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,6 +43,7 @@ const routes: Routes = [
     HomeComponent,
     CommentComponent,
     LocationComponent,
+    LogInComponent,
     UserDetailsComponent,
     UserFollowersComponent,
     UserFollowedComponent,

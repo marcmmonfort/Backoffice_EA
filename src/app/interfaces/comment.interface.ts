@@ -1,23 +1,13 @@
 import { User } from "./user.interface";
 
-export class Comment {
-    
+export interface Comment {
+    _id?: string
     idUserComment: string
     idPublicationComment: string
     textComment: string
-    dateComment: Date
-    likesComment?: User[]
-    responseComment?: Comment[]
-    
-
-
-    constructor(idUserComment: string, idPublicationComment: string, textComment: string, dateComment: Date, likesComment?: User[], responseComment?: Comment[]) {
-        this.idUserComment = idUserComment,
-        this.idPublicationComment = idPublicationComment;
-        this.textComment = textComment;
-        this.likesComment = likesComment; 
-        this.dateComment = dateComment; 
-        this.responseComment = responseComment;
-        
-    }
+    dateComment: string
+    likesComment?: string[]
+    responseComment?: string[]
+    createdAt: string;
+    updatedAt: string;
 }

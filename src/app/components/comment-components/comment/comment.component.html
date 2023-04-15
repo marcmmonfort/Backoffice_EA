@@ -6,10 +6,11 @@
   <button class="btn btn-primary btn-lg" type="button" (click)="search()">Ver todas</button>
 </div>
 <div class="input-group mb-3">
+  <!-- Queremos que busque insultos dentro de los comentarios. En el searchTerm-->
   <input
-    type="text"
+    type="string"
     class="form-control rounded-pill"
-    placeholder="Buscar por Nombre"
+    placeholder="Buscar palabra"    
     [(ngModel)]="searchTerm"
     name="searchTerm"
     (keyup)="search()"
@@ -35,22 +36,22 @@
         <td class="text-center">{{ comment.textComment }}</td>
         <td class="text-center">{{ comment.dateComment }}</td>
         <td>
-          <a [routerLink]="['/comment-details', comment._id]"
+          <a
             ><button
               type="button"
               class="btn btn-primary"
-              (click)="showDetails(comment.id)"
+              (click)="showDetails(comment)"
             >
               Detalles
             </button></a
           >
         </td>
         <td>
-          <a [routerLink]="['/comment-edit', comment._id]"
+          <a 
             ><button
               type="button"
               class="btn btn-primary"
-              (click)="showEdit(comment.id)"
+              (click)="showEdit(comment)"
             >
               Editar
             </button></a

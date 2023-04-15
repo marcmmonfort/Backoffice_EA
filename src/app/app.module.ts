@@ -18,19 +18,24 @@ import { UserCreateComponent } from './components/user-create/user-create.compon
 import { LogInComponent } from './components/log-in/log-in.component';
 import { CommentEditComponent } from './components/comment-components/comment-edit/comment-edit.component';
 import { CommentDetailsComponent } from './components/comment-components/comment-details/comment-details.component';
+import { CommentCreateComponent } from './components/comment-components/comment-create/comment-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'listUsers', component: ListUserComponent },
   { path: 'app', component: AppComponent },
   { path: 'comment', component: CommentComponent },
+  { path: 'comment-create', component: CommentCreateComponent },
+  { path: 'comment-details/:id', component: CommentDetailsComponent },
+  { path: 'comment-edit/:id', component: CommentEditComponent },
   { path: 'location', component: LocationComponent },
   { path: 'user-details/:id', component: UserDetailsComponent },
   { path: 'user-edit/:id', component: UserEditComponent },
   { path: 'user-create', component: UserCreateComponent },
 
-  {path:'user-details/followers/:id',component:UserFollowersComponent},
-  {path:'user-details/followed/:id',component:UserFollowedComponent}
+  //{ path:'comment-details/responses/:id', component:  },
+  { path:'user-details/followers/:id',component: UserFollowersComponent },
+  { path:'user-details/followed/:id',component: UserFollowedComponent }
 
 
 ];
@@ -42,6 +47,9 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     CommentComponent,
+    CommentCreateComponent,
+    CommentDetailsComponent,
+    CommentEditComponent,
     LocationComponent,
     LogInComponent,
     UserDetailsComponent,

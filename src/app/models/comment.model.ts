@@ -1,11 +1,13 @@
-export interface User {
+export interface Comment {
+    _id: string;
     idUserComment: string
     idPublicationComment: string
     textComment: string
-    dateComment: Date
-    likesComment?: User[]
-    responseComment?: Comment[]
-    _id: string;
+    dateComment: string
+    likesComment?: string[]
+    responseComment?: string[]
+    createdAt: string;
+    updatedAt: string;
 
 }
       

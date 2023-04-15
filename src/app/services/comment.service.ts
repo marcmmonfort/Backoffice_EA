@@ -12,10 +12,10 @@ export class CommentService {
 
   comment!: Comment ;
   message!: String;
-  private apiURL = 'http://localhost:5432/comments/';
+  private apiURL = 'http://localhost:5432/comment/';
   constructor(private http: HttpClient) { }
 
-  // OK
+
   // (1) Get (obtain) comments ...
   getComments(idPublicationComment: string, numPage: string): Observable<Comment[]> {
     return this.http.get<Comment[]>(this.apiURL + idPublicationComment +'/' + numPage);
@@ -41,4 +41,14 @@ export class CommentService {
     return this.http.delete<Comment>(this.apiURL + 'deleteComment/' + idComment);
   } 
 
-}
+  // (6) Get all comments
+  getAllComments ():  Observable<Comment[]>{
+    return this.http.get<Comment[]>(this.apiURL + 'getAllComments');
+  } 
+
+   // (7) Get (obtain) comment ...
+   getComment(idComment: string): Observable<Comment> {
+    return this.http.get<Comment>(this.apiURL + 'getComment/'+ idComment);
+  }
+};
+

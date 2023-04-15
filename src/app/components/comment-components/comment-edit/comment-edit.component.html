@@ -1,1 +1,60 @@
-<p>comment-edit works!</p>
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="idPublicationComment">ID de la publicación </label>
+    <input 
+      type="string"
+      class="form-control"
+      id="idPublicationComment"
+      name="idPublicationComment"
+      [(ngModel)]="commentData.idPublicationComment"
+      required
+      readonly
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="idUserComment">ID del usuario</label>
+    <input 
+      type="string"
+      class="form-control"
+      id="idUserComment"
+      name="idUserComment"
+      [(ngModel)]="commentData.idUserComment"
+      required
+      readonly
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="lonLocation">Texto</label>
+    <input
+      type="string"
+      class="form-control"
+      id="lonLocation"
+      name="lonLocation"
+      [(ngModel)]="commentData.textComment"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionLocation">Fecha</label>
+    <input
+      type="date"
+      class="form-control"
+      id="descriptionLocation"
+      name="descriptionLocation"
+      [(ngModel)]="commentData.dateComment"
+      required
+      readonly
+    />
+  </div>
+
+  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+</form>

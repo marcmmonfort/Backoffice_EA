@@ -10,6 +10,8 @@ export class LocationEditComponent {
   locData: any;
   locationId!: string;
   isModalOpen:boolean=false;
+  isDeleteUp:boolean=false;
+  isEditUp:boolean=false;
   
   constructor(private route: ActivatedRoute, private locationService: LocationService,private router:Router) {}
 
@@ -29,25 +31,42 @@ export class LocationEditComponent {
 
   onSubmit():void{
     this.openModal();
-  
-}
-openModal(): void {
-  this.isModalOpen = true;
-}
-closeModal(): void {
-  this.isModalOpen = false;
-}
-confirmChanges(): void {
-  this.locationService.updateLocation(this.locData, this.locationId).subscribe(() => {
-    this.closeModal();
-  });
-}
-onAcceptChanges(): void {
-  this.confirmChanges();
-}
+  }
+  openModal(): void {
+    this.isModalOpen = true;
+  }
+  closeModal(): void {
+    this.isModalOpen = false;
+    this.isDeleteUp = false;
+    this.isEditUp = false;
+  }
+  confirmChanges(): void {
+      this.locationService.updateLocation(this.locData, this.locationId).subscribe(() => {
+        this.closeModal();
+        this.router.navigate(['/location']);
+      });
+      
+      if(this.isDeleteUp){
+        this.locationService.deleteLocation(this.locationId).subscribe(()=>{
+          this.closeModal();
+          this.router.navigate(['/location']);
+        })
+      } 
+  }
+  onAcceptChanges(): void {
+    this.confirmChanges();
+  }
 
-onCancelChanges(): void {
-  this.isModalOpen = false;
-  this.loadLocationData();
-}
+  onCancelChanges(): void {
+    this.isModalOpen = false;
+    this.loadLocationData();
+  }
+  eliminar(){
+    this.isDeleteUp=true;
+    this.openModal();
+  }
+  editar(){
+    this.isEditUp=true;
+    this.openModal();
+  }
 }

@@ -57,6 +57,14 @@ body {
     padding: 10px 20px;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   }
+  .btn-danger{
+    background-color: #ff1100;
+    border-color: #ff1100;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
   
   .btn-primary:hover {
     background-color: #0069d9;

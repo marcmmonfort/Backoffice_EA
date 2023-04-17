@@ -1,0 +1,85 @@
+<confirmation-modal [isOpen]="isModalOpen" (acceptChanges)="onAcceptChanges()" (cancelChanges)="onCancelChanges()"></confirmation-modal>
+<h2 class="text-center">Crear usuario</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="row g-3">
+        <div class="form-group">
+        <label for="appUser">Usuario:</label>
+        <input type="text" id="appUser" formControlName="appUser" class="form-control">
+        <div *ngIf="userForm.controls.appUser.invalid && (userForm.controls.appUser.dirty || userForm.controls.appUser.touched)">
+          <div *ngIf="userForm.controls.appUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nameUser">Nombre:</label>
+        <input type="text" id="nameUser" formControlName="nameUser" class="form-control">
+        <div *ngIf="userForm.controls.nameUser.invalid && (userForm.controls.nameUser.dirty || userForm.controls.nameUser.touched)">
+          <div *ngIf="userForm.controls.nameUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="surnameUser">Apellido:</label>
+        <input type="text" id="surnameUser" formControlName="surnameUser" class="form-control">
+        <div *ngIf="userForm.controls.surnameUser.invalid && (userForm.controls.surnameUser.dirty || userForm.controls.surnameUser.touched)">
+          <div *ngIf="userForm.controls.surnameUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mailUser">Correo electrónico:</label>
+        <input type="email" id="mailUser" formControlName="mailUser" class="form-control">
+        <div *ngIf="userForm.controls.mailUser.invalid && (userForm.controls.mailUser.dirty || userForm.controls.mailUser.touched)">
+          <div *ngIf="userForm.controls.mailUser.errors.required">Este campo es requerido.</div>
+          <div *ngIf="userForm.controls.mailUser.errors.email">Este campo debe ser un correo electrónico válido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="passwordUser">Contraseña:</label>
+        <input type="password" id="passwordUser" formControlName="passwordUser" class="form-control">
+        <div *ngIf="userForm.controls.passwordUser.invalid && (userForm.controls.passwordUser.dirty || userForm.controls.passwordUser.touched)">
+          <div *ngIf="userForm.controls.passwordUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="photoUser">Foto:</label>
+        <input type="text" id="photoUser" formControlName="photoUser" class="form-control">
+        <div *ngIf="userForm.controls.photoUser.invalid && (userForm.controls.photoUser.dirty || userForm.controls.photoUser.touched)">
+          <div *ngIf="userForm.controls.photoUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="birthdateUser">Fecha de nacimiento:</label>
+        <input type="date" id="birthdateUser" formControlName="birthdateUser" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="genderUser">Género:</label>
+        <select id="genderUser" formControlName="genderUser" class="form-control">
+          <option value="male">Masculino</option>
+          <option value="female">Femenino</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="ocupationUser">Ocupación:</label>
+        <input type="string" id="ocupationUser" formControlName="ocupationUser" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="descriptionUser">Descripción:</label>
+        <input type="string" id="descriptionUser" formControlName="descriptionUser" class="form-control">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="privacyUser" name="privacyUser">
+        <label class="form-check-label" for="privacyUser">Privado</label>
+      </div>
+      <div class="form-group">
+        <label for="roleUser">Rol</label>
+        <select class="form-control" id="roleUser" name="roleUser">
+            <option value="user">Usuario</option>
+            <option value="business">Negocio</option>
+            <option value="admin">Administrador</option>
+            </select>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="deletedUser" name="deletedUser">
+                <label class="form-check-label" for="deletedUser">Eliminado</label>
+                </div>
+
+  
+                <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>  </form>

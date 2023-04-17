@@ -23,8 +23,6 @@
         <th class="text-center">IDPublicacion</th>
         <th class="text-center">IDUsuario</th>
         <th class="text-center">texto</th>
-        <th class="text-center">fecha</th>
-
       </tr>
     </thead>
     <tbody>
@@ -34,17 +32,8 @@
         <td class="text-center">{{ comment.idPublicationComment }}</td>
         <td class="text-center">{{ comment.idUserComment }}</td>
         <td class="text-center">{{ comment.textComment }}</td>
-        <td class="text-center">{{ comment.dateComment }}</td>
         <td>
-          <a
-            ><button
-              type="button"
-              class="btn btn-primary"
-              (click)="showDetails(comment)"
-            >
-              Detalles
-            </button></a
-          >
+          <a><button type="button" class="btn btn-primary" (click)="showDetails(comment)">Detalles</button></a>
         </td>
         <td>
           <a 

@@ -1,1 +1,22 @@
-<p>log-in.component works!</p>
+<h2 class="text-center">Login</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="row g-3">
+
+      <div class="form-group">
+        <label for="mailUser">Correo electrónico:</label>
+        <input type="email" id="mailUser" formControlName="mailUser" class="form-control">
+        <div *ngIf="userForm.controls.mailUser.invalid && (userForm.controls.mailUser.dirty || userForm.controls.mailUser.touched)">
+          <div *ngIf="userForm.controls.mailUser.errors.required">Este campo es requerido.</div>
+          <div *ngIf="userForm.controls.mailUser.errors.email">Este campo debe ser un correo electrónico válido.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="passwordUser">Contraseña:</label>
+        <input type="password" id="passwordUser" formControlName="passwordUser" class="form-control">
+        <div *ngIf="userForm.controls.passwordUser.invalid && (userForm.controls.passwordUser.dirty || userForm.controls.passwordUser.touched)">
+          <div *ngIf="userForm.controls.passwordUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+
+  
+    <button class="btn btn-primary">Acceder</button></form>

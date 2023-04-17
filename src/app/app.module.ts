@@ -19,6 +19,8 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { CommentEditComponent } from './components/comment-components/comment-edit/comment-edit.component';
 import { CommentDetailsComponent } from './components/comment-components/comment-details/comment-details.component';
 import { CommentCreateComponent } from './components/comment-components/comment-create/comment-create.component';
+import { RegisterComponent } from './components/register/register.component';
+import { StartComponent } from './components/start/start.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +34,9 @@ const routes: Routes = [
   { path: 'user-details/:id', component: UserDetailsComponent },
   { path: 'user-edit/:id', component: UserEditComponent },
   { path: 'user-create', component: UserCreateComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'start', component: StartComponent },
+  { path: 'log-in', component: LogInComponent },
 
   //{ path:'comment-details/responses/:id', component:  },
   { path:'user-details/followers/:id',component: UserFollowersComponent },
@@ -58,6 +63,8 @@ const routes: Routes = [
     UserEditComponent,
     ConfirmationModalComponent,
     UserCreateComponent,
+    RegisterComponent,
+    StartComponent,
   ],
   imports: [
     BrowserModule,

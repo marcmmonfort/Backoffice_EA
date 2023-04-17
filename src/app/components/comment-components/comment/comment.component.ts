@@ -20,6 +20,7 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
     this.commentService.getAllComments().subscribe(data=> {
       this.comments = data;
+      console.log(this.comments[0].dateComment);
     }, error => {
       console.log(error);
     })
@@ -43,6 +44,7 @@ export class CommentComponent implements OnInit {
       );
     } else {
       this.filteredComments = this.comments;
+      console.log(this.filteredComments);
     }
   }
 

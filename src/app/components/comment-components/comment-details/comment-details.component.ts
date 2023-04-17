@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Comment } from 'src/app/interfaces/comment.interface';
 import { CommentService } from 'src/app/services/comment.service';
+
 
 @Component({
   selector: 'app-comment-details',
@@ -9,34 +11,30 @@ import { CommentService } from 'src/app/services/comment.service';
 })
 export class CommentDetailsComponent {
 
-  commentData!: any;
+  commentData!: Comment;
   commentId!: string;
   isModalOpen:boolean=false;
   
   constructor(private route: ActivatedRoute, private commentService: CommentService,private router:Router) {}
 
   ngOnInit(): void {
-    this.loadUserData();
+    this.loadCommentData();
   }
 
-  loadUserData(): void {
+  loadCommentData(): void {
     const url = this.route.snapshot.url.join('/');
     const parts = url.split('/');
     this.commentId = parts[parts.length - 1];
     console.log(this.commentId);
     this.commentService.getComment(this.commentId).subscribe((commentData)=>{
       this.commentData=commentData;
-      const idaux:string =this.commentData.idUserComment
-      console.log(idaux);
+      console.log(commentData);
+      console.log()
     });
-    console.log("Aqui llega");
-    //console.log(this.commentData._id+"Hola");
-    const idaux:string =this.commentData.idUserComment
-    console.log(idaux);
   }
 
-  showResponses(id:string):void{
-    this.router.navigate(['comment-details/responses/',id])
+  showResponses(comment:Comment):void{
+    this.router.navigate(['comment-details/responses/',comment._id])
   }
 
 }

@@ -1,20 +1,21 @@
 <div class="container">
-    <h1 class="text-center">{{ commentData._id }}</h1>
+    <h1 class="text-center">Detalles del comentario</h1>
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="card my-5">
           <div class="card-header">
-            <h2 class="text-center">Detalles del comentario</h2>
+            <h2 *ngIf="commentId" class="text-center">{{commentId}}</h2>
           </div>
           <div class="card-body">
             <div *ngIf="commentData">
               <ul class="list-group">
+                <li class="list-group-item"><strong>ID:</strong> {{ commentData._id }}</li>
                 <li class="list-group-item"><strong>ID del creador:</strong> {{ commentData.idUserComment }}</li>
                 <li class="list-group-item"><strong>ID de la publicación:</strong> {{ commentData.idPublicationComment }}</li>
                 <li class="list-group-item"><strong>Texto:</strong> {{ commentData.textComment }}</li>
                 <li class="list-group-item"><strong>Fecha:</strong> {{ commentData.dateComment }}</li>
                 <li class="list-group-item"><strong>Likes:</strong> {{ commentData.likesComment }}</li>
-                <li class="list-group-item"><strong>Respuestas al comentario:</strong> {{ commentData.responseComment }}<a [routerLink]="['/comment-details/responses/', commentData._id]"><button type="button" class="btn btn-primary" (click)="showResponses(commentData._id)">Responses</button></a></li>
+                <li class="list-group-item"><strong>Respuestas al comentario:</strong> {{ commentData.responseComment }}<a><button type="button" class="btn btn-primary" (click)="showResponses(commentData)">Responses</button></a></li>
                 <li class="list-group-item"><strong>Fecha de creación:</strong> {{ commentData.createdAt }}</li>
                 <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ commentData.updatedAt }}</li>
               </ul>

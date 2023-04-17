@@ -14,10 +14,10 @@ export class LocationEditComponent {
   constructor(private route: ActivatedRoute, private locationService: LocationService,private router:Router) {}
 
   ngOnInit(): void {
-    this.loadUserData();
+    this.loadLocationData();
   }
 
-  loadUserData(): void {
+  loadLocationData(): void {
     const url = this.route.snapshot.url.join('/');
     const parts = url.split('/');
     this.locationId = parts[parts.length - 1];
@@ -48,6 +48,6 @@ onAcceptChanges(): void {
 
 onCancelChanges(): void {
   this.isModalOpen = false;
-  this.loadUserData();
+  this.loadLocationData();
 }
 }

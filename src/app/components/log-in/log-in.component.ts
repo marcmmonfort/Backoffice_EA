@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LogIn } from 'src/app/interfaces/login.interface';
+import { Auth } from 'src/app/interfaces/login.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,31 +13,39 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LogInComponent {
   
-  auth!: LogIn;
   loginForm: FormGroup | any;
   userKnown:boolean=false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: AuthService, private router: Router) {} //, private tokenStorage: TokenStorage
-  
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder, private loginService: AuthService, private router: Router) {
+    
     this.loginForm = this.formBuilder.group({
       "mailUser": ['', [Validators.required, Validators.email]],
       "passwordUser": ['', Validators.required]
     });
   }
+  
+  /*
+  ngOnInit(): void {}
+  */
 
   get f() {
     return this.loginForm.controls;
   }
 
   login(): void{
-    const auth = this.loginForm.value;
-    console.log(this.loginForm.value);
-    this.loginService.logIn(this.auth).subscribe(
+    const authData = this.loginForm.value;
+    console.log("Mail:",this.loginForm.value.mailUser);
+    console.log("Password:",this.loginForm.value.passwordUser);
+    this.loginService.logIn(authData).subscribe(
       (data:any)=>{
         // this.tokenStorage.saveToken(data.token);
+        console.log(data);
+        alert("¡LogIn efectuado correctamente!");
+        this.router.navigate(['/']);
+      },(error:any)=>{
+        alert("¡No existe ningún usuario con estas credenciales!");console.log(error)
         this.router.navigate(['/register']);
-      },(error:any)=>{alert("Wrong credentials!!");console.log(error)});
+      });
   }
 
 }

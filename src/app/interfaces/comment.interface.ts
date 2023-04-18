@@ -5,7 +5,6 @@ export interface Comment {
     idUserComment: string
     idPublicationComment: string
     textComment: string
-    dateComment: string
     likesComment?: string[]
     responseComment?: string[]
     createdAt: string;

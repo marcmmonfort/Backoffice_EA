@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommentService } from 'src/app/services/comment.service';
@@ -17,8 +17,7 @@ export class CommentCreateComponent {
     this.commentForm = this.formBuilder.group({
       "idUserComment": ['', Validators.required],
       "idPublicationComment": ['', Validators.required],
-      "textComment": ['', Validators.required],
-      "dateComment": ['', Validators.required],
+      "textComment": ['', Validators.required]
       })
   }
 

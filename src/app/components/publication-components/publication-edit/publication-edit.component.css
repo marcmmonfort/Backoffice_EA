@@ -1,3 +1,5 @@
+/* Estilos generales */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -83,4 +85,8 @@ body {
   
   .form-group.form-check:last-of-type {
     margin-bottom: 0;
+  }
+  
+  #descriptionLocation {
+    height: 100px;
   }

@@ -20,6 +20,10 @@ import { CommentEditComponent } from './components/comment-components/comment-ed
 import { CommentDetailsComponent } from './components/comment-components/comment-details/comment-details.component';
 import { CommentCreateComponent } from './components/comment-components/comment-create/comment-create.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PublicationComponent } from './components/publication-components/publication/publication.component';
+import { PublicationCreateComponent } from './components/publication-components/publication-create/publication-create.component';
+import { PublicationDetailsComponent } from './components/publication-components/publication-details/publication-details.component';
+import { PublicationEditComponent } from './components/publication-components/publication-edit/publication-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,7 +42,12 @@ const routes: Routes = [
 
   //{ path:'comment-details/responses/:id', component:  },
   { path:'user-details/followers/:id',component: UserFollowersComponent },
-  { path:'user-details/followed/:id',component: UserFollowedComponent }
+  { path:'user-details/followed/:id',component: UserFollowedComponent },
+  { path:'publication',component: PublicationComponent },
+  { path:'publication-create',component: PublicationCreateComponent },
+  { path:'publication-details/:id',component: PublicationDetailsComponent },
+  { path:'publication-edit/:id',component: PublicationEditComponent }
+
 
 
 ];
@@ -62,6 +71,10 @@ const routes: Routes = [
     ConfirmationModalComponent,
     UserCreateComponent,
     RegisterComponent,
+    PublicationComponent,
+    PublicationCreateComponent,
+    PublicationDetailsComponent,
+    PublicationEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,6 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
     this.commentService.getAllComments().subscribe(data=> {
       this.comments = data;
-      console.log(this.comments[0].dateComment);
     }, error => {
       console.log(error);
     })
@@ -40,7 +39,7 @@ export class CommentComponent implements OnInit {
   search() {
     if (this.searchTerm.trim() !== '') {
       this.filteredComments = this.comments.filter((comment) =>
-        comment.dateComment.toLowerCase().includes(this.searchTerm.toLowerCase())
+        comment.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     } else {
       this.filteredComments = this.comments;

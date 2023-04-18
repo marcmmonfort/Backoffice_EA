@@ -26,10 +26,9 @@ export class CommentDetailsComponent {
     const parts = url.split('/');
     this.commentId = parts[parts.length - 1];
     console.log(this.commentId);
-    this.commentService.getComment(this.commentId).subscribe((commentData)=>{
+    this.commentService.getComment(this.commentId).subscribe(commentData=>{
       this.commentData=commentData;
       console.log(commentData);
-      console.log()
     });
   }
 

@@ -36,3 +36,23 @@
 .navbar__menu li a:hover {
   color: #ff6666;
 }
+
+.navbar__init {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar__init li a {
+  font-size: 1.2rem;
+  color: #333333;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar__init li a:hover {
+  color: #ff6666;
+}
+
+

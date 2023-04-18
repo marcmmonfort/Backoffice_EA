@@ -20,7 +20,6 @@ import { CommentEditComponent } from './components/comment-components/comment-ed
 import { CommentDetailsComponent } from './components/comment-components/comment-details/comment-details.component';
 import { CommentCreateComponent } from './components/comment-components/comment-create/comment-create.component';
 import { RegisterComponent } from './components/register/register.component';
-import { StartComponent } from './components/start/start.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,7 +34,6 @@ const routes: Routes = [
   { path: 'user-edit/:id', component: UserEditComponent },
   { path: 'user-create', component: UserCreateComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'start', component: StartComponent },
   { path: 'log-in', component: LogInComponent },
 
   //{ path:'comment-details/responses/:id', component:  },
@@ -64,7 +62,6 @@ const routes: Routes = [
     ConfirmationModalComponent,
     UserCreateComponent,
     RegisterComponent,
-    StartComponent,
   ],
   imports: [
     BrowserModule,

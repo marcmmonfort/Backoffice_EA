@@ -1,12 +1,23 @@
 <header class="header">
   <nav class="navbar">
     <a href="#" class="navbar__logo">Make Your Day</a>
-    <ul class="navbar__menu">
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/listUsers">Users</a></li>
-      <li><a routerLink="/comment">Comments</a></li>
-      <li><a routerLink="/location">Location</a></li>
-    </ul>
+    
+    <div *ngIf="userKnown">
+      <ul class="navbar__init">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/listUsers">Users</a></li>
+        <li><a routerLink="/comment">Comments</a></li>
+        <li><a routerLink="/location">Location</a></li>
+      </ul>
+    </div>
+
+    <div *ngIf="!userKnown" class="text-center mt-5">
+      <ul class="navbar__menu">
+        <li><a routerLink="/log-in">Login</a></li>
+        <li><a routerLink="/register">Register</a></li>
+      </ul>
+    </div>
+
   </nav>
 </header>
 <router-outlet></router-outlet>

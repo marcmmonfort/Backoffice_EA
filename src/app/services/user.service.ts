@@ -1,7 +1,7 @@
 import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LogIn } from '../interfaces/login.interface';
+// import { LogIn } from '../interfaces/login.interface';
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
@@ -30,14 +30,11 @@ export class UserService {
     return this.http.delete<User>(this.apiURL + id);
   }
 
-  // OK
-  logIn(userData:LogIn): Observable<HttpResponse<User>>{
-    return this.http.post<User>('http://localhost:8001/api/auth/login/', userData, {observe: 'response'})
+  /*
+  logIn(userData:LogIn): Observable<HttpResponse<LogIn>>{
+    return this.http.post<LogIn>('http://localhost:5432/api/auth/login/', userData, {observe: 'response'})
   }
-
-  updateUser(user: User,id:string): Observable<User> {
-    return this.http.put<User>(this.apiURL + id, user)
-  }
+  */
 
   newUserLogged(user: User) {
     this.userSource.next(user);
@@ -47,4 +44,9 @@ export class UserService {
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiRegister, user)
   }
+
+  updateUser(user: User,id:string): Observable<User> {
+    return this.http.put<User>(this.apiURL + id, user)
+  }
+
 }

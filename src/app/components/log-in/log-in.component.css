@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  h2 {
+    color: #343a40;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="string"],
+  select,
+  textarea {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  input[type="string"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .form-check-input {
+    margin-top: 5px;
+  }
+  .last-updated {
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  
+  /* Estilos específicos para el formulario */
+  
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-check-label {
+    font-weight: normal;
+  }
+  
+  .form-group.form-check:last-of-type {
+    margin-bottom: 0;
+  }

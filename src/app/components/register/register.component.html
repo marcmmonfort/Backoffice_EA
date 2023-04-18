@@ -1,0 +1,76 @@
+<h2 class="text-center">WORKING IN REGISTER</h2>
+
+<confirmation-modal [isOpen]="isModalOpen" (acceptChanges)="onAcceptChanges()" (cancelChanges)="onCancelChanges()"></confirmation-modal>
+
+<h2 class="text-center">Crear usuario</h2>
+<form [formGroup]="registerForm" (ngSubmit)="register()" class="row g-3">
+        <div class="form-group">
+        <label for="appUser">Usuario:</label>
+        <input type="text" id="appUser" formControlName="appUser" class="form-control">
+        <div *ngIf="registerForm.controls.appUser.invalid && (registerForm.controls.appUser.dirty || registerForm.controls.appUser.touched)">
+          <div *ngIf="registerForm.controls.appUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nameUser">Nombre:</label>
+        <input type="text" id="nameUser" formControlName="nameUser" class="form-control">
+        <div *ngIf="registerForm.controls.nameUser.invalid && (registerForm.controls.nameUser.dirty || registerForm.controls.nameUser.touched)">
+          <div *ngIf="registerForm.controls.nameUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="surnameUser">Apellido:</label>
+        <input type="text" id="surnameUser" formControlName="surnameUser" class="form-control">
+        <div *ngIf="registerForm.controls.surnameUser.invalid && (registerForm.controls.surnameUser.dirty || registerForm.controls.surnameUser.touched)">
+          <div *ngIf="registerForm.controls.surnameUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mailUser">Correo electrónico:</label>
+        <input type="email" id="mailUser" formControlName="mailUser" class="form-control">
+        <div *ngIf="registerForm.controls.mailUser.invalid && (registerForm.controls.mailUser.dirty || registerForm.controls.mailUser.touched)">
+          <div *ngIf="registerForm.controls.mailUser.errors.required">Este campo es requerido.</div>
+          <div *ngIf="registerForm.controls.mailUser.errors.email">Este campo debe ser un correo electrónico válido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="passwordUser">Contraseña:</label>
+        <input type="password" id="passwordUser" formControlName="passwordUser" class="form-control">
+        <div *ngIf="registerForm.controls.passwordUser.invalid && (registerForm.controls.passwordUser.dirty || registerForm.controls.passwordUser.touched)">
+          <div *ngIf="registerForm.controls.passwordUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="photoUser">Foto:</label>
+        <input type="text" id="photoUser" formControlName="photoUser" class="form-control">
+        <div *ngIf="registerForm.controls.photoUser.invalid && (registerForm.controls.photoUser.dirty || registerForm.controls.photoUser.touched)">
+          <div *ngIf="registerForm.controls.photoUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="birthdateUser">Fecha de nacimiento:</label>
+        <input type="date" id="birthdateUser" formControlName="birthdateUser" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="genderUser">Género:</label>
+        <select id="genderUser" formControlName="genderUser" class="form-control">
+          <option value="male">Masculino</option>
+          <option value="female">Femenino</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="ocupationUser">Ocupación:</label>
+        <input type="string" id="ocupationUser" formControlName="ocupationUser" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="descriptionUser">Descripción:</label>
+        <input type="string" id="descriptionUser" formControlName="descriptionUser" class="form-control">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="privacyUser" name="privacyUser">
+        <label class="form-check-label" for="privacyUser">Privado</label>
+      </div>
+      
+      <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>  </form>
+

@@ -11,8 +11,8 @@ export class User{
     descriptionUser: string;
     roleUser: "admin" | "common" | "verificado" | "empresa";
     privacyUser: boolean;
-    followersUser?: [User];
-    followedUser?: [User];
+    followersUser?: User[];
+    followedUser?: User[];
     deleted: boolean;
 
 

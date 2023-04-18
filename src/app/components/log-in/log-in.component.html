@@ -1,0 +1,22 @@
+<h2 class="text-center">Login</h2>
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="row g-3">
+
+      <div class="form-group">
+        <label for="mailUser">Correo electrónico:</label>
+        <input type="email" id="mailUser" formControlName="mailUser" class="form-control">
+        <div *ngIf="loginForm.controls.mailUser.invalid && (loginForm.controls.mailUser.dirty || loginForm.controls.mailUser.touched)">
+          <div *ngIf="loginForm.controls.mailUser.errors.required">Este campo es requerido.</div>
+          <div *ngIf="loginForm.controls.mailUser.errors.email">Este campo debe ser un correo electrónico válido.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="passwordUser">Contraseña:</label>
+        <input type="password" id="passwordUser" formControlName="passwordUser" class="form-control">
+        <div *ngIf="loginForm.controls.passwordUser.invalid && (loginForm.controls.passwordUser.dirty || loginForm.controls.passwordUser.touched)">
+          <div *ngIf="loginForm.controls.passwordUser.errors.required">Este campo es requerido.</div>
+        </div>
+      </div>
+
+  
+    <button class="btn btn-primary">Acceder</button></form>

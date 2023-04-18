@@ -1,0 +1,49 @@
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="idPublication">ID de la publicación </label>
+    <input 
+      type="string"
+      class="form-control"
+      id="idPublication"
+      name="idPublication"
+      [(ngModel)]="publicationData._id"
+      required
+      readonly
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="idUserPublication">ID del usuario</label>
+    <input 
+      type="string"
+      class="form-control"
+      id="idUserPublication"
+      name="idUserPublication"
+      [(ngModel)]="publicationData.idUserPublication"
+      required
+      readonly
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="textPublication">Texto</label>
+    <input
+      type="string"
+      class="form-control"
+      id="textPublication"
+      name="textPublication"
+      [(ngModel)]="publicationData.textPublication"
+      required
+    />
+  </div>
+
+
+
+  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+</form>

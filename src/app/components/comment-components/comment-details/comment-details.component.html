@@ -13,7 +13,7 @@
                 <li class="list-group-item"><strong>ID del creador:</strong> {{ commentData.idUserComment }}</li>
                 <li class="list-group-item"><strong>ID de la publicación:</strong> {{ commentData.idPublicationComment }}</li>
                 <li class="list-group-item"><strong>Texto:</strong> {{ commentData.textComment }}</li>
-                <li class="list-group-item"><strong>Likes:</strong> {{ commentData.likesComment }}</li>
+                <li class="list-group-item"><strong>Likes:</strong> {{ commentData.likesComment?.length }}</li>
                 <li class="list-group-item"><strong>Respuestas al comentario:</strong> {{ commentData.responseComment }}<a><button type="button" class="btn btn-primary" (click)="showResponses(commentData)">Responses</button></a></li>
                 <li class="list-group-item"><strong>Fecha de creación:</strong> {{ commentData.createdAt }}</li>
                 <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ commentData.updatedAt }}</li>

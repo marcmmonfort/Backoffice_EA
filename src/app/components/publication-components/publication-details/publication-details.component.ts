@@ -31,8 +31,11 @@ export class PublicationDetailsComponent {
   }
 
   showResponses(publication:Publication):void{
-    this.router.navigate(['publication-details/responses/',publication._id])
+    this.router.navigate(['publication-details/responses/',publication._id]);
   }
 
+  showPhoto(publication:Publication):void{
+    this.router.navigate(['publication-details/photo/',publication.photoPublication]);
+  }
 
 }

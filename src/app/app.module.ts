@@ -24,6 +24,7 @@ import { PublicationComponent } from './components/publication-components/public
 import { PublicationCreateComponent } from './components/publication-components/publication-create/publication-create.component';
 import { PublicationDetailsComponent } from './components/publication-components/publication-details/publication-details.component';
 import { PublicationEditComponent } from './components/publication-components/publication-edit/publication-edit.component';
+import { CommentResponseComponent } from './components/comment-components/comment-response/comment-response.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'log-in', component: LogInComponent },
 
-  //{ path:'comment-details/responses/:id', component:  },
+  { path:'comment-details/responses/:id', component: CommentResponseComponent },
   { path:'user-details/followers/:id',component: UserFollowersComponent },
   { path:'user-details/followed/:id',component: UserFollowedComponent },
   { path:'publication',component: PublicationComponent },
@@ -75,6 +76,7 @@ const routes: Routes = [
     PublicationCreateComponent,
     PublicationDetailsComponent,
     PublicationEditComponent,
+    CommentResponseComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,8 +11,8 @@ export class LocationService {
   message!: String;
   private locationSource = new BehaviorSubject(this.location);
   currentLocation = this.locationSource.asObservable();
-  private apiURL = 'http://localhost:8001/location/';
-  private apiURLGetAll = 'http://localhost:8001/location/all';
+  private apiURL = 'http://localhost:5432/location/';
+  private apiURLGetAll = 'http://localhost:5432/location/all';
   constructor(private http: HttpClient) {}
 
   // OK

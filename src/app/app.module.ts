@@ -11,12 +11,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LocationComponent } from './components/location-components/location/location.component';
 import { CommentComponent } from './components/comment-components/comment/comment.component';
 
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { UserFollowersComponent } from './components/user-followers/user-followers.component';
-import { UserFollowedComponent } from './components/user-followed/user-followed.component';
-import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { UserDetailsComponent } from './components/user-components/user-details/user-details.component';
+import { UserFollowersComponent } from './components/user-components/user-followers/user-followers.component';
+import { UserFollowedComponent } from './components/user-components/user-followed/user-followed.component';
+import { UserEditComponent } from './components/user-components/user-edit/user-edit.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
-import { UserCreateComponent } from './components/user-create/user-create.component';
+import { UserCreateComponent } from './components/user-components/user-create/user-create.component';
 import { LocationCreateComponent } from './components/location-components/location-create/location-create.component';
 import { LocationDetailsComponent } from './components/location-components/location-details/location-details.component';
 import { LocationEditComponent } from './components/location-components/location-edit/location-edit.component';
@@ -32,7 +32,7 @@ import { PublicationDetailsComponent } from './components/publication-components
 import { PublicationEditComponent } from './components/publication-components/publication-edit/publication-edit.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'listUsers', component: ListUserComponent },
   { path: 'app', component: AppComponent },
   { path: 'comment', component: CommentComponent },
@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'location-edit/:id', component: LocationEditComponent },
 
   { path: 'register', component: RegisterComponent },
-  { path: 'log-in', component: LogInComponent },
+  { path: 'login', component: LogInComponent },
 
   //{ path:'comment-details/responses/:id', component:  },
   { path:'user-details/followers/:id',component: UserFollowersComponent },

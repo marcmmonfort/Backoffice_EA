@@ -13,9 +13,9 @@ export class UserService {
   message!: String;
   private userSource = new BehaviorSubject(this.user);
   currentUser = this.userSource.asObservable();
-  private apiURL = 'http://localhost:8001/user/';
-  private apiURLGetAll='http://localhost:8001/user/all';
-  private apiRegister='http://localhost:8001/auth/register';
+  private apiURL = 'http://localhost:5432/user/';
+  private apiURLGetAll='http://localhost:5432/user/all';
+  private apiRegister='http://localhost:5432/auth/register';
   constructor(private http: HttpClient) { }
 
   // OK

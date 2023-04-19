@@ -41,6 +41,8 @@ export class LogInComponent {
         // this.tokenStorage.saveToken(data.token);
         console.log(data);
         alert("¡LogIn efectuado correctamente!");
+        // Aquí deberíamos hacer el cambio de la barra de navigate ...
+        
         this.router.navigate(['/']);
       },(error:any)=>{
         alert("¡No existe ningún usuario con estas credenciales!");console.log(error)

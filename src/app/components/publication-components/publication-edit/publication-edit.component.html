@@ -6,42 +6,44 @@
 
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="idPublicationComment">ID de la publicación </label>
+    <label for="idPublication">ID de la publicación </label>
     <input 
       type="string"
       class="form-control"
-      id="idPublicationComment"
-      name="idPublicationComment"
-      [(ngModel)]="commentData.idPublicationComment"
+      id="idPublication"
+      name="idPublication"
+      [(ngModel)]="publicationData._id"
       required
       readonly
       />
   </div>
 
   <div class="form-group">
-    <label for="idUserComment">ID del usuario</label>
+    <label for="idUserPublication">ID del usuario</label>
     <input 
       type="string"
       class="form-control"
-      id="idUserComment"
-      name="idUserComment"
-      [(ngModel)]="commentData.idUserComment"
+      id="idUserPublication"
+      name="idUserPublication"
+      [(ngModel)]="publicationData.idUserPublication"
       required
       readonly
       />
   </div>
 
   <div class="form-group">
-    <label for="textComment">Texto</label>
+    <label for="textPublication">Texto</label>
     <input
       type="string"
       class="form-control"
-      id="textComment"
-      name="textComment"
-      [(ngModel)]="commentData.textComment"
+      id="textPublication"
+      name="textPublication"
+      [(ngModel)]="publicationData.textPublication"
       required
     />
   </div>
+
+
 
   <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
 </form>

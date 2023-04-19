@@ -21,9 +21,7 @@ body {
     font-weight: bold;
   }
   
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
+  input[type="string"],
   select,
   textarea {
     border-radius: 5px;
@@ -36,9 +34,7 @@ body {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
   
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="password"]:focus,
+  input[type="string"]:focus,
   select:focus,
   textarea:focus {
     border-color: #80bdff;
@@ -91,11 +87,6 @@ body {
     margin-bottom: 0;
   }
   
-  #genderUser {
-    width: auto;
-  }
-  
-  #descriptionUser {
+  #descriptionLocation {
     height: 100px;
   }
-  

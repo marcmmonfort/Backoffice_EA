@@ -1,7 +1,7 @@
 import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LogIn } from '../interfaces/login.interface';
+// import { LogIn } from '../interfaces/login.interface';
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
@@ -30,10 +30,11 @@ export class UserService {
     return this.http.delete<User>(this.apiURL + id);
   }
 
-  // OK
+  /*
   logIn(userData:LogIn): Observable<HttpResponse<LogIn>>{
     return this.http.post<LogIn>('http://localhost:5432/api/auth/login/', userData, {observe: 'response'})
   }
+  */
 
   newUserLogged(user: User) {
     this.userSource.next(user);

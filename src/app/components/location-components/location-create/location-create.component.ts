@@ -29,7 +29,8 @@ export class LocationCreateComponent {
 
   onSubmit(): void {
     if (this.locForm.invalid) {
-      return;
+      alert('Por favor, completa todos los campos requeridos')
+      this.router.navigate(['/location']);
     }
     this.openModal();
   }

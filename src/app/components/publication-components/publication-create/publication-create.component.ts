@@ -25,7 +25,8 @@ export class PublicationCreateComponent {
 
   onSubmit(): void {
     if (this.publicationForm.invalid) {
-      return;
+      alert('Por favor, completa todos los campos requeridos')
+      this.router.navigate(['/publication']);
     }
     this.openModal();
   }

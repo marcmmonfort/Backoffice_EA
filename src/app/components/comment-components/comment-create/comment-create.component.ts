@@ -27,7 +27,8 @@ export class CommentCreateComponent {
 
   onSubmit(): void {
     if (this.commentForm.invalid) {
-      return;
+      alert('Por favor, completa todos los campos requeridos')
+      this.router.navigate(['/comment']);
     }
     this.openModal();
   }

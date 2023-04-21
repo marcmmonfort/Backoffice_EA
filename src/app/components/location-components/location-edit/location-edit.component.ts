@@ -41,6 +41,7 @@ export class LocationEditComponent {
     this.isEditUp = false;
   }
   confirmChanges(): void {
+
       this.locationService.updateLocation(this.locData, this.locationId).subscribe(() => {
         this.closeModal();
         this.router.navigate(['/location']);
@@ -58,7 +59,7 @@ export class LocationEditComponent {
   }
 
   onCancelChanges(): void {
-    this.isModalOpen = false;
+    this.closeModal();
     this.loadLocationData();
   }
   eliminar(){

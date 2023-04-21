@@ -11,7 +11,7 @@ export class LocationComponent implements OnInit {
   locations: any[] = [];
   filteredLocations: any[] = [];
   searchTerm: string = '';
-  numPage: string = '1';
+  numPage: string = '';
   printeado: boolean = false;
   constructor(
     private locationService: LocationService,
@@ -22,6 +22,7 @@ export class LocationComponent implements OnInit {
       this.locations = locations;
     });
     this.printeado = false;
+    this.numPage="1";
   }
 
   showDetails(location: any): void {
@@ -42,8 +43,14 @@ export class LocationComponent implements OnInit {
   }
   printeaTodos() {
     this.locationService.getLocations(this.numPage).subscribe((locations) => {
-      this.filteredLocations = locations;
-      this.printeado = true;
+      if(locations.length==0){
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        alert("Ya no hay más localizaciones")
+      }
+      else{
+        this.filteredLocations = locations;
+        this.printeado = true;
+      }
     });
   }
   paginatenext() {

@@ -11,11 +11,17 @@ export class LocationComponent implements OnInit {
   locations: any[] = [];
   filteredLocations: any[] = [];
   searchTerm: string = '';
-  constructor(private locationService: LocationService, private router: Router) {}
+  numPage: string = '1';
+  printeado: boolean = false;
+  constructor(
+    private locationService: LocationService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
-    this.locationService.getLocations().subscribe((locations) => {
+    this.locationService.getAllLocations().subscribe((locations) => {
       this.locations = locations;
     });
+    this.printeado = false;
   }
 
   showDetails(location: any): void {
@@ -28,10 +34,32 @@ export class LocationComponent implements OnInit {
   search() {
     if (this.searchTerm.trim() !== '') {
       this.filteredLocations = this.locations.filter((location) =>
-        location.nameLocation.toLowerCase().includes(this.searchTerm.toLowerCase())
+        location.nameLocation
+          .toLowerCase()
+          .includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredLocations = this.locations;
+    }
+  }
+  printeaTodos() {
+    this.locationService.getLocations(this.numPage).subscribe((locations) => {
+      this.filteredLocations = locations;
+      this.printeado = true;
+    });
+  }
+  paginatenext() {
+    if (this.printeado) {
+      this.numPage = (parseInt(this.numPage, 10) + 1).toString();
+      this.printeaTodos();
+    }
+  }
+  paginateprevious() {
+    if (this.printeado) {
+      if (this.numPage == '1') {
+        return;
+      } else {
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        this.printeaTodos();
+      }
     }
   }
 }

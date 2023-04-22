@@ -45,6 +45,7 @@ export class LogInComponent {
         console.log(data);
         alert("¡LogIn efectuado correctamente!");
         // Aquí deberíamos hacer el cambio de la barra de navigate ...
+        localStorage.setItem('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsVXNlciI6ImVsb2ltb25jaG9AZ21haWwuY29tIiwicm9sZVVzZXIiOiJhZG1pbiIsImlhdCI6MTY4MjE4ODQ2MCwiZXhwIjoxNjgyMTk1NjYwfQ.P7_5Gf4K3Q41mzjJVeoenGpFQ1-96e1FfGO5JAZ2_jY')
         this.knownService.updateUserKnown(true);
         this.router.navigate(['/']);
       },(error:any)=>{

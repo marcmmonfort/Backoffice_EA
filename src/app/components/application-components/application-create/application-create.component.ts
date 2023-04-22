@@ -46,6 +46,7 @@ export class ApplicationCreateComponent {
       }
     );
     this.closeModal();
+    this.router.navigate(['/application']);
   }
   onAcceptChanges(): void {
     this.confirmChanges();

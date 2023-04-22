@@ -13,6 +13,9 @@ export class ApplicationEditComponent {
   applicationData!: Application;
   applicationId!: string;
   isModalOpen:boolean=false;
+  isDeleteUp:boolean=false;
+  isEditUp:boolean=false;
+  
   
   constructor(private route: ActivatedRoute, private applicationService: ApplicationService,private router:Router) {}
 
@@ -39,11 +42,23 @@ export class ApplicationEditComponent {
   }
   closeModal(): void {
     this.isModalOpen = false;
+    this.isDeleteUp = false;
+    this.isEditUp = false;
   }
+
   confirmChanges(): void {
     this.applicationService.editApplication(this.applicationData, this.applicationId).subscribe(() => {
       this.closeModal();
+      this.router.navigate(['/application']);
     });
+
+    if(this.isDeleteUp){
+      this.applicationService.deleteApplication(this.applicationId).subscribe(()=>{
+        this.closeModal();
+        this.router.navigate(['/application']);
+      })
+    } 
+
   }
   onAcceptChanges(): void {
     this.confirmChanges();
@@ -51,6 +66,15 @@ export class ApplicationEditComponent {
   onCancelChanges(): void {
     this.isModalOpen = false;
     this.loadApplicationData();
+  }
+
+  eliminar(){
+    this.isDeleteUp=true;
+    this.openModal();
+  }
+  editar(){
+    this.isEditUp=true;
+    this.openModal();
   }
   
 }

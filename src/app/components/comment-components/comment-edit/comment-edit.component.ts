@@ -14,6 +14,8 @@ export class CommentEditComponent {
   commentData!: Comment;
   commentId!: string;
   isModalOpen:boolean=false;
+  isDeleteUp:boolean=false;
+  isEditUp:boolean=false;
   
   constructor(private route: ActivatedRoute, private commentService: CommentService,private router:Router) {}
 
@@ -40,11 +42,21 @@ export class CommentEditComponent {
   }
   closeModal(): void {
     this.isModalOpen = false;
+    this.isDeleteUp = false;
+    this.isEditUp = false;
   }
   confirmChanges(): void {
     this.commentService.editComment(this.commentData, this.commentId).subscribe(() => {
       this.closeModal();
+      this.router.navigate(['/comment']);
     });
+
+    if(this.isDeleteUp){
+      this.commentService.deleteComment(this.commentId).subscribe(()=>{
+        this.closeModal();
+        this.router.navigate(['/comment']);
+      })
+    } 
   }
   onAcceptChanges(): void {
     this.confirmChanges();
@@ -52,6 +64,15 @@ export class CommentEditComponent {
   onCancelChanges(): void {
     this.isModalOpen = false;
     this.loadCommentData();
+  }
+
+  eliminar(){
+    this.isDeleteUp=true;
+    this.openModal();
+  }
+  editar(){
+    this.isEditUp=true;
+    this.openModal();
   }
 
 }

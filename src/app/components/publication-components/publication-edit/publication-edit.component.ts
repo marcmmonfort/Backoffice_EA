@@ -12,6 +12,8 @@ export class PublicationEditComponent {
   publicationData!: Publication;
   publicationId!: string;
   isModalOpen:boolean=false;
+  isDeleteUp:boolean=false;
+  isEditUp:boolean=false;
   
   constructor(private route: ActivatedRoute, private publicationService: PublicationService,private router:Router) {}
 
@@ -42,7 +44,15 @@ export class PublicationEditComponent {
   confirmChanges(): void {
     this.publicationService.editPublication(this.publicationData, this.publicationId).subscribe(() => {
       this.closeModal();
+      this.router.navigate(['/publication']);
     });
+    
+    if(this.isDeleteUp){
+      this.publicationService.deletePublication(this.publicationId).subscribe(()=>{
+        this.closeModal();
+        this.router.navigate(['/publication']);
+      })
+    } 
   }
   onAcceptChanges(): void {
     this.confirmChanges();
@@ -51,4 +61,14 @@ export class PublicationEditComponent {
     this.isModalOpen = false;
     this.loadPublicationData();
   }
+
+  eliminar(){
+    this.isDeleteUp=true;
+    this.openModal();
+  }
+  editar(){
+    this.isEditUp=true;
+    this.openModal();
+  }
+
 }

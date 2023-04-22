@@ -13,10 +13,8 @@ export class LocationComponent implements OnInit {
   searchTerm: string = '';
   numPage: string = '';
   printeado: boolean = false;
-  constructor(
-    private locationService: LocationService,
-    private router: Router
-  ) {}
+  constructor(private locationService: LocationService, private router: Router) {}
+  
   ngOnInit(): void {
     this.locationService.getAllLocations().subscribe((locations) => {
       this.locations = locations;

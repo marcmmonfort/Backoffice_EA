@@ -12,8 +12,9 @@ export class CommentComponent implements OnInit {
   comments: Comment[] = [];
   filteredComments: any[] = [];
   //idPublicationComment: string = 'id';
-  //numPage: string='5'; //PONER ALGUN TIPO DE PÁGINAS PARA QUE AL CAMBIAR DE LA PAGINA 1 A LA 2 SE OBTENGAN LOS COMENTARIOS
+  numPage: string = '';
   searchTerm: string = '';
+  printeado: boolean = false;
 
   constructor(private commentService: CommentService, private router: Router) {}
   
@@ -23,6 +24,8 @@ export class CommentComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+    this.printeado = false;
+    this.numPage="1";
   }
 
   showDetails(comment: any): void {
@@ -32,18 +35,40 @@ export class CommentComponent implements OnInit {
     this.router.navigate(['/comment-edit', comment._id]);
   }
 
-  //nextPage(){}
-  //previousPage(){}
-  //deleteComment(){}
-
   search() {
     if (this.searchTerm.trim() !== '') {
       this.filteredComments = this.comments.filter((comment) =>
         comment.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredComments = this.comments;
-      console.log(this.filteredComments);
+    } 
+  }
+
+  printeaTodos() {
+    this.commentService.getAllPaginatedComments(this.numPage).subscribe((comments) => {
+      if(comments.length==0){
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        alert("Ya no hay más comentarios")
+      }
+      else{
+        this.filteredComments = comments;
+        this.printeado = true;
+      }
+    });
+  }
+  paginatenext() {
+    if (this.printeado) {
+      this.numPage = (parseInt(this.numPage, 10) + 1).toString();
+      this.printeaTodos();
+    }
+  }
+  paginateprevious() {
+    if (this.printeado) {
+      if (this.numPage == '1') {
+        return;
+      } else {
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        this.printeaTodos();
+      }
     }
   }
 

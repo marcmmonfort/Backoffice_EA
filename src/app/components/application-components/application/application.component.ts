@@ -14,8 +14,9 @@ export class ApplicationComponent implements OnInit {
   applications: Application[] = [];
   filteredApplications: any[] = [];
   //idPublicationComment: string = 'id';
-  //numPage: string='5'; //PONER ALGUN TIPO DE PÁGINAS PARA QUE AL CAMBIAR DE LA PAGINA 1 A LA 2 SE OBTENGAN LOS COMENTARIOS
+  numPage: string = '';
   searchTerm: string = '';
+  printeado: boolean = false;
 
   constructor(private applicationService: ApplicationService, private router: Router) {}
   
@@ -25,6 +26,8 @@ export class ApplicationComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+    this.printeado = false;
+    this.numPage="1";
   }
 
   showDetails(application: any): void {
@@ -39,9 +42,36 @@ export class ApplicationComponent implements OnInit {
       this.filteredApplications = this.applications.filter((application) =>
       application.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredApplications = this.applications;
-      console.log(this.filteredApplications);
+    }
+  }
+
+  printeaTodos() {
+    this.applicationService.getAllPaginatedApplications(this.numPage).subscribe((applications) => {
+      if(applications.length==0){
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        alert("Ya no hay más notificaciones");
+      }
+      else{
+        this.filteredApplications = applications;
+        this.printeado = true;
+      }
+    });
+  }
+  paginatenext() {
+    if (this.printeado) {
+      this.numPage = (parseInt(this.numPage, 10) + 1).toString();
+      this.printeaTodos();
+    }
+  }
+  paginateprevious() {
+    if (this.printeado) {
+      if (this.numPage == '1') {
+        alert("Estas en la primera pagina");
+        return;
+      } else {
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        this.printeaTodos();
+      }
     }
   }
 }

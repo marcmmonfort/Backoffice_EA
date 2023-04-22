@@ -46,5 +46,10 @@ export class PublicationService {
     return this.http.get<Publication[]>(this.apiURL + 'getAllPublications');
   }
 
+  // (8) Get all paginated publications
+  getAllPaginatedPublications(numPage:string):  Observable<Publication[]>{
+    return this.http.get<Publication[]>(this.apiURL + 'getAllPaginatedPublications/' + numPage);
+  }
+
 };
 

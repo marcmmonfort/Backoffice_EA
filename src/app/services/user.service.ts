@@ -14,6 +14,9 @@ export class UserService {
   private userSource = new BehaviorSubject(this.user);
   currentUser = this.userSource.asObservable();
   private apiURL = 'http://localhost:5432/user/';
+  private apiURLFollower='http://localhost:5432/user/follower/'
+  private apiURLFollowed='http://localhost:5432/user/followed/'
+
   private apiURLGetAll='http://localhost:5432/user/all';
   private apiRegister='http://localhost:5432/auth/register';
   constructor(private http: HttpClient) { }
@@ -22,6 +25,12 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiURLGetAll);
   }
+
+  getFollowers(id:string):Observable<User[]>{
+    return this.http.get<User[]>(this.apiURLFollower+id);  }
+
+    getFollowed(id:string):Observable<User[]>{
+      return this.http.get<User[]>(this.apiURLFollowed+id);  }
 
   getUser(id: string): Observable<User> {
     return this.http.get<User>(this.apiURL + id);

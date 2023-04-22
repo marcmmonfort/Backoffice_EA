@@ -32,6 +32,10 @@ export class UserService {
     getFollowed(id:string):Observable<User[]>{
       return this.http.get<User[]>(this.apiURLFollowed+id);  }
 
+  getUsersPag( numPage: string): Observable<Comment[]> {
+        return this.http.get<Comment[]>(this.apiURLGetAll +'/'+ numPage);
+      }
+
   getUser(id: string): Observable<User> {
     return this.http.get<User>(this.apiURL + id);
   }  // OK

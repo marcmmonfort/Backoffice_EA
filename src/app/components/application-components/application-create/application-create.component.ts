@@ -19,7 +19,7 @@ export class ApplicationCreateComponent {
       "idReceiver": ['', Validators.required],
       "typeApplication": ['', Validators.required],
       "idActivity": ['', Validators.required],
-      "descriptionApplication": ['', Validators.required]
+      "descriptionApplication": ['']
       })
   }
 
@@ -29,7 +29,8 @@ export class ApplicationCreateComponent {
 
   onSubmit(): void {
     if (this.applicationForm.invalid) {
-      return;
+      alert('Por favor, completa todos los campos requeridos')
+      this.router.navigate(['/application']);
     }
     this.openModal();
   }

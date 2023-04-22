@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 class="text-center">Detalles del comentario</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5">
+          <div class="card-header">
+            <h2 *ngIf="applicationId" class="text-center">{{applicationId}}</h2>
+          </div>
+          <div class="card-body">
+            <div *ngIf="applicationData">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>ID:</strong> {{ applicationData._id }}</li>
+                <li class="list-group-item"><strong>ID del creador:</strong> {{ applicationData.idSender }}</li>
+                <li class="list-group-item"><strong>ID del receptor:</strong> {{ applicationData.idReceiver }}</li>
+                <li class="list-group-item"><strong>Tipo:</strong> {{ applicationData.typeApplication }}</li>
+                <li class="list-group-item"><strong>ID de la actividad:</strong> {{ applicationData.idActivity }}</li>
+                <li class="list-group-item"><strong>Descripcion de la notificación:</strong> {{ applicationData.descriptionApplication}}</li>
+                <li class="list-group-item"><strong>Fecha de creación:</strong> {{ applicationData.createdAt }}</li>
+                <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ applicationData.updatedAt }}</li>
+              </ul>
+            </div>
+  
+            <div *ngIf="!applicationData" class="text-center mt-5">
+              <p>Cargando datos...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

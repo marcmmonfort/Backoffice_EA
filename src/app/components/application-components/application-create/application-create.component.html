@@ -1,0 +1,62 @@
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+
+<h2 class="text-center">Crear comentario</h2>
+
+<form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="row g-3">
+  <div class="form-group">
+    <label for="idSender">ID Sender:</label>
+    <input
+      type="string"
+      id="idSender"
+      formControlName="idSender"
+      class="form-control"
+    />
+      
+  </div>
+
+  <div class="form-group">
+    <label for="idReceiver">ID Receiver:</label>
+    <input
+      type="string"
+      id="idReceiver"
+      formControlName="idReceiver"
+      class="form-control"
+    />
+    
+  </div>
+
+  <div class="form-group">
+    <label for="typeApplication">Tipo de notificaión:</label>
+    <select id="typeApplication" formControlName="typeApplication" class="form-control">
+        <option value="proposal">proposal</option>
+        <option value="join">join</option>
+      </select>
+  </div>
+
+  <div class="form-group">
+    <label for="idActivity">ID Actividad:</label>
+    <input
+      type="string"
+      id="idActivity"
+      formControlName="idActivity"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionApplication">Descripción de la notificación:</label>
+    <input
+      type="string"
+      id="descriptionApplication"
+      formControlName="descriptionApplication"
+      class="form-control"
+    />
+  </div>
+    
+
+  <button class="btn btn-primary" type="submit">Guardar cambios</button>

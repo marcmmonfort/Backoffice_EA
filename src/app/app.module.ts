@@ -31,6 +31,10 @@ import { PublicationCreateComponent } from './components/publication-components/
 import { PublicationDetailsComponent } from './components/publication-components/publication-details/publication-details.component';
 import { PublicationEditComponent } from './components/publication-components/publication-edit/publication-edit.component';
 import { CommentResponseComponent } from './components/comment-components/comment-response/comment-response.component';
+import { ApplicationComponent } from './components/application-components/application/application.component';
+import { ApplicationCreateComponent } from './components/application-components/application-create/application-create.component';
+import { ApplicationDetailsComponent } from './components/application-components/application-details/application-details.component';
+import { ApplicationEditComponent } from './components/application-components/application-edit/application-edit.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -58,10 +62,12 @@ const routes: Routes = [
   { path:'publication',component: PublicationComponent },
   { path:'publication-create',component: PublicationCreateComponent },
   { path:'publication-details/:id',component: PublicationDetailsComponent },
-  { path:'publication-edit/:id',component: PublicationEditComponent }
+  { path:'publication-edit/:id',component: PublicationEditComponent },
 
-
-
+  { path:'application',component: ApplicationComponent },
+  { path:'application-create',component: ApplicationCreateComponent },
+  { path:'application-details/:id',component: ApplicationDetailsComponent },
+  { path:'application-edit/:id',component: ApplicationEditComponent }
 
 ];
 
@@ -94,6 +100,10 @@ const routes: Routes = [
     PublicationDetailsComponent,
     PublicationEditComponent,
     CommentResponseComponent,
+    ApplicationComponent,
+    ApplicationCreateComponent,
+    ApplicationDetailsComponent,
+    ApplicationEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,74 @@
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="idSender">ID Sender</label>
+    <input 
+      type="string"
+      class="form-control"
+      id="idSender"
+      name="idSender"
+      [(ngModel)]="applicationData.idSender"
+      required
+      readonly
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="idReceiver">ID Receiver</label>
+    <input 
+      type="string"
+      class="form-control"
+      id="idReceiver"
+      name="idReceiver"
+      [(ngModel)]="applicationData.idReceiver"
+      required
+      readonly
+      />
+  </div>
+
+  <div class="form-group">
+    <label for="typeApplication">Tipo de notificación</label>
+    <select
+      class="form-control"
+      id="typeApplication"
+      name="typeApplication"
+      [(ngModel)]="applicationData.typeApplication"
+      required
+    >
+      <option value="proposal">proposal</option>
+      <option value="join">join</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="idActivity">ID Activity</label>
+    <input
+      type="string"
+      class="form-control"
+      id="idActivity"
+      name="idActivity"
+      [(ngModel)]="applicationData.idActivity"
+      required
+      readonly
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionApplication">Descripción de la notificación</label>
+    <input
+      type="string"
+      class="form-control"
+      id="descriptionApplication"
+      name="descriptionApplication"
+      [(ngModel)]="applicationData.descriptionApplication"
+      required
+    />
+  </div>
+
+  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+</form>
+

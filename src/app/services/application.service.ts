@@ -37,4 +37,9 @@ export class ApplicationService {
     return this.http.get<Application>(this.apiURL + 'getApplication/'+ idApplication);
   }
 
+  // (6) Get all paginated applications
+  getAllPaginatedApplications(numPage:string):  Observable<Application[]>{
+    return this.http.get<Application[]>(this.apiURL + 'getAllPaginatedApplications/' + numPage);
+  } 
+
 };

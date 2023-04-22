@@ -64,6 +64,7 @@ export class CommentComponent implements OnInit {
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
+        alert("Estas en la primera pagina");
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

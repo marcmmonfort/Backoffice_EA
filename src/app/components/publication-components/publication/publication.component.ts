@@ -13,8 +13,9 @@ export class PublicationComponent implements OnInit{
   publication: Publication[] = [];
   filteredPublications: any[] = [];
   //idPublicationComment: string = 'id';
-  //numPage: string='3'; //PONER ALGUN TIPO DE PÁGINAS PARA QUE AL CAMBIAR DE LA PAGINA 1 A LA 2 SE OBTENGAN LOS COMENTARIOS
+  numPage: string = '';
   searchTerm: string = '';
+  printeado: boolean = false;
 
   constructor(private publicationService: PublicationService, private router: Router) {}
 
@@ -26,6 +27,8 @@ export class PublicationComponent implements OnInit{
     }, error => {
       console.log(error);
     })
+    this.printeado = false;
+    this.numPage="1";
   }
 
   showDetails(publication: any): void {
@@ -41,9 +44,35 @@ export class PublicationComponent implements OnInit{
       this.filteredPublications = this.publication.filter((publication) =>
         publication.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredPublications = this.publication;
-      console.log(this.filteredPublications);
+    } 
+  }
+
+  printeaTodos() {
+    this.publicationService.getAllPaginatedPublications(this.numPage).subscribe((publication) => {
+      if(publication.length==0){
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        alert("Ya no hay más publicaciones")
+      }
+      else{
+        this.filteredPublications = publication;
+        this.printeado = true;
+      }
+    });
+  }
+  paginatenext() {
+    if (this.printeado) {
+      this.numPage = (parseInt(this.numPage, 10) + 1).toString();
+      this.printeaTodos();
+    }
+  }
+  paginateprevious() {
+    if (this.printeado) {
+      if (this.numPage == '1') {
+        return;
+      } else {
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        this.printeaTodos();
+      }
     }
   }
 

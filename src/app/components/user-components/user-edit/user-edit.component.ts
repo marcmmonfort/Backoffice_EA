@@ -40,6 +40,7 @@ export class UserEditComponent {
   confirmChanges(): void {
     this.userService.updateUser(this.userData, this.userId).subscribe(() => {
       this.closeModal();
+      this.router.navigate(['listUsers'])
     });
   }
   onAcceptChanges(): void {

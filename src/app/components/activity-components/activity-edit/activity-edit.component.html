@@ -1,0 +1,121 @@
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+<form (ngSubmit)="onSubmit()">
+  
+    <div class="form-group">
+        <label for="nameActivity">Name:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="nameActivity"
+            name="nameActivity"
+            [(ngModel)]="activityData.nameActivity"
+            required
+            />
+      </div>
+
+    <div class="form-group">
+        <label for="creatorActivity">Creator:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="creatorActivity"
+            name="creatorActivity"
+            [(ngModel)]="activityData.creatorActivity"
+            required
+            readonly
+            />
+      </div>
+
+    <div class="form-group">
+        <label for="dateActivity">Date:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="dateActivity"
+            name="dateActivity"
+            [(ngModel)]="activityData.dateActivity"
+            required
+            />
+      </div>
+
+    <div class="form-group">
+        <label for="idLocation">Location:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="idLocation"
+            name="idLocation"
+            [(ngModel)]="activityData.idLocation"
+            required
+            />
+      </div>
+    
+    <div class="form-group">
+        <label for="descriptionActivity">Description:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="descriptionActivity"
+            name="descriptionActivity"
+            [(ngModel)]="activityData.descriptionActivity"
+            required
+            />
+      </div>
+
+    <div class="form-group">
+        <label for="privacyActivity">Privacy:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="privacyActivity"
+            name="privacyActivity"
+            [(ngModel)]="activityData.privacyActivity"
+            required
+            />
+    </div>
+
+    <div class="form-group">
+        <label for="roleActivity">Role:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="roleActivity"
+            name="roleActivity"
+            [(ngModel)]="activityData.roleActivity"
+            required
+            />
+      </div>
+
+      <div class="form-group">
+        <label for="createdAt">Creation Date:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="createdAt"
+            name="createdAt"
+            [(ngModel)]="activityData.createdAt"
+            required
+            readonly
+            />
+      </div>
+
+      <div class="form-group">
+        <label for="updatedAt">Update Date:</label>
+        <input 
+            type="string"
+            class="form-control"
+            id="updatedAt"
+            name="updatedAt"
+            [(ngModel)]="activityData.updatedAt"
+            required
+            readonly
+            />
+      </div>
+
+  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+</form>

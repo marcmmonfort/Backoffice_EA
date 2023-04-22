@@ -1,0 +1,92 @@
+<confirmation-modal
+  [isOpen]="isModalOpen"
+  (acceptChanges)="onAcceptChanges()"
+  (cancelChanges)="onCancelChanges()"
+></confirmation-modal>
+
+
+<h2 class="text-center">Create Activity</h2>
+
+<form [formGroup]="activityForm" (ngSubmit)="onSubmit()" class="row g-3">
+  
+    <div class="form-group">
+        <label for="nameActivity">Name:</label>
+        <input
+            type="string"
+            id="nameActivity"
+            formControlName="nameActivity"
+            class="form-control"
+        /> 
+    </div>
+
+    <div class="form-group">
+        <label for="creatorActivity">Creator ID:</label>
+        <input
+            type="string"
+            id="creatorActivity"
+            formControlName="creatorActivity"
+            class="form-control"
+        /> 
+    </div>
+
+    <div class="form-group">
+        <label for="dateActivity">Date:</label>
+        <input
+            type="date"
+            id="dateActivity"
+            formControlName="dateActivity"
+            class="form-control"
+        /> 
+    </div>
+
+    <div class="form-group">
+        <label for="hoursActivity">Start and End Hours in format ["20:00", "24:00"]:</label>
+        <input
+            type="string"
+            id="hoursActivity"
+            formControlName="hoursActivity"
+            class="form-control"
+        /> 
+    </div>
+
+    <div class="form-group">
+        <label for="idLocation">Location:</label>
+        <input
+            type="string"
+            id="idLocation"
+            formControlName="idLocation"
+            class="form-control"
+        /> 
+    </div>
+
+    <div class="form-group">
+        <label for="descriptionActivity">Description:</label>
+        <input
+            type="string"
+            id="descriptionActivity"
+            formControlName="descriptionActivity"
+            class="form-control"
+        /> 
+    </div>
+
+    <div class="form-group form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="privacyActivity"
+          name="privacyActivity"
+          formControlName="privacyActivity"
+        />
+        <label class="form-check-label" for="privacyActivity">Privacy</label>
+      </div>
+
+    <div class="form-group">
+        <label for="roleActivity">Role:</label>
+        <select class="form-control" id="roleActivity" name="roleActivity" formControlName="roleActivity">
+            <option value="verificado">Verified</option>
+            <option value="common">Common</option>
+            <option value="empresa">Business</option>
+        </select>
+    </div> 
+
+  <button class="btn btn-primary" type="submit">Crear Actividad</button>

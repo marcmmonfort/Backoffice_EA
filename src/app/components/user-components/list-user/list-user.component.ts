@@ -15,6 +15,7 @@ export class ListUserComponent implements OnInit {
   printeado: boolean = false;
 
   constructor(private userService: UserService, private router: Router) {}
+
   ngOnInit(): void {
     this.userService.getUsers().subscribe((users) => {
       this.users = users;
@@ -35,10 +36,9 @@ export class ListUserComponent implements OnInit {
       this.filteredUsers = this.users.filter((user) =>
         user.mailUser.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredUsers = this.users;
-    }
+    } 
   }
+
   printeaTodos() {
     this.userService.getUsersPag(this.numPage).subscribe((users) => {
       if(users.length==0){
@@ -46,20 +46,24 @@ export class ListUserComponent implements OnInit {
         alert("Ya no hay más usuarios")
       }
       else{
+        console.log(users);
         this.filteredUsers = users;
         this.printeado = true;
       }
     });
   }
+
   paginatenext() {
     if (this.printeado) {
       this.numPage = (parseInt(this.numPage, 10) + 1).toString();
       this.printeaTodos();
     }
   }
+
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
+        alert("Estas en la primera pagina");
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

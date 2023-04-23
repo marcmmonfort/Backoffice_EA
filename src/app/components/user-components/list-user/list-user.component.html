@@ -3,7 +3,7 @@
   <!--<a class="btn btn-primary btn-lg" routerLink="/user-create">Crear usuario</a>
   <button class="btn btn-primary btn-lg" type="button" (click)="search()"><p class="animated-word">Todos</p></button>-->
   <a class="btn" routerLink="/user-create"><p class="animated-word">CREATE</p></a>
-  <button class="btn" type="button" (click)="search()"><p class="animated-word">ALL</p></button>
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
   <input type="text" class="form-control rounded-pill" placeholder="Buscar por correo electrónico" [(ngModel)]="searchTerm" name="searchTerm" (keyup)="search()">

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Activity } from 'src/app/interfaces/activity.interface';
 import { ActivityService } from 'src/app/services/activity.service';
@@ -11,7 +11,7 @@ import { ActivityService } from 'src/app/services/activity.service';
 })
 export class ActivityCreateComponent {
 
-  activityForm: FormGroup | any;
+  activityForm: FormGroup;
   isModalOpen:boolean=false;
   constructor(private formBuilder: FormBuilder, private activityService: ActivityService, private router: Router) { 
     
@@ -19,7 +19,7 @@ export class ActivityCreateComponent {
       "nameActivity": ['', Validators.required],
       "creatorActivity": ['', Validators.required],
       "dateActivity": ['', Validators.required],
-      "hoursActivity": ['', Validators.required],
+      "hoursActivity": this.formBuilder.array([this.formBuilder.control(''), Validators.required]),
       "idLocation": [''], // Optional.
       "descriptionActivity": [''], // Optional.
       "privacyActivity": [false, Validators.required],
@@ -31,7 +31,13 @@ export class ActivityCreateComponent {
     return this.activityForm.controls;
   }
 
-  
+  saveHours() {
+    const startHour = (<HTMLInputElement>document.getElementById("start")).value;
+    const endHour = (<HTMLInputElement>document.getElementById("end")).value;
+    const hoursActivity = [startHour, endHour];
+    this.activityForm.controls['hoursActivity'].setValue(hoursActivity);
+  }
+
   onSubmit(): void {
     console.log(this.activityForm.value);
     if (this.activityForm.invalid) {

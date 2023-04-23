@@ -40,14 +40,12 @@
     </div>
 
     <div class="form-group">
-        <label for="hoursActivity">Start and End Hours in format ["20:00", "24:00"]:</label>
-        <input
-            type="string"
-            id="hoursActivity"
-            formControlName="hoursActivity"
-            class="form-control"
-        /> 
+        <label for="start">Hora de inicio:</label>
+        <input type="time" id="start" name="start">
+        <label for="end">Hora de fin:</label>
+        <input type="time" id="end" name="end">
     </div>
+    <button type="button" (click)="saveHours()">Guardar horas</button>
 
     <div class="form-group">
         <label for="idLocation">Location:</label>

@@ -36,6 +36,7 @@ import { ApplicationCreateComponent } from './components/application-components/
 import { ApplicationDetailsComponent } from './components/application-components/application-details/application-details.component';
 import { ApplicationEditComponent } from './components/application-components/application-edit/application-edit.component';
 import { AuthGuard } from './shared/auth.guard';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
@@ -113,7 +114,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

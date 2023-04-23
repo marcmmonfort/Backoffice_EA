@@ -25,6 +25,7 @@ export class LogInComponent {
   
   
   ngOnInit(): void {
+    localStorage.setItem('token','');
     this.knownService.getUserKnown().subscribe(userKnown => {
       this.userKnown = userKnown;
     });
@@ -45,6 +46,9 @@ export class LogInComponent {
         console.log(data);
         alert("¡LogIn efectuado correctamente!");
         // Aquí deberíamos hacer el cambio de la barra de navigate ...
+
+        localStorage.setItem('token',data.token);
+        
         this.knownService.updateUserKnown(true);
         this.router.navigate(['/']);
       },(error:any)=>{

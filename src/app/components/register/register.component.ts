@@ -34,9 +34,9 @@ export class RegisterComponent {
     });
   }
   
-  /*
-  ngOnInit(): void {}
-  */
+  ngOnInit(): void {
+    localStorage.setItem('token','');
+  }
 
   get f() {
     return this.registerForm.controls;

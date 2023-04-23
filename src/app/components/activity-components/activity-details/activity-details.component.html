@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 class="text-center">Detalles de la Actividad</h1>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card my-5">
+          <div class="card-header">
+            <h2 *ngIf="activityId" class="text-center">{{activityId}}</h2>
+          </div>
+          <div class="card-body">
+            <div *ngIf="activityData">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>ID:</strong> {{ activityData._id }}</li>
+                <li class="list-group-item"><strong>Name:</strong> {{ activityData.nameActivity }}</li>
+                <li class="list-group-item"><strong>Creator:</strong> {{ activityData.creatorActivity }}</li>
+                <li class="list-group-item"><strong>Date:</strong> {{ activityData.dateActivity }}</li>
+                <li class="list-group-item"><strong>Location:</strong> {{ activityData.idLocation }}</li>
+                <li class="list-group-item"><strong>Description:</strong> {{ activityData.descriptionActivity }}</li>
+                <li class="list-group-item"><strong>Privacy:</strong> {{ activityData.privacyActivity }}</li>
+                <li class="list-group-item"><strong>Role:</strong> {{ activityData.roleActivity }}</li>
+                <li class="list-group-item"><strong>Creation Date:</strong> {{ activityData.createdAt }}</li>
+                <li class="list-group-item"><strong>Update Date:</strong> {{ activityData.updatedAt }}</li>
+              </ul>
+            </div>  
+            <div *ngIf="!activityData" class="text-center mt-5">
+              <p>Cargando datos...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -35,6 +35,10 @@ import { ApplicationComponent } from './components/application-components/applic
 import { ApplicationCreateComponent } from './components/application-components/application-create/application-create.component';
 import { ApplicationDetailsComponent } from './components/application-components/application-details/application-details.component';
 import { ApplicationEditComponent } from './components/application-components/application-edit/application-edit.component';
+import { ActivityComponent } from './components/activity-components/activity/activity.component';
+import { ActivityCreateComponent } from './components/activity-components/activity-create/activity-create.component';
+import { ActivityDetailsComponent } from './components/activity-components/activity-details/activity-details.component';
+import { ActivityEditComponent } from './components/activity-components/activity-edit/activity-edit.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -64,6 +68,11 @@ const routes: Routes = [
   { path:'publication-details/:id',component: PublicationDetailsComponent },
   { path:'publication-edit/:id',component: PublicationEditComponent },
 
+  { path:'activity',component: ActivityComponent },
+  { path:'activity-create',component: ActivityCreateComponent },
+  { path:'activity-details/:id',component: ActivityDetailsComponent },
+  { path:'activity-edit/:id',component: ActivityEditComponent },
+
   { path:'application',component: ApplicationComponent },
   { path:'application-create',component: ApplicationCreateComponent },
   { path:'application-details/:id',component: ApplicationDetailsComponent },
@@ -81,8 +90,12 @@ const routes: Routes = [
     CommentCreateComponent,
     CommentDetailsComponent,
     CommentEditComponent,
-    LocationComponent,
+    CommentResponseComponent,
+
+    
     LogInComponent,
+    RegisterComponent,
+    
     UserDetailsComponent,
     UserFollowersComponent,
     UserFollowedComponent,
@@ -90,20 +103,27 @@ const routes: Routes = [
     ConfirmationModalComponent,
     UserCreateComponent,
 
+    LocationComponent,
     LocationCreateComponent,
     LocationDetailsComponent,
     LocationEditComponent,
 
-    RegisterComponent,
+    
     PublicationComponent,
     PublicationCreateComponent,
     PublicationDetailsComponent,
     PublicationEditComponent,
-    CommentResponseComponent,
+    
+
     ApplicationComponent,
     ApplicationCreateComponent,
     ApplicationDetailsComponent,
     ApplicationEditComponent,
+  
+    ActivityComponent,
+    ActivityCreateComponent,
+    ActivityDetailsComponent,
+    ActivityEditComponent,
   ],
   imports: [
     BrowserModule,

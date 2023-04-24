@@ -1,9 +1,11 @@
-<h2 class="text-center mt-5">LIst of following</h2>
-<div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">Muéstrame todos</button>
+<div class="d-flex justify-content-between mb-4">
+  <!--<a class="btn btn-primary btn-lg" routerLink="/user-create">Crear usuario</a>
+  <button class="btn btn-primary btn-lg" type="button" (click)="search()"><p class="animated-word">Todos</p></button>-->
+  <a class="btn" routerLink="/user-create"><p class="animated-word">CREATE</p></a>
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
-  <input type="text" class="form-control rounded-pill" placeholder="Buscar por correo electrónico" [(ngModel)]="searchTerm" name="searchTerm" (keyup)="search()">
+  <input type="text" class="form-control rounded-pill" placeholder="Search by email" [(ngModel)]="searchTerm" name="searchTerm" (keyup)="search()">
 </div>
 
 <div class="table-responsive">
@@ -27,11 +29,9 @@
           <span *ngIf="!user.deletedUser" class="badge badge-success" class="font-weight-bold">Activated <i class="fas fa-check" style="color: green;"></i></span>
           <span *ngIf="user.deletedUser" class="badge badge-danger" class="font-weight-bold">Desactivated<i class="fas fa-times" style="color: red;"></i></span>
         </td>
-        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="btn btn-primary" (click)="showDetails(user.id)">Details</button></a></td>
-        <td><a [routerLink]="['/user-edit', user._id]"><button type="button" class="btn btn-primary" (click)="showEdit(user.id)">Edit</button></a></td>
+        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="button-arounder" (click)="showDetails(user.id)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/user-edit', user._id]"><button type="button" class="button-arounder" (click)="showEdit(user.id)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>
 </div>
-<button routerLink="/">Ir a la Home</button>
-<button routerLink="/user-details">Ir a detalles</button>

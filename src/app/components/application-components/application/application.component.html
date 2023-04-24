@@ -1,15 +1,14 @@
-<h2 class="text-center mt-5">Application</h2>
-<div class="d-flex justify-content-center mb-4">
-  <a class="btn btn-primary btn-lg" routerLink="/application-create">New application</a>
-</div>
-<div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">See all</button>
+<div class="d-flex justify-content-between mb-4">
+  <!--<a class="btn btn-primary btn-lg" routerLink="/user-create">Crear usuario</a>
+  <button class="btn btn-primary btn-lg" type="button" (click)="search()"><p class="animated-word">Todos</p></button>-->
+  <a class="btn" routerLink="/application-create"><p class="animated-word">CREATE</p></a>
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
   <input
     type="string"
     class="form-control rounded-pill"
-    placeholder="Buscar palabra"    
+    placeholder="Search by word"    
     [(ngModel)]="searchTerm"
     name="searchTerm"
     (keyup)="search()"
@@ -35,26 +34,14 @@
         <td class="text-center">{{ application.typeApplication }}</td>
         <td class="text-center">{{ application.idActivity }}</td>
         <td class="text-center">{{ application.descriptionApplication }}</td>
-        <td>
-          <a><button type="button" class="btn btn-primary" (click)="showDetails(application)">Details</button></a>
-        </td>
-        <td>
-          <a 
-            ><button
-              type="button"
-              class="btn btn-primary"
-              (click)="showEdit(application)"
-            >
-              Edit
-            </button></a
-          >
-        </td>
+        <td><a [routerLink]="['/application-details', application._id]"><button type="button" class="button-arounder" (click)="showDetails(application.id)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/application-edit', application._id]"><button type="button" class="button-arounder" (click)="showEdit(application.id)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
-  <button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
-  <p> {{ numPage }} </p> 
-  <button class="btn btn-primary" (click)="paginatenext()">Next</button>  
+  <button type="button" class="button-arounder" (click)="paginateprevious()" >Previous</button>
+  <p class="textoPag"> {{ numPage }} </p> 
+  <button type="button" class="button-arounder" (click)="paginatenext()">Next</button>  
 </div>

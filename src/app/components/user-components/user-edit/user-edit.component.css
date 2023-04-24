@@ -56,6 +56,10 @@ body {
     font-weight: bold;
     padding: 10px 20px;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    background: linear-gradient(to right, #afd5ff, #113351);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .btn-primary:hover {

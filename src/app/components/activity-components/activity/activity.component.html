@@ -1,16 +1,15 @@
-<h2 class="text-center mt-5">Activities</h2>
-<div class="d-flex justify-content-center mb-4">
-  <a class="btn btn-primary btn-lg" routerLink="/activity-create">New activity</a>
-</div>
-<div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">View all</button>
+<div class="d-flex justify-content-between mb-4">
+  <!--<a class="btn btn-primary btn-lg" routerLink="/user-create">Crear usuario</a>
+  <button class="btn btn-primary btn-lg" type="button" (click)="search()"><p class="animated-word">Todos</p></button>-->
+  <a class="btn" routerLink="/activity-create"><p class="animated-word">CREATE</p></a>
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
   <!-- Queremos que busque insultos dentro de los comentarios. En el searchTerm-->
   <input
     type="string"
     class="form-control rounded-pill"
-    placeholder="Buscar palabra"    
+    placeholder="Search by word"    
     [(ngModel)]="searchTerm"
     name="searchTerm"
     (keyup)="search()"
@@ -32,26 +31,14 @@
         <td class="text-center">{{ activity.nameActivity }}</td>
         <td class="text-center">{{ activity.creatorActivity }}</td>
         <td class="text-center">{{ activity.dateActivity }}</td>
-        <td>
-          <a><button type="button" class="btn btn-primary" (click)="showDetails(activity)">Details</button></a>
-        </td>
-        <td>
-          <a 
-            ><button
-              type="button"
-              class="btn btn-primary"
-              (click)="showEdit(activity)"
-            >
-              Edit
-            </button></a
-          >
-        </td>
+        <td><a [routerLink]="['/activity-details', activity._id]"><button type="button" class="button-arounder" (click)="showDetails(activity.id)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/activity-edit', activity._id]"><button type="button" class="button-arounder" (click)="showEdit(activity.id)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
-  <button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
-  <p> {{ numPage }} </p> 
-  <button class="btn btn-primary" (click)="paginatenext()">Next</button>  
+  <button type="button" class="button-arounder" (click)="paginateprevious()" >Previous</button>
+  <p class="textoPag"> {{ numPage }} </p> 
+  <button type="button" class="button-arounder" (click)="paginatenext()">Next</button>  
 </div>

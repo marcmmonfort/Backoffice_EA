@@ -14,6 +14,40 @@ body {
   .form-group {
     margin-bottom: 20px;
   }
+  .btn-primary {
+    background-color: #04c259;
+    border-color: #81dfca;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    background: linear-gradient(to right, #87e2a2, #0a6920);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+
+  .btn-primary2 {
+    background-color: #c20404;
+    border-color: #ee8c8c;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    background: linear-gradient(to right, #f5b8b8, #500303);
+    margin-top: 10px;
+    margin-right: 50%;
+  }
+  
+  .btn-primary2:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
   
   label {
     display: block;

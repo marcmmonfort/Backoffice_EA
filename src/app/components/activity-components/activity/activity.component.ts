@@ -36,9 +36,6 @@ export class ActivityComponent implements OnInit{
       this.filteredActivities = this.activities.filter((activity) =>
         activity.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredActivities = this.activities;
-      console.log(this.filteredActivities);
     }
   }
 

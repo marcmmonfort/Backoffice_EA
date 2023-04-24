@@ -2,6 +2,7 @@ import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Activity } from '../interfaces/activity.interface';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -49,8 +50,8 @@ export class ActivityService {
   }
 
   // (7) Get participants of an activity
-  getParticipantsOfParticularActivity(idActivity:string, numPage:string):Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.apiURL + 'getParticipantsOfActivity/' + idActivity + '/' + numPage);
+  getParticipantsOfParticularActivity(idActivity:string, numPage:string):Observable<User[]> {
+    return this.http.get<User[]>(this.apiURL + 'getParticipantsOfActivity/' + idActivity + '/' + numPage);
   }
 
 };

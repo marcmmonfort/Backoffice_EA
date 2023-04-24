@@ -31,8 +31,9 @@ export class ActivityDetailsComponent {
     });
   }
 
-  showResponses(activity:Activity):void{
-    this.router.navigate(['activity-details/responses/',activity._id])
+  showParticipants(activity:Activity):void{
+    this.router.navigate(['activity-participants/',activity._id])
   }
+  
   
 }

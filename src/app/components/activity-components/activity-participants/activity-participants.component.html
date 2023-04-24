@@ -1,4 +1,4 @@
-<h2 class="text-center mt-5">Lista de seguidos</h2>
+<h2 class="text-center mt-5">Lista de seguidores</h2>
 <div class="d-flex justify-content-center mb-4">
   <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">Muéstrame todos</button>
 </div>
@@ -27,8 +27,8 @@
           <span *ngIf="!user.deletedUser" class="badge badge-success" class="font-weight-bold">Activado <i class="fas fa-check" style="color: green;"></i></span>
           <span *ngIf="user.deletedUser" class="badge badge-danger" class="font-weight-bold">Desactivado <i class="fas fa-times" style="color: red;"></i></span>
         </td>
-        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="btn btn-primary" (click)="showDetails(user.id)">Detalles</button></a></td>
-        <td><a [routerLink]="['/user-edit', user._id]"><button type="button" class="btn btn-primary" (click)="showEdit(user.id)">Editar</button></a></td>
+        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="btn btn-primary" (click)="showDetails(user._id)">Detalles</button></a></td>
+        <td><a [routerLink]="['/user-edit', user._id]"><button type="button" class="btn btn-primary" (click)="showEdit(user._id)">Editar</button></a></td>
       </tr>
     </tbody>
   </table>

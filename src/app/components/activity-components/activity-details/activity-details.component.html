@@ -15,6 +15,7 @@
                 <li class="list-group-item"><strong>Date:</strong> {{ activityData.dateActivity }}</li>
                 <li class="list-group-item"><strong>Location:</strong> {{ activityData.idLocation }}</li>
                 <li class="list-group-item"><strong>Description:</strong> {{ activityData.descriptionActivity }}</li>
+                <li class="list-group-item"><strong>Participants of activity:</strong><a><button type="button" class="btn btn-primary" (click)="showParticipants(activityData)">Participants</button></a></li>
                 <li class="list-group-item"><strong>Privacy:</strong> {{ activityData.privacyActivity }}</li>
                 <li class="list-group-item"><strong>Role:</strong> {{ activityData.roleActivity }}</li>
                 <li class="list-group-item"><strong>Creation Date:</strong> {{ activityData.createdAt }}</li>

@@ -41,6 +41,7 @@ import { ActivityDetailsComponent } from './components/activity-components/activ
 import { ActivityEditComponent } from './components/activity-components/activity-edit/activity-edit.component';
 import { AuthGuard } from './shared/auth.guard';
 import { AuthService } from './services/auth.service';
+import { ActivityParticipantsComponent } from './components/activity-components/activity-participants/activity-participants.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
@@ -74,6 +75,7 @@ const routes: Routes = [
   { path:'activity-create',component: ActivityCreateComponent, canActivate:[AuthGuard] },
   { path:'activity-details/:id',component: ActivityDetailsComponent, canActivate:[AuthGuard] },
   { path:'activity-edit/:id',component: ActivityEditComponent, canActivate:[AuthGuard] },
+  { path:'activity-participants/:id',component: ActivityParticipantsComponent, canActivate:[AuthGuard] },
 
   { path:'application',component: ApplicationComponent, canActivate:[AuthGuard] },
   { path:'application-create',component: ApplicationCreateComponent, canActivate:[AuthGuard] },
@@ -126,6 +128,7 @@ const routes: Routes = [
     ActivityCreateComponent,
     ActivityDetailsComponent,
     ActivityEditComponent,
+    ActivityParticipantsComponent,
   ],
   imports: [
     BrowserModule,

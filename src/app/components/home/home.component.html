@@ -1,48 +1,46 @@
 <header>
-  <h1>Backoffice - LPlan</h1>
-  <h2>Spend time on another level</h2>
+  <h1 class="titulo">LPlan</h1>
+  <h2 class="slogan">Spend time on another level</h2>
 </header>
-<h2>Welcome admin</h2>
-<p>
-  This webapp is for administrators only, the purpose of this web is to easily
-  manage the different elements on our application without having to enter on
-  the code.
-</p>
-<hr />
 <main>
-  <section>
-    <h2>Summary</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <strong>Registered users:</strong> {{ userCount }}
-      </li>
-      <li class="list-group-item">
-        <strong>Total publications:</strong> {{ publicationCount }}
-      </li>
-      <li class="list-group-item">
-        <strong>Total comments:</strong> {{ commentCount }}
-      </li>
-      <li class="list-group-item">
-        <strong>Total of registered locations:</strong> {{ locationCount }}
-      </li>
-      <li class="list-group-item">
-        <strong>Total applications:</strong> {{ applicationCount }}
-      </li>
-      <li class="list-group-item">
-        <strong>Current activities:</strong> {{ activityCount }}
-      </li>
-    </ul>
-  </section>
-  <section>
-    <h2>Our development team</h2>
-    <ul>
-      <li>Marc Moran Monfort</li>
-      <li>Eloi Moncho Roig</li>
-      <li>Víctor Fernandez Escriva</li>
-      <li>Oscar Boullosa Dapena</li>
-      <li>Genís Castillo Gómez-Raya</li>
-    </ul>
-  </section>
+  <div class="list-group " >
+    <section>
+      <h2 class="titulo2">Summary</h2>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action active">
+          <strong>Registered users:</strong> {{ userCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total publications:</strong> {{ publicationCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total comments:</strong> {{ commentCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total of registered locations:</strong> {{ locationCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total applications:</strong> {{ applicationCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Current activities:</strong> {{ activityCount }}
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <div>
+    <section>
+      <h2 class="titulo2">Our development team</h2>
+      <ul>
+        <li><a class="enlace" href="https://www.instagram.com/marcmmonfort/">Marc Moran Monfort</a> </li>
+        <li> <a class="enlace" href="https://www.instagram.com/eloimoncho/">Eloi Moncho Roig</a> </li>
+        <li> <a class="enlace" href="https://www.instagram.com/vfrnandzz__/">Víctor Fernandez Escriva</a> </li>
+        <li><a class="enlace" href="https://www.instagram.com/oscarr.bd/">Oscar Boullosa Dapena</a> </li>
+        <li> <a class="enlace" href="https://www.instagram.com/geniscastillo/">Genís Castillo Gómez-Raya</a> </li>
+      </ul>
+    </section>
+  </div>
 </main>
 <footer>
   <p>LPlan &copy; 2023. Todos los derechos reservados.</p>

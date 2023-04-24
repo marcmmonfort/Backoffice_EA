@@ -1,9 +1,9 @@
 <h2 class="text-center mt-5">Application</h2>
 <div class="d-flex justify-content-center mb-4">
-  <a class="btn btn-primary btn-lg" routerLink="/application-create">Nueva notificación</a>
+  <a class="btn btn-primary btn-lg" routerLink="/application-create">New application</a>
 </div>
 <div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">Ver todas</button>
+  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">See all</button>
 </div>
 <div class="input-group mb-3">
   <input
@@ -21,9 +21,9 @@
       <tr>
         <th class="text-center">IDSender</th>
         <th class="text-center">IDReceiver</th>
-        <th class="text-center">Tipo de notificación</th>
-        <th class="text-center">ID de la Actividad</th>
-        <th class="text-center">Descripción</th>
+        <th class="text-center">Type of application</th>
+        <th class="text-center">Activity ID</th>
+        <th class="text-center">Description</th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +36,7 @@
         <td class="text-center">{{ application.idActivity }}</td>
         <td class="text-center">{{ application.descriptionApplication }}</td>
         <td>
-          <a><button type="button" class="btn btn-primary" (click)="showDetails(application)">Detalles</button></a>
+          <a><button type="button" class="btn btn-primary" (click)="showDetails(application)">Details</button></a>
         </td>
         <td>
           <a 
@@ -45,7 +45,7 @@
               class="btn btn-primary"
               (click)="showEdit(application)"
             >
-              Editar
+              Edit
             </button></a
           >
         </td>

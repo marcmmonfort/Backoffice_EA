@@ -6,7 +6,7 @@
 
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="nameLocation">Nombre de la localización</label>
+    <label for="nameLocation">Location name</label>
     <input
       type="string"
       class="form-control"
@@ -18,7 +18,7 @@
   </div>
 
   <div class="form-group">
-    <label for="latLocation">Latitud</label>
+    <label for="latLocation">Latitude</label>
     <input
       type="string"
       class="form-control"
@@ -30,7 +30,7 @@
   </div>
 
   <div class="form-group">
-    <label for="lonLocation">Longitud</label>
+    <label for="lonLocation">Longitude</label>
     <input
       type="string"
       class="form-control"
@@ -42,7 +42,7 @@
   </div>
 
   <div class="form-group">
-    <label for="descriptionLocation">Descripción</label>
+    <label for="descriptionLocation">Description</label>
     <input
       type="string"
       class="form-control"
@@ -53,6 +53,6 @@
     />
   </div>
 
-  <button class="btn btn-primary" (click)="editar()">Guardar cambios</button>
-  <button type="button" class="btn btn-danger" (click)="eliminar()"> Eliminar localización </button>
+  <button class="btn btn-primary" (click)="editar()">Save changes</button>
+  <button type="button" class="btn btn-danger" (click)="eliminar()"> Eliminate location </button>
 </form>

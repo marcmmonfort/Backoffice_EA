@@ -1,9 +1,9 @@
-<h2 class="text-center mt-5">Localizaciones</h2>
+<h2 class="text-center mt-5">Locations</h2>
 <div class="d-flex justify-content-center mb-4">
-  <a class="btn btn-primary btn-lg" routerLink="/location-create">Nueva localización</a>
+  <a class="btn btn-primary btn-lg" routerLink="/location-create">New location</a>
 </div>
 <div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">Ver todas</button>
+  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">See all</button>
 </div>
 <div class="input-group mb-3">
   <input
@@ -20,11 +20,11 @@
     <thead>
       <tr>
         <th class="text-center">ID</th>
-        <th class="text-center">Nombre</th>
-        <th class="text-center">Latitud</th>
-        <th class="text-center">Longitud</th>
-        <th class="text-center">Detalles</th>
-        <th class="text-center">Editar</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Latitude</th>
+        <th class="text-center">Longitude</th>
+        <th class="text-center">Details</th>
+        <th class="text-center">Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -42,7 +42,7 @@
               class="btn btn-primary"
               (click)="showDetails(location.id)"
             >
-              Detalles
+              Details
             </button></a
           >
         </td>
@@ -53,7 +53,7 @@
               class="btn btn-primary"
               (click)="showEdit(location.id)"
             >
-              Editar
+              Edit
             </button></a
           >
         </td>

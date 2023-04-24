@@ -5,7 +5,7 @@
 ></confirmation-modal>
 
 
-<h2 class="text-center">Crear comentario</h2>
+<h2 class="text-center">Create application</h2>
 
 <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="row g-3">
   <div class="form-group">
@@ -31,7 +31,7 @@
   </div>
 
   <div class="form-group">
-    <label for="typeApplication">Tipo de notificaión:</label>
+    <label for="typeApplication">Type of application:</label>
     <select id="typeApplication" formControlName="typeApplication" class="form-control">
         <option value="proposal">proposal</option>
         <option value="join">join</option>
@@ -39,7 +39,7 @@
   </div>
 
   <div class="form-group">
-    <label for="idActivity">ID Actividad:</label>
+    <label for="idActivity">Activity ID:</label>
     <input
       type="string"
       id="idActivity"
@@ -49,7 +49,7 @@
   </div>
 
   <div class="form-group">
-    <label for="descriptionApplication">Descripción de la notificación:</label>
+    <label for="descriptionApplication">Application description:</label>
     <input
       type="string"
       id="descriptionApplication"
@@ -59,4 +59,4 @@
   </div>
     
 
-  <button class="btn btn-primary" type="submit">Guardar cambios</button>
+  <button class="btn btn-primary" type="submit">Save changes</button>

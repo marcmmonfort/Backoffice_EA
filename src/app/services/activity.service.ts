@@ -43,4 +43,14 @@ export class ActivityService {
     return this.http.get<Activity>(this.apiURL + 'getActivity/'+ idActivity);
   }
 
+  // (6) Get all paginated activities
+  getAllPaginatedActivities(numPage:string):Observable<Activity[]> {
+    return this.http.get<Activity[]>(this.apiURL + 'getAllPaginatedActivities' + numPage);
+  }
+
+  // (7) Get participants of an activity
+  getParticipantsOfParticularActivity(idActivity:string, numPage:string):Observable<Activity[]> {
+    return this.http.get<Activity[]>(this.apiURL + 'getParticipantsOfActivity/' + idActivity + '/' + numPage);
+  }
+
 };

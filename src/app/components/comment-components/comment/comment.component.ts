@@ -8,6 +8,7 @@ import { CommentService } from 'src/app/services/comment.service';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.css']
 })
+
 export class CommentComponent implements OnInit {
   comments: Comment[] = [];
   filteredComments: any[] = [];

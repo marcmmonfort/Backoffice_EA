@@ -27,10 +27,16 @@ export class UserService {
   }
 
   getFollowers(id:string):Observable<User[]>{
-    return this.http.get<User[]>(this.apiURLFollower+id);  }
+    return this.http.get<User[]>(this.apiURLFollower+id);  
+  }
 
-    getFollowed(id:string):Observable<User[]>{
-      return this.http.get<User[]>(this.apiURLFollowed+id);  }
+  getFollowed(id:string):Observable<User[]>{
+    return this.http.get<User[]>(this.apiURLFollowed+id);  
+  }
+
+  getUsersPag(numPage:string): Observable<User[]> {
+    return this.http.get<User[]>(this.apiURLGetAll +'/'+ numPage);
+  }
 
   getUser(id: string): Observable<User> {
     return this.http.get<User>(this.apiURL + id);

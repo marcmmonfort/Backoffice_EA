@@ -1,0 +1,36 @@
+
+<body>
+  <header>
+    <div class="contenedor_cabecera">
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        <div class="titulo">
+            <h1>LPlan</h1>
+        </div>
+    </div>
+    <div class="contenedor_menu">
+        <div class="menu">
+            <input type="checkbox" id="check__menu">
+            <label for="check__menu" id="label__check">
+                <i class="fas fa-bars icon__menu"></i>
+            </label>
+            <nav>
+              <ul *ngIf="userKnown" class="navbar__init">
+                <li><a routerLink="/home">Home</a></li>
+                <li><a routerLink="/listUsers">Users</a></li>
+                <li><a routerLink="/comment">Comments</a></li>
+                <li><a routerLink="/location">Location</a></li>
+                <li><a id="log-out" routerLink="/login" (click)="LogOut()">LogOut</a></li>
+              </ul>
+              <ul *ngIf="!userKnown" class="navbar__menu">
+                <li><a routerLink="/login"  >Login</a></li> <!-- id="selected" -->
+                <li><a routerLink="/register">Register</a></li>
+              </ul>
+            </nav>
+        </div>
+    </div>
+  </header>
+</body>
+
+<router-outlet></router-outlet>

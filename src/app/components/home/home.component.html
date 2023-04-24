@@ -1,14 +1,51 @@
-<div>
-  <h1>Welcome to the initial page</h1>
-  <p>Here you will find useful information</p>
-  <button routerLink="/listUsers">Go to users list</button>
-</div>
+<header>
+  <h1>Backoffice - LPlan</h1>
+  <h2>Spend time on another level</h2>
+</header>
+<h2>Welcome admin</h2>
+<p>
+  This webapp is for administrators only, the purpose of this web is to easily
+  manage the different elements on our application without having to enter on
+  the code.
+</p>
 <hr />
-<div><h1>See the locations here</h1></div>
-<button routerLink="/location">Go to locations</button>
-
-<hr />
-<div><h1>See the comments here</h1></div>
-<button routerLink="/comment">Go to comments</button>
+<main>
+  <section>
+    <h2>Summary</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong>Registered users:</strong> {{ userCount }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total publications:</strong> {{ publicationCount }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total comments:</strong> {{ commentCount }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total of registered locations:</strong> {{ locationCount }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total applications:</strong> {{ applicationCount }}
+      </li>
+      <li class="list-group-item">
+        <strong>Current activities:</strong> {{ activityCount }}
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2>Our development team</h2>
+    <ul>
+      <li>Marc Moran Monfort</li>
+      <li>Eloi Moncho Roig</li>
+      <li>Víctor Fernandez Escriva</li>
+      <li>Oscar Boullosa Dapena</li>
+      <li>Genís Castillo Gómez-Raya</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <p>LPlan &copy; 2023. Todos los derechos reservados.</p>
+</footer>
 
 <router-outlet></router-outlet>

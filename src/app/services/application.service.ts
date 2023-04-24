@@ -41,5 +41,8 @@ export class ApplicationService {
   getAllPaginatedApplications(numPage:string):  Observable<Application[]>{
     return this.http.get<Application[]>(this.apiURL + 'getAllPaginatedApplications/' + numPage);
   } 
+  getCountApplication():Observable<string>{
+    return this.http.get<string>(this.apiURL+"all/count/docs");
+  }
 
 };

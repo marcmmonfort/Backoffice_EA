@@ -61,5 +61,9 @@ export class CommentService {
     return this.http.get<Comment[]>(this.apiURL + 'getResponseOfComment/'+ idComment+ '/' +numPage);
   } 
 
+  getCountComment():Observable<string>{
+    return this.http.get<string>(this.apiURL+"all/count/docs");
+  }
+
 };
 

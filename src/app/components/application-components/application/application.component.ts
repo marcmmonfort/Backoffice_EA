@@ -50,8 +50,9 @@ export class ApplicationComponent implements OnInit {
     this.applicationService.getAllPaginatedApplications(this.numPage).subscribe((applications) => {
       if(applications.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
-        // alert("Ya no hay más notificaciones");
-
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
         // Poner aquí el alert ...
         Swal.fire({
           position: 'center',

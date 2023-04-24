@@ -53,7 +53,9 @@ export class PublicationComponent implements OnInit{
       if(publication.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
         
-        // alert("Ya no hay más publicaciones")
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
 
         // Poner aquí el alert ...
         Swal.fire({

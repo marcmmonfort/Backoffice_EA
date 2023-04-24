@@ -125,7 +125,7 @@ const routes: Routes = [
     ActivityComponent,
     ActivityCreateComponent,
     ActivityDetailsComponent,
-    ActivityEditComponent,
+    ActivityEditComponent
   ],
   imports: [
     BrowserModule,

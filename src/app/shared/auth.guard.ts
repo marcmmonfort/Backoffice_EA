@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 import { KnownService } from '../services/known.service';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,15 @@ export class AuthGuard implements CanActivate {
     if(this.auth.isLoggedIn()){
       return true;
     }
-    alert('You have to login first')
-    this.router.navigate(['/login'])
+
+    // Poner aquí un aviso ...
+    Swal.fire({
+      icon: 'error',
+      title: 'Stop!',
+      text: 'What are you going? You must login before!',
+    })
+
+    this.router.navigate(['/login']);
     return false;
   }
     

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Comment } from 'src/app/models/comment.model';
 import { CommentService } from 'src/app/services/comment.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-comment-response',
@@ -63,6 +64,22 @@ export class CommentResponseComponent implements OnInit {
         }
         else{
           this.filteredComments = comments;
+          if (!this.printeado){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            customClass: {
+              icon: 'swal-icon-color'
+            },
+            title: 'Responses Loaded',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 1500,
+            backdrop: `
+            rgba(0,0,0,0.8)
+            `
+          })
+        }
           this.printeado = true;
         }
       });
@@ -71,10 +88,40 @@ export class CommentResponseComponent implements OnInit {
       this.commentService.getComments(this.Id, this.numPage).subscribe((comments) => {
         if(comments.length==0){
           this.numPage = (parseInt(this.numPage, 10) - 1).toString();
-          alert("Ya no hay más comentarios")
+          // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'There are not more comments!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
         }
         else{
           this.filteredComments = comments;
+          if (!this.printeado){
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              customClass: {
+                icon: 'swal-icon-color'
+              },
+              title: 'Responses Loaded',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 1500,
+              backdrop: `
+              rgba(0,0,0,0.8)
+              `
+            })
+          }
           this.printeado = true;
         }
       });
@@ -89,7 +136,21 @@ export class CommentResponseComponent implements OnInit {
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
-        alert("Estas en la primera pagina");
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'You are in the first page!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

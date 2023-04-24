@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-followed',
@@ -51,10 +52,40 @@ export class UserFollowedComponent {
         if(parseInt(this.numPage, 10) < 1){
           this.numPage = '1';
         }
-        alert("Ya no hay más usuarios")
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'There are not more comments!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
       }
       else{
         this.filteredUsers = users;
+        if (!this.printeado){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            customClass: {
+              icon: 'swal-icon-color'
+            },
+            title: 'Followed Loaded',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 1500,
+            backdrop: `
+            rgba(0,0,0,0.8)
+            `
+          })
+        }
         this.printeado = true;
       }
     });
@@ -68,7 +99,21 @@ export class UserFollowedComponent {
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
-        alert("Estas en la primera pagina");
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'You are in the first page!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

@@ -13,24 +13,27 @@ export class CommentResponseComponent implements OnInit {
   comments: Comment[] = [];
   filteredComments: any[] = [];
   //idPublicationComment: string = 'id';
-  commentId!: string;
+  Id!: string;
   numPage: string = '';
   searchTerm: string = '';
   printeado: boolean = false;
+  aux!: string;
 
   constructor(private commentService: CommentService, private router: Router, private route: ActivatedRoute) {}
   
   ngOnInit(): void {
-    this.getCommentId();
+    this.getDatosId();
     this.printeado = false;
     this.numPage="1";
   }
 
-  getCommentId(): void {
+  getDatosId(): void {
     const url = this.route.snapshot.url.join('/');
     const parts = url.split('/');
-    this.commentId = parts[parts.length - 1];
-    console.log(this.commentId);
+    this.Id = parts[parts.length - 2];
+    this.aux = parts[parts.length - 1];
+    console.log(this.Id);
+    console.log(this.aux);
   }
 
   showDetails(comment: any): void {
@@ -49,16 +52,30 @@ export class CommentResponseComponent implements OnInit {
   }
 
   printeaTodos() {
-    this.commentService.getResponsesOfParticularComment(this.commentId, this.numPage).subscribe((comments) => {
-      if(comments.length==0){
-        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
-        alert("Ya no hay más comentarios")
-      }
-      else{
-        this.filteredComments = comments;
-        this.printeado = true;
-      }
-    });
+    if(this.aux=='Responses'){
+      this.commentService.getResponsesOfParticularComment(this.Id, this.numPage).subscribe((comments) => {
+        if(comments.length==0){
+          this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+          alert("Ya no hay más comentarios")
+        }
+        else{
+          this.filteredComments = comments;
+          this.printeado = true;
+        }
+      });
+    }
+    else{
+      this.commentService.getComments(this.Id, this.numPage).subscribe((comments) => {
+        if(comments.length==0){
+          this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+          alert("Ya no hay más comentarios")
+        }
+        else{
+          this.filteredComments = comments;
+          this.printeado = true;
+        }
+      });
+    }
   }
   paginatenext() {
     if (this.printeado) {

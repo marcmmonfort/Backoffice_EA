@@ -13,7 +13,7 @@
                 <li class="list-group-item"><strong>ID del creador:</strong> {{ publicationData.idUserPublication }}</li>
                 <li class="list-group-item"><strong>Texto:</strong> {{ publicationData.textPublication }}</li>
                 <li class="list-group-item"><strong>Likes:</strong> {{ publicationData.likesPublication?.length }}</li>
-                <li class="list-group-item"><strong>Comentarios:</strong> {{ publicationData.commentsPublication }}<a><button type="button" class="btn btn-primary" (click)="showResponses(publicationData)">Responses</button></a></li>
+                <li class="list-group-item"><strong>Comentarios:</strong><a><button type="button" class="btn btn-primary" (click)="showResponses(publicationData, 'Comments')">Responses</button></a></li>
                 <li class="list-group-item"><strong>Fotos:</strong> {{ publicationData.photoPublication[0] }}<a><button type="button" class="btn btn-primary" (click)="showPhoto(publicationData)">Fotos</button></a></li>
                 <li class="list-group-item"><strong>Fecha de creación:</strong> {{ publicationData.createdAt }}</li>
                 <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ publicationData.updatedAt }}</li>

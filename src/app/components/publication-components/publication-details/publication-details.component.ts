@@ -23,15 +23,14 @@ export class PublicationDetailsComponent {
     const url = this.route.snapshot.url.join('/');
     const parts = url.split('/');
     this.publicationId = parts[parts.length - 1];
-    console.log(this.publicationId);
     this.publicationService.getPublication(this.publicationId).subscribe(publicationData=>{
       this.publicationData=publicationData;
       console.log(publicationData);
     });
   }
 
-  showResponses(publication:Publication):void{
-    this.router.navigate(['publication-details/responses/',publication._id]);
+  showResponses(publication:Publication, aux:string):void{
+    this.router.navigate(['comment-details/responses/',publication._id, aux])
   }
 
   showPhoto(publication:Publication):void{

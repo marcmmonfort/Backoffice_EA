@@ -62,7 +62,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LogInComponent },
 
-  { path:'comment-details/responses/:id', component: CommentResponseComponent, canActivate:[AuthGuard] },
+  { path:'comment-details/responses/:id/:aux', component: CommentResponseComponent, canActivate:[AuthGuard] },
   { path:'user-details/followers/:id',component: UserFollowersComponent, canActivate:[AuthGuard] },
   { path:'user-details/followed/:id',component: UserFollowedComponent, canActivate:[AuthGuard] },
   { path:'publication',component: PublicationComponent, canActivate:[AuthGuard] },

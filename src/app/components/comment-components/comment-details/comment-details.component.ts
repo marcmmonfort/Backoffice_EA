@@ -32,8 +32,8 @@ export class CommentDetailsComponent {
     });
   }
 
-  showResponses(comment:Comment):void{
-    this.router.navigate(['comment-details/responses/',comment._id])
+  showResponses(comment:Comment, aux:string):void{
+    this.router.navigate(['comment-details/responses/',comment._id, aux])
   }
 
 }

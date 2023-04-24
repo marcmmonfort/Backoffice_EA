@@ -18,7 +18,7 @@ export class CommentService {
 
   // (1) Get (obtain) comments ...
   getComments(idPublicationComment: string, numPage: string): Observable<Comment[]> {
-    return this.http.get<Comment[]>(this.apiURL + idPublicationComment +'/' + numPage);
+    return this.http.get<Comment[]>(this.apiURL + 'getComments/' +idPublicationComment +'/' + numPage);
   }
 
   // (2) Post (creation) of a comment of a publication ...

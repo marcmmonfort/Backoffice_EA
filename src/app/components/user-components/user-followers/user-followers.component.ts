@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-user-followers',
   templateUrl: './user-followers.component.html',
@@ -45,10 +46,43 @@ export class UserFollowersComponent {
     this.userService.getFollowers(this.userId, this.numPage).subscribe((users) => {
       if(users.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
-        alert("Ya no hay más usuarios")
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'There are not more comments!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
       }
       else{
         this.filteredUsers = users;
+        if (!this.printeado){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            customClass: {
+              icon: 'swal-icon-color'
+            },
+            title: 'Followers Loaded',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 1500,
+            backdrop: `
+            rgba(0,0,0,0.8)
+            `
+          })
+        }
         this.printeado = true;
       }
     });
@@ -62,7 +96,21 @@ export class UserFollowersComponent {
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
-        alert("Estas en la primera pagina");
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'You are in the first page!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

@@ -46,7 +46,9 @@ export class LocationComponent implements OnInit {
       if(locations.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
         
-        // alert("Ya no hay más localizaciones")
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
 
         // Poner aquí el alert ...
         Swal.fire({

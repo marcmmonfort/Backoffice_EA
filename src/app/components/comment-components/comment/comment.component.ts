@@ -50,7 +50,9 @@ export class CommentComponent implements OnInit {
       if(comments.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
         
-        // alert("Ya no hay más comentarios")
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
 
         // Poner aquí el alert ...
         Swal.fire({

@@ -45,7 +45,9 @@ export class ListUserComponent implements OnInit {
       if(users.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
         
-        // alert("Ya no hay más usuarios")
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
 
         // Poner aquí el alert ...
         Swal.fire({

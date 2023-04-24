@@ -3,10 +3,10 @@
   (acceptChanges)="onAcceptChanges()"
   (cancelChanges)="onCancelChanges()"
 ></confirmation-modal>
-<h2 class="text-center">Crear usuario</h2>
+<h2 class="text-center">Create user</h2>
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="row g-3">
   <div class="form-group">
-    <label for="appUser">Usuario:</label>
+    <label for="appUser">User:</label>
     <input
       type="text"
       id="appUser"
@@ -20,12 +20,12 @@
       "
     >
       <div *ngIf="userForm.controls.appUser.errors.required">
-        Este campo es requerido.
+        This camp is required.
       </div>
     </div>
   </div>
   <div class="form-group">
-    <label for="nameUser">Nombre:</label>
+    <label for="nameUser">Name:</label>
     <input
       type="text"
       id="nameUser"
@@ -39,12 +39,12 @@
       "
     >
       <div *ngIf="userForm.controls.nameUser.errors.required">
-        Este campo es requerido.
+        This camp is required.
       </div>
     </div>
   </div>
   <div class="form-group">
-    <label for="surnameUser">Apellido:</label>
+    <label for="surnameUser">Surname:</label>
     <input
       type="text"
       id="surnameUser"
@@ -59,12 +59,12 @@
       "
     >
       <div *ngIf="userForm.controls.surnameUser.errors.required">
-        Este campo es requerido.
+        This camp is required.
       </div>
     </div>
   </div>
   <div class="form-group">
-    <label for="mailUser">Correo electrónico:</label>
+    <label for="mailUser">Email:</label>
     <input
       type="email"
       id="mailUser"
@@ -78,15 +78,15 @@
       "
     >
       <div *ngIf="userForm.controls.mailUser.errors.required">
-        Este campo es requerido.
+        This camp is required.
       </div>
       <div *ngIf="userForm.controls.mailUser.errors.email">
-        Este campo debe ser un correo electrónico válido.
+        This camp has to be a valid email.
       </div>
     </div>
   </div>
   <div class="form-group">
-    <label for="passwordUser">Contraseña:</label>
+    <label for="passwordUser">Password:</label>
     <input
       type="password"
       id="passwordUser"
@@ -101,12 +101,12 @@
       "
     >
       <div *ngIf="userForm.controls.passwordUser.errors.required">
-        Este campo es requerido.
+        This camp is required.
       </div>
     </div>
   </div>
   <div class="form-group">
-    <label for="photoUser">Foto:</label>
+    <label for="photoUser">Photo:</label>
     <input
       type="text"
       id="photoUser"
@@ -121,12 +121,12 @@
       "
     >
       <div *ngIf="userForm.controls.photoUser.errors.required">
-        Este campo es requerido.
+        This camp is required.
       </div>
     </div>
   </div>
   <div class="form-group">
-    <label for="birthdateUser">Fecha de nacimiento:</label>
+    <label for="birthdateUser">Birthdate:</label>
     <input
       type="date"
       id="birthdateUser"
@@ -135,15 +135,15 @@
     />
   </div>
   <div class="form-group">
-    <label for="genderUser">Género:</label>
+    <label for="genderUser">Gender:</label>
     <select id="genderUser" formControlName="genderUser" class="form-control">
-      <option value="male">Masculino</option>
-      <option value="female">Femenino</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="ocupationUser">Ocupación:</label>
+    <label for="ocupationUser">Ocupation:</label>
     <input
       type="string"
       id="ocupationUser"
@@ -152,7 +152,7 @@
     />
   </div>
   <div class="form-group">
-    <label for="descriptionUser">Descripción:</label>
+    <label for="descriptionUser">Description:</label>
     <input
       type="string"
       id="descriptionUser"
@@ -166,15 +166,16 @@
       class="form-check-input"
       id="privacyUser"
       name="privacyUser"
+      formControlName="privacyUser"
     />
-    <label class="form-check-label" for="privacyUser">Privado</label>
+    <label class="form-check-label" for="privacyUser">Privacy</label>
   </div>
   <div class="form-group">
-    <label for="roleUser">Rol</label>
+    <label for="roleUser">Role</label>
     <select class="form-control" id="roleUser" name="roleUser">
-      <option value="user">Usuario</option>
-      <option value="business">Negocio</option>
-      <option value="admin">Administrador</option>
+      <option value="user">User</option>
+      <option value="business">Business</option>
+      <option value="admin">Admin</option>
     </select>
   </div>
   <div class="form-group form-check">
@@ -183,9 +184,10 @@
       class="form-check-input"
       id="deletedUser"
       name="deletedUser"
+      formControlName="deletedUser"
     />
-    <label class="form-check-label" for="deletedUser">Eliminado</label>
+    <label class="form-check-label" for="deletedUser">Eliminated</label>
   </div>
 
-  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+  <button class="btn btn-primary" (click)="openModal()">Save changes</button>
 </form>

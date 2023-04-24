@@ -4,10 +4,10 @@
   (cancelChanges)="onCancelChanges()"
 ></confirmation-modal>
 
-<h2 class="text-center">Editar usuario</h2>
+<h2 class="text-center">Edit user</h2>
 <form (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="appUser">Usuario de la aplicación</label>
+    <label for="appUser">Username</label>
     <input
       type="text"
       class="form-control"
@@ -19,7 +19,7 @@
   </div>
 
   <div class="form-group">
-    <label for="nameUser">Nombre</label>
+    <label for="nameUser">Name</label>
     <input
       type="text"
       class="form-control"
@@ -31,7 +31,7 @@
   </div>
 
   <div class="form-group">
-    <label for="surnameUser">Apellido</label>
+    <label for="surnameUser">Surname</label>
     <input
       type="text"
       class="form-control"
@@ -43,7 +43,7 @@
   </div>
 
   <div class="form-group">
-    <label for="mailUser">Correo electrónico</label>
+    <label for="mailUser">Email</label>
     <input
       type="email"
       class="form-control"
@@ -55,7 +55,7 @@
   </div>
 
   <div class="form-group">
-    <label for="photoUser">Foto de perfil</label>
+    <label for="photoUser">Profile photo</label>
     <input
       type="text"
       class="form-control"
@@ -67,7 +67,7 @@
   </div>
 
   <div class="form-group">
-    <label for="birthdateUser">Fecha de nacimiento</label>
+    <label for="birthdateUser">Birthdate</label>
     <input
       type="date"
       class="form-control"
@@ -78,11 +78,11 @@
     />
   </div>
   <div class="last-updated">
-    La última fecha de nacimiento registrada es:
+    The last registered birthdate:
     {{ formatDate(userData.birthdateUser) }}
   </div>
   <div class="form-group">
-    <label for="genderUser">Género</label>
+    <label for="genderUser">Gender</label>
     <select
       class="form-control"
       id="genderUser"
@@ -90,14 +90,14 @@
       [(ngModel)]="userData.genderUser"
       required
     >
-      <option value="male">Masculino</option>
-      <option value="female">Femenino</option>
-      <option value="other">Otro</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="ocupationUser">Ocupación</label>
+    <label for="ocupationUser">Ocupation</label>
     <input
       type="text"
       class="form-control"
@@ -109,7 +109,7 @@
   </div>
 
   <div class="form-group">
-    <label for="descriptionUser">Descripción</label>
+    <label for="descriptionUser">Description</label>
     <textarea
       class="form-control"
       id="descriptionUser"
@@ -128,10 +128,10 @@
       name="privacyUser"
       [(ngModel)]="userData.privacyUser"
     />
-    <label class="form-check-label" for="privacyUser">Privado</label>
+    <label class="form-check-label" for="privacyUser">Privacy</label>
   </div>
   <div class="form-group">
-    <label for="roleUser">Rol</label>
+    <label for="roleUser">Role</label>
     <select
       class="form-control"
       id="roleUser"
@@ -139,9 +139,9 @@
       [(ngModel)]="userData.roleUser"
       required
     >
-      <option value="user">Usuario</option>
-      <option value="business">Negocio</option>
-      <option value="admin">Administrador</option>
+      <option value="user">User</option>
+      <option value="business">Business</option>
+      <option value="admin">Administrator</option>
     </select>
   </div>
   <div class="form-group form-check">
@@ -152,8 +152,8 @@
       name="deletedUser"
       [(ngModel)]="userData.deletedUser"
     />
-    <label class="form-check-label" for="deletedUser">Eliminado</label>
+    <label class="form-check-label" for="deletedUser">Eliminated</label>
   </div>
 
-  <button class="btn btn-primary" (click)="openModal()">Guardar cambios</button>
+  <button class="btn btn-primary" (click)="openModal()">Save changes</button>
 </form>

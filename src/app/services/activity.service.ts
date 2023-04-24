@@ -42,5 +42,8 @@ export class ActivityService {
   getActivity(idActivity: string): Observable<Activity> {
     return this.http.get<Activity>(this.apiURL + 'getActivity/'+ idActivity);
   }
+  getCountActivity():Observable<string>{
+    return this.http.get<string>(this.apiURL+"all/count/docs");
+  }
 
 };

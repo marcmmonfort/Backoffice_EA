@@ -40,4 +40,7 @@ export class LocationService {
   addLocation(location: Location): Observable<Location> {
     return this.http.post<Location>(this.apiURL, location);
   }
+  getCountLocation():Observable<string>{
+    return this.http.get<string>(this.apiURL+"all/count/docs");
+  }
 }

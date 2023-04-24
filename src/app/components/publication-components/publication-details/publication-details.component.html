@@ -13,10 +13,10 @@
                 <li class="list-group-item"><strong>Creator ID:</strong> {{ publicationData.idUserPublication }}</li>
                 <li class="list-group-item"><strong>Text:</strong> {{ publicationData.textPublication }}</li>
                 <li class="list-group-item"><strong>Likes:</strong> {{ publicationData.likesPublication?.length }}</li>
-                <li class="list-group-item"><strong>Comments:</strong> {{ publicationData.commentsPublication }}<a><button type="button" class="btn btn-primary" (click)="showResponses(publicationData)">Responses</button></a></li>
-                <li class="list-group-item"><strong>Photos:</strong> {{ publicationData.photoPublication[0] }}<a><button type="button" class="btn btn-primary" (click)="showPhoto(publicationData)">Fotos</button></a></li>
-                <li class="list-group-item"><strong>Created at:</strong> {{ publicationData.createdAt }}</li>
-                <li class="list-group-item"><strong>Updated at:</strong> {{ publicationData.updatedAt }}</li>
+                <li class="list-group-item"><strong>Comentarios:</strong><a><button type="button" class="btn btn-primary" (click)="showResponses(publicationData, 'Comments')">Responses</button></a></li>
+                <li class="list-group-item"><strong>Fotos:</strong> {{ publicationData.photoPublication[0] }}<a><button type="button" class="btn btn-primary" (click)="showPhoto(publicationData)">Fotos</button></a></li>
+                <li class="list-group-item"><strong>Fecha de creación:</strong> {{ publicationData.createdAt }}</li>
+                <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ publicationData.updatedAt }}</li>
               </ul>
             </div>
   

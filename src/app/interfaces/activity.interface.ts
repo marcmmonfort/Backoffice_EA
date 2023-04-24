@@ -2,10 +2,10 @@ export interface Activity {
     _id?: string
     nameActivity: string
     creatorActivity: string
-    participantsActivity?: [string]
-    photoActivity?: [string]
+    participantsActivity?: string[]
+    photoActivity?: string[]
     dateActivity: string
-    hoursActivity: [string]
+    hoursActivity: string[]
     idLocation?: string
     descriptionActivity?: string
     privacyActivity: boolean

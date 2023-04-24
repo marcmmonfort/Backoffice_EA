@@ -41,6 +41,7 @@ import { ActivityDetailsComponent } from './components/activity-components/activ
 import { ActivityEditComponent } from './components/activity-components/activity-edit/activity-edit.component';
 import { AuthGuard } from './shared/auth.guard';
 import { AuthService } from './services/auth.service';
+import { ActivityParticipantsComponent } from './components/activity-components/activity-participants/activity-participants.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
@@ -62,7 +63,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LogInComponent },
 
-  { path:'comment-details/responses/:id', component: CommentResponseComponent, canActivate:[AuthGuard] },
+  { path:'comment-details/responses/:id/:aux', component: CommentResponseComponent, canActivate:[AuthGuard] },
   { path:'user-details/followers/:id',component: UserFollowersComponent, canActivate:[AuthGuard] },
   { path:'user-details/followed/:id',component: UserFollowedComponent, canActivate:[AuthGuard] },
   { path:'publication',component: PublicationComponent, canActivate:[AuthGuard] },
@@ -74,6 +75,7 @@ const routes: Routes = [
   { path:'activity-create',component: ActivityCreateComponent, canActivate:[AuthGuard] },
   { path:'activity-details/:id',component: ActivityDetailsComponent, canActivate:[AuthGuard] },
   { path:'activity-edit/:id',component: ActivityEditComponent, canActivate:[AuthGuard] },
+  { path:'activity-participants/:id',component: ActivityParticipantsComponent, canActivate:[AuthGuard] },
 
   { path:'application',component: ApplicationComponent, canActivate:[AuthGuard] },
   { path:'application-create',component: ApplicationCreateComponent, canActivate:[AuthGuard] },
@@ -125,7 +127,8 @@ const routes: Routes = [
     ActivityComponent,
     ActivityCreateComponent,
     ActivityDetailsComponent,
-    ActivityEditComponent
+    ActivityEditComponent,
+    ActivityParticipantsComponent,
   ],
   imports: [
     BrowserModule,

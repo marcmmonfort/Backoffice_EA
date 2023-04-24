@@ -12,19 +12,21 @@ export class UserFollowedComponent {
   filteredUsers: any[] = [];
   searchTerm: string = '';
   userId!:string;
+  numPage: string = '';
+  printeado: boolean = false;
 
   constructor(private route: ActivatedRoute,private userService: UserService, private router: Router){}
-  ngOnInit(user:any):void{
+  
+  ngOnInit():void{
     this.loadUserData();
+    this.printeado = false;
+    this.numPage="1";
   }
 
   loadUserData(): void{
     const url = this.route.snapshot.url.join('/');
     const parts = url.split('/');
     this.userId = parts[parts.length - 1];
-    this.userService.getFollowed(this.userId).subscribe(users=>{
-      this.users=users;
-    })
   }
 
   showDetails(user: any): void {
@@ -39,8 +41,37 @@ export class UserFollowedComponent {
       this.filteredUsers = this.users.filter((user) =>
         user.mailUser.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredUsers = this.users;
     }
   }
+
+  printeaTodos() {
+    this.userService.getFollowed(this.userId, this.numPage).subscribe((users) => {
+      if(users.length==0){
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        alert("Ya no hay más usuarios")
+      }
+      else{
+        this.filteredUsers = users;
+        this.printeado = true;
+      }
+    });
+  }
+  paginatenext() {
+    if (this.printeado) {
+      this.numPage = (parseInt(this.numPage, 10) + 1).toString();
+      this.printeaTodos();
+    }
+  }
+  paginateprevious() {
+    if (this.printeado) {
+      if (this.numPage == '1') {
+        alert("Estas en la primera pagina");
+        return;
+      } else {
+        this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        this.printeaTodos();
+      }
+    }
+  }
+
 }

@@ -14,9 +14,9 @@
                 <li class="list-group-item"><strong>Publication ID:</strong> {{ commentData.idPublicationComment }}</li>
                 <li class="list-group-item"><strong>Text:</strong> {{ commentData.textComment }}</li>
                 <li class="list-group-item"><strong>Likes:</strong> {{ commentData.likesComment?.length }}</li>
-                <li class="list-group-item"><strong>Comment responses:</strong> {{ commentData.responseComment }}<a><button type="button" class="btn btn-primary" (click)="showResponses(commentData)">Responses</button></a></li>
-                <li class="list-group-item"><strong>Created at:</strong> {{ commentData.createdAt }}</li>
-                <li class="list-group-item"><strong>Updated at:</strong> {{ commentData.updatedAt }}</li>
+                <li class="list-group-item"><strong>Respuestas al comentario:</strong><a><button type="button" class="btn btn-primary" (click)="showResponses(commentData, 'Responses')">Responses</button></a></li>
+                <li class="list-group-item"><strong>Fecha de creación:</strong> {{ commentData.createdAt }}</li>
+                <li class="list-group-item"><strong>Fecha de última actualización:</strong> {{ commentData.updatedAt }}</li>
               </ul>
             </div>
   

@@ -52,5 +52,8 @@
     </tbody>
   </table>
 </div>
-<button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
-<button class="btn btn-primary" (click)="paginatenext()">Next</button>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
+  <p> {{ numPage }} </p> 
+  <button class="btn btn-primary" (click)="paginatenext()">Next</button>  
+</div>

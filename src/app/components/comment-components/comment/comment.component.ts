@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.css']
 })
+
 export class CommentComponent implements OnInit {
   comments: Comment[] = [];
   filteredComments: any[] = [];

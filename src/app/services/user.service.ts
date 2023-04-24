@@ -26,12 +26,12 @@ export class UserService {
     return this.http.get<User[]>(this.apiURLGetAll);
   }
 
-  getFollowers(id:string):Observable<User[]>{
-    return this.http.get<User[]>(this.apiURLFollower+id);  
+  getFollowers(id:string, numPage:string):Observable<User[]>{
+    return this.http.get<User[]>(this.apiURLFollower + id + '/' + numPage );  
   }
 
-  getFollowed(id:string):Observable<User[]>{
-    return this.http.get<User[]>(this.apiURLFollowed+id);  
+  getFollowed(id:string, numPage:string):Observable<User[]>{
+    return this.http.get<User[]>(this.apiURLFollowed + id + '/' + numPage);  
   }
 
   getUsersPag(numPage:string): Observable<User[]> {

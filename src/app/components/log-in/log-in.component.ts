@@ -71,26 +71,62 @@ export class LogInComponent {
         this.knownService.updateUserKnown(true);
         this.router.navigate(['/']);
       },(error:any)=>{
+        console.log(error.status);
 
-        // alert("¡No existe ningún usuario con estas credenciales!");console.log(error)
-
-        // Poner aquí el alert ...
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          customClass: {
-            icon: 'swal-icon-color'
-          },
-          title: 'This user does not exist!',
-          showConfirmButton: false,
-          timerProgressBar: true,
-          timer: 1500,
-          backdrop: `
-          rgba(0,0,0,0.8)
-          `
-        })
-
-        this.router.navigate(['/register']);
+        switch (error.status) {
+          case 403:
+              // Poner aquí el alert ...
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                customClass: {
+                  icon: 'swal-icon-color'
+                },
+                title: 'Incorrect Password!',
+                showConfirmButton: false,
+                timerProgressBar: true,
+                timer: 1500,
+                backdrop: `
+                rgba(0,0,0,0.8)
+                `
+              })
+            break;
+          case 406:
+              // Poner aquí el alert ...
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                customClass: {
+                  icon: 'swal-icon-color'
+                },
+                title: 'You are not an admin!',
+                showConfirmButton: false,
+                timerProgressBar: true,
+                timer: 1500,
+                backdrop: `
+                rgba(0,0,0,0.8)
+                `
+              })
+            break; 
+          default: 
+            // Poner aquí el alert ...
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              customClass: {
+                icon: 'swal-icon-color'
+              },
+              title: 'This user does not exist!',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 1500,
+              backdrop: `
+              rgba(0,0,0,0.8)
+              `
+            })
+            this.router.navigate(['/register']);
+            break;
+        }
       });
   }
 

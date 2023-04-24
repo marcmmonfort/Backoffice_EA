@@ -45,7 +45,7 @@ export class ActivityService {
 
   // (6) Get all paginated activities
   getAllPaginatedActivities(numPage:string):Observable<Activity[]> {
-    return this.http.get<Activity[]>(this.apiURL + 'getAllPaginatedActivities' + numPage);
+    return this.http.get<Activity[]>(this.apiURL + 'getAllPaginatedActivities/' + numPage);
   }
 
   // (7) Get participants of an activity

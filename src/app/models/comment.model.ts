@@ -8,6 +8,5 @@ export interface Comment {
     responseComment?: string[]
     createdAt: string;
     updatedAt: string;
-
 }
       

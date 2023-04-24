@@ -56,5 +56,10 @@ export class CommentService {
     return this.http.get<Comment[]>(this.apiURL + 'getAllPaginatedComments/'+ numPage);
   } 
 
+  // (10) Get response comments of a comment
+  getResponsesOfParticularComment (idComment:string, numPage:string):  Observable<Comment[]>{
+    return this.http.get<Comment[]>(this.apiURL + 'getResponseOfComment/'+ idComment+ '/' +numPage);
+  } 
+
 };
 

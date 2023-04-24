@@ -100,13 +100,13 @@ nav > ul > li > a{
 
 nav > ul > li > a:hover{
     transform: scale(1.1);
-    background: hsla(276, 100%, 21%, 0.824);
+    background: hsl(276, 100%, 21%);
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
 }
 
 #selected{
     transform: scale(1.1);
-    background-color: #24004de9;
+    background-color: #24004d;
     box-shadow: 0 0 10px 0 rgb(58, 0, 91);
 }
 

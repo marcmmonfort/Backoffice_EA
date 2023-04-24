@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Publication } from 'src/app/interfaces/publication.interface';
 import { PublicationService } from 'src/app/services/publication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-publication',
@@ -51,10 +52,43 @@ export class PublicationComponent implements OnInit{
     this.publicationService.getAllPaginatedPublications(this.numPage).subscribe((publication) => {
       if(publication.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
-        alert("Ya no hay más publicaciones")
+        
+        // alert("Ya no hay más publicaciones")
+
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'You are in the last page!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
       }
       else{
         this.filteredPublications = publication;
+        if (!this.printeado){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            customClass: {
+              icon: 'swal-icon-color'
+            },
+            title: 'Publication Loaded',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 1500,
+            backdrop: `
+            rgba(0,0,0,0.8)
+            `
+          })
+        }
         this.printeado = true;
       }
     });
@@ -68,6 +102,23 @@ export class PublicationComponent implements OnInit{
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
+
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'You are in the first page!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
+
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

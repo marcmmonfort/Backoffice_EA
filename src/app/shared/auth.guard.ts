@@ -18,11 +18,21 @@ export class AuthGuard implements CanActivate {
       return true;
     }
 
-    // Poner aquí un aviso ...
+    // Poner aquí el alert ...
     Swal.fire({
+      position: 'center',
       icon: 'error',
+      customClass: {
+        icon: 'swal-icon-color'
+      },
       title: 'Stop!',
-      text: 'What are you going? You must login before!',
+      text: 'You must login before!',
+      showConfirmButton: false,
+      timerProgressBar: true,
+      timer: 1500,
+      backdrop: `
+      rgba(0,0,0,0.8)
+      `
     })
 
     this.router.navigate(['/login']);

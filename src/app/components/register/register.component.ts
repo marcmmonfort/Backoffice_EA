@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -54,10 +55,44 @@ export class RegisterComponent {
     this.registerService.addUser(userData).subscribe(
       (data:any)=>{
         console.log(data);
-        alert("¡Registro efectuado correctamente!");
+        // alert("¡Registro efectuado correctamente!");
+
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'Register succefull!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
+
         this.router.navigate(['/login']);
       },(error:any)=>{
-        alert("¡No se ha podido registrar!");console.log(error);
+        // alert("¡No se ha podido registrar!");console.log(error);
+
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'This user does not exist!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
+
       });
     this.closeModal();
   }

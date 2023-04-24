@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { KnownService } from 'src/app/services/known.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -44,7 +45,25 @@ export class LogInComponent {
       (data:any)=>{
         // this.tokenStorage.saveToken(data.token);
         console.log(data);
-        alert("¡LogIn efectuado correctamente!");
+        
+        // alert("¡LogIn efectuado correctamente!");
+
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'LogIn succesful!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
+        
         // Aquí deberíamos hacer el cambio de la barra de navigate ...
 
         localStorage.setItem('token',data.token);
@@ -52,7 +71,25 @@ export class LogInComponent {
         this.knownService.updateUserKnown(true);
         this.router.navigate(['/']);
       },(error:any)=>{
-        alert("¡No existe ningún usuario con estas credenciales!");console.log(error)
+
+        // alert("¡No existe ningún usuario con estas credenciales!");console.log(error)
+
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'This user does not exist!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
+
         this.router.navigate(['/register']);
       });
   }

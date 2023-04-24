@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Activity } from 'src/app/interfaces/activity.interface';
 import { ActivityService } from 'src/app/services/activity.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-activity',
@@ -36,10 +37,7 @@ export class ActivityComponent implements OnInit{
       this.filteredActivities = this.activities.filter((activity) =>
         activity.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    } else {
-      this.filteredActivities = this.activities;
-      console.log(this.filteredActivities);
-    }
+    } 
   }
 
 }

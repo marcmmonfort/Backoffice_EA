@@ -59,7 +59,7 @@ export class UserFollowedComponent {
           customClass: {
             icon: 'swal-icon-color'
           },
-          title: 'There are not more comments!',
+          title: 'There are not more followed!',
           showConfirmButton: false,
           timerProgressBar: true,
           timer: 1500,

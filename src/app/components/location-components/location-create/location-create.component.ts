@@ -47,6 +47,7 @@ export class LocationCreateComponent {
       }
     );
     this.closeModal();
+    this.router.navigate(['/location']);
   }
   onAcceptChanges(): void {
     this.confirmChanges();

@@ -48,6 +48,9 @@ export class UserFollowedComponent {
     this.userService.getFollowed(this.userId, this.numPage).subscribe((users) => {
       if(users.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
         alert("Ya no hay más usuarios")
       }
       else{

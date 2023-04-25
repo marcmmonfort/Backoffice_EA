@@ -48,7 +48,10 @@ export class ActivityComponent implements OnInit{
     this.activityService.getAllPaginatedActivities(this.numPage).subscribe((activities) => {
       if(activities.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
-        alert("Ya no hay más comentarios")
+        if(parseInt(this.numPage, 10) < 1){
+          this.numPage = '1';
+        }
+        alert("Ya no hay más actividades")
       }
       else{
         this.filteredActivities = activities;

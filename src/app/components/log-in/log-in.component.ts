@@ -78,7 +78,7 @@ export class LogInComponent {
               // Poner aquí el alert ...
               Swal.fire({
                 position: 'center',
-                icon: 'success',
+                icon: 'error',
                 customClass: {
                   icon: 'swal-icon-color'
                 },
@@ -95,7 +95,7 @@ export class LogInComponent {
               // Poner aquí el alert ...
               Swal.fire({
                 position: 'center',
-                icon: 'success',
+                icon: 'error',
                 customClass: {
                   icon: 'swal-icon-color'
                 },
@@ -112,7 +112,7 @@ export class LogInComponent {
             // Poner aquí el alert ...
             Swal.fire({
               position: 'center',
-              icon: 'success',
+              icon: 'info',
               customClass: {
                 icon: 'swal-icon-color'
               },

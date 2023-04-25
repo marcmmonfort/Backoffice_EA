@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Location } from '../interfaces/location.interface';
+import { AuthService } from './auth.service';
+
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,8 @@ export class LocationService {
   currentLocation = this.locationSource.asObservable();
   private apiURL = 'http://localhost:5432/location/';
   private apiURLGetAll = 'http://localhost:5432/location/all';
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   // OK
   getAllLocations(): Observable<Location[]> {
@@ -33,11 +36,22 @@ export class LocationService {
   }
 
   // OK
+  /*
   deleteLocation(id: string): Observable<Location> {
     return this.http.delete<Location>(this.apiURL + id);
   }
+  */
   // OK
   addLocation(location: Location): Observable<Location> {
     return this.http.post<Location>(this.apiURL, location);
+  }
+
+  deleteLocation(id: any): Observable<Location> {
+    return this.http.delete<Location>(this.apiURL + '/' + id, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.authService.getToken(),
+      })
+    });
   }
 }

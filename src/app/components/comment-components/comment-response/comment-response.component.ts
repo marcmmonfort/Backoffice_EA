@@ -56,6 +56,9 @@ export class CommentResponseComponent implements OnInit {
       this.commentService.getResponsesOfParticularComment(this.Id, this.numPage).subscribe((comments) => {
         if(comments.length==0){
           this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+          if(parseInt(this.numPage, 10) < 1){
+            this.numPage = '1';
+          }
           alert("Ya no hay más comentarios")
         }
         else{

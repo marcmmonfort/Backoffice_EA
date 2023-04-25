@@ -30,8 +30,14 @@ export class AuthService {
   }
 
   isLoggedIn(){
+    console.log('Estoy' + localStorage.getItem('token'));
     return !!localStorage.getItem('token');
   }
 
+
+  public getToken(): string {
+    const token = localStorage.getItem('token');
+    return token ? token : ''
+  }
 };
 

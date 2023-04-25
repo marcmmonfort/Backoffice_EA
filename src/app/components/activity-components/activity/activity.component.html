@@ -29,7 +29,7 @@
         *ngFor="let activity of filteredActivities"
       >
         <td class="text-center">{{ activity.nameActivity }}</td>
-        <td class="text-center">{{ activity.creatorActivity }}</td>
+        <td class="text-center"> <a  [routerLink]="['/user-details',  activity.creatorActivity ]"> {{ activity.creatorActivity }}</a></td>
         <td class="text-center">{{ activity.dateActivity }}</td>
         <td><a [routerLink]="['/activity-details', activity._id]"><button type="button" class="button-arounder" (click)="showDetails(activity.id)">DETAILS</button></a></td>
         <td><a [routerLink]="['/activity-edit', activity._id]"><button type="button" class="button-arounder" (click)="showEdit(activity.id)">EDIT</button></a></td>

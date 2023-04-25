@@ -29,8 +29,8 @@
       <tr
         *ngFor="let publication of filteredPublications"
       >
-        <td class="text-center">{{ publication._id }}</td>
-        <td class="text-center">{{ publication.idUserPublication }}</td>
+        <td class="text-center"><a [routerLink]="['/publication-details', publication._id ]">{{ publication._id }}</a></td>
+        <td class="text-center"> <a  [routerLink]="['/user-details',   publication.idUserPublication  ]"> {{  publication.idUserPublication }}</a></td>
         <td class="text-center">{{ publication.textPublication }}</td>
         <td class="text-center">{{ publication.photoPublication[0] }}</td>
         <td><a [routerLink]="['/publication-details', publication._id]"><button type="button" class="button-arounder" (click)="showDetails(publication.id)">DETAILS</button></a></td>

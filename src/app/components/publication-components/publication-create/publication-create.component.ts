@@ -15,7 +15,8 @@ export class PublicationCreateComponent {
     
     this.publicationForm = this.formBuilder.group({
       "idUserPublication": ['', Validators.required],
-      "photoPublication": ['', Validators.required],
+      "textPublication":[''],
+      "photoPublication": ['', Validators.required]
       })
   }
 

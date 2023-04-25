@@ -1,15 +1,14 @@
-<h2 class="text-center mt-5">Locations</h2>
-<div class="d-flex justify-content-center mb-4">
-  <a class="btn btn-primary btn-lg" routerLink="/location-create">New location</a>
-</div>
-<div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">See all</button>
+<div class="d-flex justify-content-between mb-4">
+  <!--<a class="btn btn-primary btn-lg" routerLink="/user-create">Crear usuario</a>
+  <button class="btn btn-primary btn-lg" type="button" (click)="search()"><p class="animated-word">Todos</p></button>-->
+  <a class="btn" routerLink="/location-create"><p class="animated-word">CREATE</p></a>
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
   <input
     type="text"
     class="form-control rounded-pill"
-    placeholder="Buscar por Nombre"
+    placeholder="Search by name"
     [(ngModel)]="searchTerm"
     name="searchTerm"
     (keyup)="search()"
@@ -39,7 +38,7 @@
           <a [routerLink]="['/location-details', location._id]"
             ><button
               type="button"
-              class="btn btn-primary"
+              class="button-arounder"
               (click)="showDetails(location.id)"
             >
               Details
@@ -49,8 +48,8 @@
         <td>
           <a [routerLink]="['/location-edit', location._id]"
             ><button
-              type="button"
-              class="btn btn-primary"
+            type="button"
+            class="button-arounder"
               (click)="showEdit(location.id)"
             >
               Edit
@@ -63,7 +62,7 @@
 </div>
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
-  <p> {{ numPage }} </p> 
-  <button class="btn btn-primary" (click)="paginatenext()">Next</button>  
+  <button type="button" class="button-arounder" (click)="paginateprevious()" >Previous</button>
+  <p class="textoPag"> {{ numPage }} </p> 
+  <button type="button" class="button-arounder" (click)="paginatenext()">Next</button>  
 </div>

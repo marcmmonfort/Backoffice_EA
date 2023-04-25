@@ -1,13 +1,13 @@
-<h2 class="text-center mt-5">Respuestas</h2>
+
 <div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">Ver todas las respuestas del comentario (Poner la id del comentario principal)</button>
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
   <!-- Queremos que busque insultos dentro de los comentarios. En el searchTerm-->
   <input
     type="string"
     class="form-control rounded-pill"
-    placeholder="Buscar palabra"    
+    placeholder="Search by word"    
     [(ngModel)]="searchTerm"
     name="searchTerm"
     (keyup)="search()"
@@ -27,26 +27,14 @@
       >
         <td class="text-center">{{ comment.idUserComment }}</td>
         <td class="text-center">{{ comment.textComment }}</td>
-        <td>
-          <a><button type="button" class="btn btn-primary" (click)="showDetails(comment)">Detalles</button></a>
-        </td>
-        <td>
-          <a 
-            ><button
-              type="button"
-              class="btn btn-primary"
-              (click)="showEdit(comment)"
-            >
-              Editar
-            </button></a
-          >
-        </td>
+        <td><a [routerLink]="['/comment-details', comment._id]"><button type="button" class="button-arounder" (click)="showDetails(comment.id)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/comment-edit', comment._id]"><button type="button" class="button-arounder" (click)="showEdit(comment.id)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
-  <button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
-  <p> {{ numPage }} </p> 
-  <button class="btn btn-primary" (click)="paginatenext()">Next</button>  
+  <button type="button" class="button-arounder" (click)="paginateprevious()" >Previous</button>
+  <p class="textoPag"> {{ numPage }} </p> 
+  <button type="button" class="button-arounder" (click)="paginatenext()">Next</button>  
 </div>

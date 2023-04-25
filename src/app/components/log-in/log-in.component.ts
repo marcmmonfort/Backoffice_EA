@@ -69,7 +69,7 @@ export class LogInComponent {
         localStorage.setItem('token',data.token);
         
         this.knownService.updateUserKnown(true);
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       },(error:any)=>{
         console.log(error.status);
 

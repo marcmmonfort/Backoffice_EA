@@ -1,6 +1,7 @@
-<h2 class="text-center mt-5">Lista de seguidores</h2>
-<div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">Muéstrame todos</button>
+<div class="d-flex justify-content-between mb-4">
+  <!--<a class="btn btn-primary btn-lg" routerLink="/user-create">Crear usuario</a>
+  <button class="btn btn-primary btn-lg" type="button" (click)="search()"><p class="animated-word">Todos</p></button>-->
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
   <input type="text" class="form-control rounded-pill" placeholder="Buscar por correo electrónico" [(ngModel)]="searchTerm" name="searchTerm" (keyup)="search()">
@@ -11,11 +12,11 @@
     <thead>
       <tr>
         <th class="text-center">ID</th>
-        <th class="text-center">Nombre</th>
+        <th class="text-center">Name</th>
         <th class="text-center">Email</th>
-        <th class="text-center">Estado</th>
-        <th class="text-center">Detalles</th>
-        <th class="text-center">Editar</th>
+        <th class="text-center">Estate</th>
+        <th class="text-center">Details</th>
+        <th class="text-center">Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -24,17 +25,17 @@
         <td class="text-center">{{ user.nameUser }}</td>
         <td class="text-center">{{ user.mailUser }}</td>
         <td class="text-center">
-          <span *ngIf="!user.deletedUser" class="badge badge-success" class="font-weight-bold">Activado <i class="fas fa-check" style="color: green;"></i></span>
-          <span *ngIf="user.deletedUser" class="badge badge-danger" class="font-weight-bold">Desactivado <i class="fas fa-times" style="color: red;"></i></span>
+          <span *ngIf="!user.deletedUser" class="badge badge-success" class="font-weight-bold">Activated <i class="fas fa-check" style="color: green;"></i></span>
+          <span *ngIf="user.deletedUser" class="badge badge-danger" class="font-weight-bold">Desactivated <i class="fas fa-times" style="color: red;"></i></span>
         </td>
-        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="btn btn-primary" (click)="showDetails(user._id)">Detalles</button></a></td>
-        <td><a [routerLink]="['/user-edit', user._id]"><button type="button" class="btn btn-primary" (click)="showEdit(user._id)">Editar</button></a></td>
+        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="button-arounder" (click)="showDetails(user.id)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/user-edit', user._id]"><button type="button" class="button-arounder" (click)="showEdit(user.id)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
-  <button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
-  <p> {{ numPage }} </p> 
-  <button class="btn btn-primary" (click)="paginatenext()">Next</button>  
+  <button type="button" class="button-arounder" (click)="paginateprevious()" >Previous</button>
+  <p class="textoPag"> {{ numPage }} </p> 
+  <button type="button" class="button-arounder" (click)="paginatenext()">Next</button>  
 </div>

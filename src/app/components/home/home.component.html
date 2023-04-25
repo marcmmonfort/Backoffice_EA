@@ -1,14 +1,49 @@
-<div>
-  <h1>Welcome to the initial page</h1>
-  <p>Here you will find useful information</p>
-  <button routerLink="/listUsers">Go to users list</button>
-</div>
-<hr />
-<div><h1>See the locations here</h1></div>
-<button routerLink="/location">Go to locations</button>
+<header>
+  <h1 class="titulo">LPlan</h1>
+  <h2 class="slogan">Spend time on another level</h2>
+</header>
+<main>
+  <div class="list-group " >
+    <section>
+      <h2 class="titulo2">Summary</h2>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action active">
+          <strong>Registered users:</strong> {{ userCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total publications:</strong> {{ publicationCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total comments:</strong> {{ commentCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total of registered locations:</strong> {{ locationCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Total applications:</strong> {{ applicationCount }}
+        </li>
+        <li class="list-group-item list-group-item-action active">
+          <strong>Current activities:</strong> {{ activityCount }}
+        </li>
+      </ul>
+    </section>
+  </div>
 
-<hr />
-<div><h1>See the comments here</h1></div>
-<button routerLink="/comment">Go to comments</button>
+  <div>
+    <section>
+      <h2 class="titulo2">Our development team</h2>
+      <ul>
+        <li><a class="enlace" href="https://www.instagram.com/marcmmonfort/">Marc Moran Monfort</a> </li>
+        <li> <a class="enlace" href="https://www.instagram.com/eloimoncho/">Eloi Moncho Roig</a> </li>
+        <li> <a class="enlace" href="https://www.instagram.com/vfrnandzz__/">Víctor Fernandez Escriva</a> </li>
+        <li><a class="enlace" href="https://www.instagram.com/oscarr.bd/">Oscar Boullosa Dapena</a> </li>
+        <li> <a class="enlace" href="https://www.instagram.com/geniscastillo/">Genís Castillo Gómez-Raya</a> </li>
+      </ul>
+    </section>
+  </div>
+</main>
+<footer>
+  <p>LPlan &copy; 2023. Todos los derechos reservados.</p>
+</footer>
 
 <router-outlet></router-outlet>

@@ -50,6 +50,9 @@ export class PublicationService {
   getAllPaginatedPublications(numPage:string):  Observable<Publication[]>{
     return this.http.get<Publication[]>(this.apiURL + 'getAllPaginatedPublications/' + numPage);
   }
+  getCountPublication():Observable<string>{
+    return this.http.get<string>(this.apiURL+"all/count/docs");
+  }
 
 };
 

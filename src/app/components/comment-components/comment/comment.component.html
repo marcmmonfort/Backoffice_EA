@@ -1,16 +1,16 @@
-<h2 class="text-center mt-5">Comment</h2>
-<div class="d-flex justify-content-center mb-4">
-  <a class="btn btn-primary btn-lg" routerLink="/comment-create">New Comment</a>
-</div>
-<div class="d-flex justify-content-center mb-4">
-  <button class="btn btn-primary btn-lg" type="button" (click)="printeaTodos()">See all</button>
+
+<div class="d-flex justify-content-between mb-4">
+  <!--<a class="btn btn-primary btn-lg" routerLink="/user-create">Crear usuario</a>
+  <button class="btn btn-primary btn-lg" type="button" (click)="search()"><p class="animated-word">Todos</p></button>-->
+  <a class="btn" routerLink="/comment-create"><p class="animated-word">CREATE</p></a>
+  <button class="btn" type="button" (click)="printeaTodos()"><p class="animated-word">ALL</p></button>
 </div>
 <div class="input-group mb-3">
   <!-- Queremos que busque insultos dentro de los comentarios. En el searchTerm-->
   <input
     type="string"
     class="form-control rounded-pill"
-    placeholder="Buscar palabra"    
+    placeholder="Search by word"    
     [(ngModel)]="searchTerm"
     name="searchTerm"
     (keyup)="search()"
@@ -22,7 +22,7 @@
       <tr>
         <th class="text-center">IDPublicacion</th>
         <th class="text-center">IDUser</th>
-        <th class="text-center">text</th>
+        <th class="text-center">Text</th>
       </tr>
     </thead>
     <tbody>
@@ -32,26 +32,14 @@
         <td class="text-center">{{ comment.idPublicationComment }}</td>
         <td class="text-center">{{ comment.idUserComment }}</td>
         <td class="text-center">{{ comment.textComment }}</td>
-        <td>
-          <a><button type="button" class="btn btn-primary" (click)="showDetails(comment)">Details</button></a>
-        </td>
-        <td>
-          <a 
-            ><button
-              type="button"
-              class="btn btn-primary"
-              (click)="showEdit(comment)"
-            >
-              Edit
-            </button></a
-          >
-        </td>
+        <td><a [routerLink]="['/comment-details', comment._id]"><button type="button" class="button-arounder" (click)="showDetails(comment.id)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/comment-edit', comment._id]"><button type="button" class="button-arounder" (click)="showEdit(comment.id)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
-  <button class="btn btn-primary" (click)="paginateprevious()" >Previous</button>
-  <p> {{ numPage }} </p> 
-  <button class="btn btn-primary" (click)="paginatenext()">Next</button>  
+  <button type="button" class="button-arounder" (click)="paginateprevious()" >Previous</button>
+  <p class="textoPag"> {{ numPage }} </p> 
+  <button type="button" class="button-arounder" (click)="paginatenext()">Next</button>  
 </div>

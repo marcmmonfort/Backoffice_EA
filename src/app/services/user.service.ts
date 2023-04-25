@@ -64,4 +64,8 @@ export class UserService {
     return this.http.put<User>(this.apiURL + id, user)
   }
 
+  getCountUser():Observable<string>{
+    return this.http.get<string>(this.apiURL+"all/count/docs");
+  }
+
 }

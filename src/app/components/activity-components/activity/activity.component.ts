@@ -51,10 +51,40 @@ export class ActivityComponent implements OnInit{
         if(parseInt(this.numPage, 10) < 1){
           this.numPage = '1';
         }
-        alert("Ya no hay más actividades")
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'There aren not more comments!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
       }
       else{
         this.filteredActivities = activities;
+        if (!this.printeado){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            customClass: {
+              icon: 'swal-icon-color'
+            },
+            title: 'Activities Loaded',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 1500,
+            backdrop: `
+            rgba(0,0,0,0.8)
+            `
+          })
+        }
         this.printeado = true;
       }
     });
@@ -68,7 +98,21 @@ export class ActivityComponent implements OnInit{
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
-        alert("Estas en la primera pagina");
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'You are in the first page!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

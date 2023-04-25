@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Activity } from 'src/app/interfaces/activity.interface';
 import { User } from 'src/app/interfaces/user.interface';
 import { ActivityService } from 'src/app/services/activity.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-activity-participants',
@@ -58,10 +59,40 @@ export class ActivityParticipantsComponent implements OnInit {
         if(parseInt(this.numPage, 10) < 1){
           this.numPage = '1';
         }
-        alert("Ya no hay más usuarios")
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'There are not more participants!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
       }
       else{
         this.filteredUsers = users;
+        if (!this.printeado){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            customClass: {
+              icon: 'swal-icon-color'
+            },
+            title: 'Participants Loaded',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 1500,
+            backdrop: `
+            rgba(0,0,0,0.8)
+            `
+          })
+        }
         this.printeado = true;
       }
     });
@@ -75,7 +106,21 @@ export class ActivityParticipantsComponent implements OnInit {
   paginateprevious() {
     if (this.printeado) {
       if (this.numPage == '1') {
-        alert("Estas en la primera pagina");
+        // Poner aquí el alert ...
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'You are in the first page!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
         return;
       } else {
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();

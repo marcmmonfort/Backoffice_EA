@@ -1,92 +1,103 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
     text-decoration: none;
-
-}
-
-header{
+  }
+  
+  header {
     width: 100%;
     position: relative;
     top: 0;
     left: 0;
-    background: #fff;
-}
-
-/*HEADER SUPERIOR*/
-
-.contenedor_cabecera{
+    background-image: url('https://img.freepik.com/vector-gratis/fondo-acuarela_87374-69.jpg?w=1380&t=st=1682372953~exp=1682373553~hmac=2fb033385321897dc838be39b04d930d0123f3d4fd3b5bea135e2aa1b955b9c0');
+  }
+  
+  /*HEADER SUPERIOR*/
+  .titulo h1 {
+    font-weight: bold;
+    font-family: 'Arial Black', sans-serif;
+    color: #557996;
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 2px 2px #02152b;
+    
+    
+  }
+  
+  .contenedor_cabecera {
     max-width: 1200px;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-}
-
-.logo img{
+  }
+  
+  .logo img {
     width: 250px;
-}
-
-.search input{
+    
+  }
+  
+  .search input {
     width: 300px;
     padding: 10px;
-}
-
-.titulo{
+  }
+  
+  .titulo {
     width: 300px;
     padding: 10px;
-}
-
-/*BARRA MENU*/
-
-.contenedor_menu{
+  }
+  
+  /*BARRA MENU*/
+  
+  .contenedor_menu {
     width: 100%;
     height: 70px;
-    background: #000000;
+    background: radial-gradient(circle at center, #153f59, #94b8d7);
     padding: 0px 20px;
     display: flex;
-}
-
-.menu{
+  }
+  
+  
+  .menu {
     max-width: 1200px;
     margin: auto;
     height: 100%;
-}
-
-nav{
+  }
+  
+  nav {
     height: 100%;
-}
-
-nav > ul{
+  }
+  
+  nav > ul {
     height: 100%;
     display: flex;
-}
-
-nav ul li{
+  }
+  
+  nav ul li {
     height: 100%;
     list-style: none;
     position: relative;
-}
-
-nav > ul > li:first-child > a{
+  }
+  
+  nav > ul > li:first-child > a {
     /*background-image: url(../img/retirement-home.png);*/
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center center;
     padding: 20px 40px;
-}
-
-nav > ul > li:first-child:hover > a{
+  }
+  
+  nav > ul > li:first-child:hover > a {
     /*background-image: url(../img/retirement-home.png);*/
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center center;
-}
-
-nav > ul > li > a{
+  }
+  
+  nav > ul > li > a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -96,43 +107,43 @@ nav > ul > li > a{
     text-transform: uppercase;
     font-size: 14px;
     transition: all 300ms ease;
-}
-
-nav > ul > li > a:hover{
+  }
+  
+  nav > ul > li > a:hover {
     transform: scale(1.1);
-    background: hsl(276, 100%, 21%);
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-}
-
-#selected{
+    background: hsl(62, 92%, 33%);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+  
+  #selected {
     transform: scale(1.1);
     background-color: #24004d;
     box-shadow: 0 0 10px 0 rgb(58, 0, 91);
-}
-
-/*ARTICULO*/
-
-main{
+  }
+  
+  /*ARTICULO*/
+  
+  main {
     padding: 10px 20px;
     margin-top: 0px;
-}
-
-article{
+  }
+  
+  article {
     max-width: 1200px;
     margin: 20px auto;
     padding: 40px;
     background: #f0f0f0;
-}
-
-article p{
+  }
+  
+  article p {
     margin-top: 20px;
     font-size: 18px;
     font-weight: 300;
-}
-
-/*ELEMENTOS RESPONSIVOS*/
-
-.icon__menu{
+  }
+  
+  /*ELEMENTOS RESPONSIVOS*/
+  
+  .icon__menu {
     font-size: 26px;
     color: white;
     cursor: pointer;
@@ -140,74 +151,14 @@ article p{
     height: 100%;
     display: none;
     align-items: center;
-}
-
-#label__check{
+  }
+  
+  #label__check {
     width: 26px;
     height: 100%;
     display: none;
-}
-
-#check__menu{
+  }
+  
+  #check__menu {
     display: none;
-}
-
-@media screen and (max-width: 720px){
-
-    .titulo{
-        display: none;
-    }
-
-    .contenedor_cabecera{
-        padding: 10px;
-    }
-
-    .logo img{
-        width: 200px;
-    }
-
-    nav > ul{
-        flex-direction: column;
-        background-color: #24004d;
-        position: fixed;
-        left: 0;
-        top: 158px;
-        width: 100%;
-        height: 0px;
-        transition: all 300ms ease;
-        z-index: 100;
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    nav > ul > li > a:hover{
-        transform: scale(1);
-    }
-
-    nav > ul > li:first-child a{
-        background-position: 20px;
-    }
-
-    #selected{
-        transform: scale(1);
-    }
-
-    #label__check{
-        display: block;
-    }
-
-    .icon__menu{
-        display: flex;
-    }
-
-    #check__menu:checked ~ nav > ul{
-        height: 300px;
-        visibility: visible;
-        opacity: 1;
-    }
-
-    main{
-        margin-top: 158px;
-    }
-}
-
+  }

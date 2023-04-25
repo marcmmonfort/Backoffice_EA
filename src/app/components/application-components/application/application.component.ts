@@ -53,8 +53,6 @@ export class ApplicationComponent implements OnInit {
         if(parseInt(this.numPage, 10) < 1){
           this.numPage = '1';
         }
-        // alert("Ya no hay más notificaciones");
-
         // Poner aquí el alert ...
         Swal.fire({
           position: 'center',

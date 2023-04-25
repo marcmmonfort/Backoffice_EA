@@ -54,4 +54,11 @@ export class LocationService {
       })
     });
   }
+
+
+  getCountLocation():Observable<string>{
+    return this.http.get<string>(this.apiURL+"all/count/docs");
+  }
+
 }
+

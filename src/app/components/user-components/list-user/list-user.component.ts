@@ -44,10 +44,10 @@ export class ListUserComponent implements OnInit {
     this.userService.getUsersPag(this.numPage).subscribe((users) => {
       if(users.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
+        
         if(parseInt(this.numPage, 10) < 1){
           this.numPage = '1';
         }
-        // alert("Ya no hay más usuarios")
 
         // Poner aquí el alert ...
         Swal.fire({
@@ -75,7 +75,7 @@ export class ListUserComponent implements OnInit {
             customClass: {
               icon: 'swal-icon-color'
             },
-            title: 'Comments Loaded',
+            title: 'Users Loaded',
             showConfirmButton: false,
             timerProgressBar: true,
             timer: 1500,

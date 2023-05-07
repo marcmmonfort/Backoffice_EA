@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Activity } from '../interfaces/activity.interface';
 import { User } from '../interfaces/user.interface';
+import { environment } from 'src/env/env';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ActivityService {
 
   activity!: Activity ;
   message!: String;
-  private apiURL = 'http://localhost:5432/activity/';
+  private apiURL = environment.API_URL + '/activity/';
   constructor(private http: HttpClient) { }
 
   // (1) Post (creation) of an activity ...

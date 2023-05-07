@@ -2,6 +2,7 @@ import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Comment } from '../interfaces/comment.interface';
+import { environment } from 'src/env/env';
 
 
 
@@ -12,7 +13,7 @@ export class CommentService {
 
   comment!: Comment ;
   message!: String;
-  private apiURL = 'http://localhost:5432/comment/';
+  private apiURL = environment.API_URL + '/comment/';
   constructor(private http: HttpClient) { }
 
 

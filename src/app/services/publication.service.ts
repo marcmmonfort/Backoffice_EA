@@ -2,6 +2,7 @@ import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Publication } from '../interfaces/publication.interface';
+import { environment } from 'src/env/env';
 
 
 
@@ -12,7 +13,7 @@ export class PublicationService {
 
   publication!: Publication;
   message!: String;
-  private apiURL = 'http://localhost:5432/publication/';
+  private apiURL = environment.API_URL + '/publication/';
   constructor(private http: HttpClient) { }
 
 

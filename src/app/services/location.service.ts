@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Location } from '../interfaces/location.interface';
 import { AuthService } from './auth.service';
+import { environment } from 'src/env/env';
 
 
 
@@ -14,8 +15,8 @@ export class LocationService {
   message!: String;
   private locationSource = new BehaviorSubject(this.location);
   currentLocation = this.locationSource.asObservable();
-  private apiURL = 'http://localhost:5432/location/';
-  private apiURLGetAll = 'http://localhost:5432/location/all';
+  private apiURL = environment.API_URL + '/location/';
+  private apiURLGetAll = environment.API_URL + '/location/all';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

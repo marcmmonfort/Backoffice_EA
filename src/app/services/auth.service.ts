@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { Auth } from '../interfaces/login.interface';
+import { environment } from 'src/env/env';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class AuthService {
   user!: User;
   userData!: Auth;
 
-  private apiURL = 'http://localhost:5432/auth/';
+  private apiURL = environment.API_URL + '/auth/';
 
   constructor(private http: HttpClient) { }
 

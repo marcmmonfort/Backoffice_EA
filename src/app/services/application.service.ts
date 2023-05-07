@@ -2,6 +2,7 @@ import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Application } from '../interfaces/application.interface';
+import { environment } from 'src/env/env';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Application } from '../interfaces/application.interface';
 export class ApplicationService {
 
   application!: Application ;
-  private apiURL = 'http://localhost:5432/application/';
+  private apiURL = environment.API_URL + '/application/';
   constructor(private http: HttpClient) { }
 
   // (1) Post (creation) of an application ...

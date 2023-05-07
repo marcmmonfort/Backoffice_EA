@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 // import { LogIn } from '../interfaces/login.interface';
 import { User } from '../interfaces/user.interface';
+import { environment } from 'src/env/env';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,12 @@ export class UserService {
   message!: String;
   private userSource = new BehaviorSubject(this.user);
   currentUser = this.userSource.asObservable();
-  private apiURL = 'http://localhost:5432/user/';
-  private apiURLFollower='http://localhost:5432/user/follower/'
-  private apiURLFollowed='http://localhost:5432/user/followed/'
+  private apiURL = environment.API_URL + '/user/';
+  private apiURLFollower= environment.API_URL + '/user/follower/'
+  private apiURLFollowed= environment.API_URL + '/user/followed/'
 
-  private apiURLGetAll='http://localhost:5432/user/all';
-  private apiRegister='http://localhost:5432/auth/register';
+  private apiURLGetAll= environment.API_URL + '/user/all';
+  private apiRegister= environment.API_URL + '/auth/register';
   constructor(private http: HttpClient) { }
 
   // OK

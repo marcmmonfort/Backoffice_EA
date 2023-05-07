@@ -55,9 +55,7 @@ export class RegisterComponent {
     this.registerService.addUser(userData).subscribe(
       (data:any)=>{
         console.log(data);
-        // alert("¡Registro efectuado correctamente!");
-
-        // Poner aquí el alert ...
+      
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -75,16 +73,14 @@ export class RegisterComponent {
 
         this.router.navigate(['/login']);
       },(error:any)=>{
-        // alert("¡No se ha podido registrar!");console.log(error);
-
-        // Poner aquí el alert ...
+        
         Swal.fire({
           position: 'center',
           icon: 'success',
           customClass: {
             icon: 'swal-icon-color'
           },
-          title: 'This user does not exist!',
+          title: 'This user already exists!',
           showConfirmButton: false,
           timerProgressBar: true,
           timer: 1500,

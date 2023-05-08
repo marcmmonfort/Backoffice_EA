@@ -19,12 +19,13 @@ export class UserService {
   private apiURLFollowed= environment.API_URL + '/user/followed/'
 
   private apiURLGetAll= environment.API_URL + '/user/all';
+  private apiURLGetAll2=environment.API_URL + '/user/users/all';
   private apiRegister= environment.API_URL + '/auth/register';
   constructor(private http: HttpClient) { }
 
   // OK
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiURLGetAll);
+    return this.http.get<User[]>(this.apiURLGetAll2 );
   }
 
   getFollowers(id:string, numPage:string):Observable<User[]>{

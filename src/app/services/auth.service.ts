@@ -16,7 +16,7 @@ export class AuthService {
   user!: User;
   userData!: Auth;
 
-  private apiURL = environment.API_URL + '/auth/';
+  private apiURL = environment.API_URL + '/user/';
 
   constructor(private http: HttpClient) { }
 

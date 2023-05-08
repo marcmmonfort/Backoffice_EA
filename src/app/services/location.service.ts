@@ -17,24 +17,44 @@ export class LocationService {
   currentLocation = this.locationSource.asObservable();
   private apiURL = environment.API_URL + '/location/';
   private apiURLGetAll = environment.API_URL + '/location/all';
+  private apiURLGetAll2=environment.API_URL+'/locations/all'
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   // OK
   getAllLocations(): Observable<Location[]> {
-    return this.http.get<Location[]>(this.apiURLGetAll);
+    return this.http.get<Location[]>(this.apiURLGetAll2,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.authService.getToken(),
+      })
+    });
   }
 
   getLocations( numPage: string): Observable<Comment[]> {
-    return this.http.get<Comment[]>(this.apiURLGetAll +'/'+ numPage);
+    return this.http.get<Comment[]>(this.apiURLGetAll +'/'+ numPage,{
+      headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + this.authService.getToken(),
+    })});
   }
 
   getLocation(id: string): Observable<Location> {
-    return this.http.get<Location>(this.apiURL + id);
+    return this.http.get<Location>(this.apiURL + id,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.authService.getToken(),
+      })
+    });
   } // OK
 
   updateLocation(location: Location, id: string): Observable<Location> {
-    return this.http.put<Location>(this.apiURL + id, location);
+    return this.http.put<Location>(this.apiURL + id, location,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.authService.getToken(),
+      })
+    });
   }
 
   // OK
@@ -45,11 +65,16 @@ export class LocationService {
   */
   // OK
   addLocation(location: Location): Observable<Location> {
-    return this.http.post<Location>(this.apiURL, location);
+    return this.http.post<Location>(this.apiURL+'add', location,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.authService.getToken(),
+      })
+    });
   }
 
   deleteLocation(id: any): Observable<Location> {
-    return this.http.delete<Location>(this.apiURL + '/' + id, {
+    return this.http.delete<Location>(this.apiURL + id, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + this.authService.getToken(),
@@ -59,7 +84,12 @@ export class LocationService {
 
 
   getCountLocation():Observable<string>{
-    return this.http.get<string>(this.apiURL+"all/count/docs");
+    return this.http.get<string>(this.apiURL+"all/count/docs",{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.authService.getToken(),
+      }),
+    });
   }
 
 }

@@ -20,7 +20,7 @@ export class UserService {
 
   private apiURLGetAll = environment.API_URL + '/users/all';
   private apiURLGetAll2 = environment.API_URL + '/user/all';
-  private apiRegister = environment.API_URL + '/auth/register';
+  //private apiRegister = environment.API_URL + '/auth/register';
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   // OK
@@ -87,12 +87,6 @@ export class UserService {
   newUserLogged(user: User) {
     this.userSource.next(user);
   }
-
-  // OK
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiRegister, user);
-  }
-
   updateUser(user: User, id: string): Observable<User> {
     return this.http.put<User>(this.apiURL + id, user,{
       headers: new HttpHeaders({

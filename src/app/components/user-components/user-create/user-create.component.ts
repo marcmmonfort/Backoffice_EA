@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-create',
@@ -14,7 +15,7 @@ export class UserCreateComponent implements OnInit {
   isModalOpen:boolean=false;
 
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService,private authservice:AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -47,7 +48,7 @@ export class UserCreateComponent implements OnInit {
   }
   confirmChanges(): void {
     const userData = this.userForm.value;
-    this.userService.addUser(userData).subscribe(
+    this.authservice.addUser(userData).subscribe(
       (response) => {
         console.log('Usuario guardado correctamente:', response);
         // Aquí podrías redirigir a la página de éxito, por ejemplo

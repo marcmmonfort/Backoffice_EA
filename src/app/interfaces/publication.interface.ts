@@ -1,6 +1,6 @@
 export interface Publication {
-    _id?: string,
-    idUserPublication: string,
+    uuid?: string,
+    idUser: string,
     likesPublication?: string[],
     textPublication?: string,
     photoPublication: string[], // Aquí van las fotos de las publicaciones.

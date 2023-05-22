@@ -30,7 +30,7 @@ export class PublicationDetailsComponent {
   }
 
   showResponses(publication:Publication, aux:string):void{
-    this.router.navigate(['comment-details/responses/',publication._id, aux])
+    this.router.navigate(['comment-details/responses/',publication.uuid, aux])
   }
 
   showPhoto(publication:Publication):void{

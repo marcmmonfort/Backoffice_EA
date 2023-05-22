@@ -14,7 +14,7 @@ export class PublicationCreateComponent {
   constructor(private formBuilder: FormBuilder, private publicationService: PublicationService, private router: Router) { 
     
     this.publicationForm = this.formBuilder.group({
-      "idUserPublication": ['', Validators.required],
+      "idUser": ['', Validators.required],
       "textPublication":[''],
       "photoPublication": ['', Validators.required]
       })

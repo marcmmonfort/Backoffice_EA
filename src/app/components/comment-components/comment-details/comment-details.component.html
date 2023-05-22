@@ -9,7 +9,7 @@
           <div class="card-body">
             <div *ngIf="commentData">
               <ul class="list-group">
-                <li class="list-group-item"><strong>ID:</strong> {{ commentData._id }}</li>
+                <li class="list-group-item"><strong>ID:</strong> {{ commentData.uuid }}</li>
                 <li class="list-group-item"><strong>Creator ID:</strong> {{ commentData.idUserComment }}</li>
                 <li class="list-group-item"><strong>Publication ID:</strong> {{ commentData.idPublicationComment }}</li>
                 <li class="list-group-item"><strong>Text:</strong> {{ commentData.textComment }}</li>

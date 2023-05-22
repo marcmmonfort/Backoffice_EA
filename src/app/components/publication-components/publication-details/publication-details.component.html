@@ -9,8 +9,8 @@
           <div class="card-body">
             <div *ngIf="publicationData">
               <ul class="list-group">
-                <li class="list-group-item"><strong>ID:</strong> {{ publicationData._id }}</li>
-                <li class="list-group-item"><strong>Creator ID:</strong> {{ publicationData.idUserPublication }}</li>
+                <li class="list-group-item"><strong>ID:</strong> {{ publicationData.uuid }}</li>
+                <li class="list-group-item"><strong>Creator ID:</strong> {{ publicationData.idUser }}</li>
                 <li class="list-group-item"><strong>Text:</strong> {{ publicationData.textPublication }}</li>
                 <li class="list-group-item"><strong>Likes:</strong> {{ publicationData.likesPublication?.length }}</li>
                 <li class="list-group-item"><strong>Comentarios:</strong><a><button type="button" class="btn btn-primary" (click)="showResponses(publicationData, 'Comments')">Responses</button></a></li>

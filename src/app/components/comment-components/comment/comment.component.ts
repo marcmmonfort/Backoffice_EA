@@ -39,9 +39,13 @@ export class CommentComponent implements OnInit {
 
   search() {
     if (this.searchTerm.trim() !== '') {
-      this.filteredComments = this.comments.filter((comment) =>
-        comment.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+      this.filteredComments = this.comments.filter((comment) => {
+        if (comment.createdAt) {
+          return comment.createdAt.toLowerCase().includes(this.searchTerm.toLowerCase());
+        }
+        return false;
+      });
+      
     } 
   }
 

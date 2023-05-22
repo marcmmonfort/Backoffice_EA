@@ -33,7 +33,7 @@ export class CommentDetailsComponent {
   }
 
   showResponses(comment:Comment, aux:string):void{
-    this.router.navigate(['comment-details/responses/',comment._id, aux])
+    this.router.navigate(['comment-details/responses/',comment.uuid, aux])
   }
 
 }

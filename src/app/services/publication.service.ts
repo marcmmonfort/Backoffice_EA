@@ -14,7 +14,7 @@ export class PublicationService {
 
   publication!: Publication;
   message!: String;
-  private apiURL = environment.API_URL + '/publication/';
+  private apiURL = environment.API_URL + '/publication';
   private apiURLall=environment.API_URL+'/publication/all'
   private apiURLall2=environment.API_URL+'/publications/all'
   constructor(private http: HttpClient, private authService: AuthService) { }

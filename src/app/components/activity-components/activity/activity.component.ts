@@ -30,10 +30,10 @@ export class ActivityComponent implements OnInit{
   }
 
   showDetails(activity: any): void {
-    this.router.navigate(['/activity-details', activity._id]);
+    this.router.navigate(['/activity-details', activity.uuid]);
   }
   showEdit(activity: any): void {
-    this.router.navigate(['/activity-edit', activity._id]);
+    this.router.navigate(['/activity-edit', activity.uuid]);
   }
 
   search() {

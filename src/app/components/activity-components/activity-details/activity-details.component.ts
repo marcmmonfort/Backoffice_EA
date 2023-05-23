@@ -32,7 +32,7 @@ export class ActivityDetailsComponent {
   }
 
   showParticipants(activity:Activity):void{
-    this.router.navigate(['activity-participants/',activity._id])
+    this.router.navigate(['activity-participants/',activity.uuid])
   }
   
   

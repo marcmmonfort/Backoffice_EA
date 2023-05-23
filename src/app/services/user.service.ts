@@ -33,8 +33,8 @@ export class UserService {
     });
   }
 
-  getFollowers(id: string, numPage: string): Observable<User[]> {
-    return this.http.get<User[]>(this.apiURLFollower + id + '/' + numPage, {
+  getFollowers(uuid: string, numPage: string): Observable<User[]> {
+    return this.http.get<User[]>(this.apiURLFollower + uuid + '/' + numPage, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.authService.getToken(),
@@ -42,8 +42,8 @@ export class UserService {
     });
   }
 
-  getFollowed(id: string, numPage: string): Observable<User[]> {
-    return this.http.get<User[]>(this.apiURLFollowed + id + '/' + numPage, {
+  getFollowed(uuid: string, numPage: string): Observable<User[]> {
+    return this.http.get<User[]>(this.apiURLFollowed + uuid + '/' + numPage, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.authService.getToken(),
@@ -60,8 +60,8 @@ export class UserService {
     });
   }
 
-  getUser(id: string): Observable<User> {
-    return this.http.get<User>(this.apiURL + id, {
+  getUser(uuid: string): Observable<User> {
+    return this.http.get<User>(this.apiURL + uuid, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.authService.getToken(),
@@ -69,8 +69,8 @@ export class UserService {
     });
   } // OK
 
-  delete(id: string): Observable<User> {
-    return this.http.delete<User>(this.apiURL + id, {
+  delete(uuid: string): Observable<User> {
+    return this.http.delete<User>(this.apiURL + uuid, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + this.authService.getToken(),

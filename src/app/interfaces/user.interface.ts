@@ -1,23 +1,21 @@
 export interface User{
-    _id?: string
-    appUser?: string;
+    uuid?:string;
+    appUser: string;
     nameUser: string;
     surnameUser: string;
-    passwordUser: string;
-    mailUser: string;
-    photoUser: ImageBitmap;
+    mailUser:string;
+    photoUser: string;
     birthdateUser: Date;
-    genderUser: "masculino" | "femenino";
+    genderUser: string;
     ocupationUser?: string;
     descriptionUser: string;
-    roleUser: "admin" | "common" | "verificado" | "empresa";
+    roleUser: string;
     privacyUser: boolean;
-    followersUser?: User[];
-    followedUser?: User[];
-    deleted: boolean;
+    deletedUser: boolean;
+    followersUser?: [string];
+    followedUser?: [string];
     createdAt: string;
     updatedAt: string;
-    
 }
 
     

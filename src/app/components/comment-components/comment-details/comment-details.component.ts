@@ -29,6 +29,7 @@ export class CommentDetailsComponent {
     this.commentService.getComment(this.commentId).subscribe(commentData=>{
       this.commentData=commentData;
       console.log(commentData);
+      console.log(commentData.idUserComment);
     });
   }
 

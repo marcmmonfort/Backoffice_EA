@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { format } from 'date-fns';
+import { User } from 'src/app/interfaces/user.interface';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { format } from 'date-fns';
 })
 export class UserDetailsComponent implements OnInit{
 
-  userData: any;
+  userData!: User;
   userId!: string;
   
   constructor(private route: ActivatedRoute, private userService: UserService,private router:Router) {}
@@ -27,6 +28,9 @@ export class UserDetailsComponent implements OnInit{
     console.log(this.userId);
     this.userService.getUser(this.userId).subscribe(userData=>{
       this.userData=userData;
+      console.log(userData);
+      console.log(userData.appUser);
+      console.log(userData.nameUser);
     });
   }
   getRolText(rol: string): string {
@@ -45,9 +49,9 @@ export class UserDetailsComponent implements OnInit{
   }
 
   showFollowers(user:any):void{
-    this.router.navigate(['user-details/followers',user.id])
+    this.router.navigate(['user-details/followers',user.uuid])
   }
   showFollowed(user:any):void{
-    this.router.navigate(['user-details/followed',user.id])
+    this.router.navigate(['user-details/followed',user.uuid])
   }
 }

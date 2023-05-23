@@ -1,5 +1,5 @@
 export interface Comment {
-    _id: string;
+    uuid: string;
     idUserComment: string
     idPublicationComment: string
     textComment: string

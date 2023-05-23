@@ -14,7 +14,7 @@ export interface User {
     deletedUser: boolean;
     followersUser: string[];
     followedUser: string[];
-    _id: string;
+    uuid: string;
     createdAt: string;
     updatedAt: string;
   }

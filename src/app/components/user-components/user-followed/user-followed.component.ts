@@ -31,10 +31,10 @@ export class UserFollowedComponent {
   }
 
   showDetails(user: any): void {
-    this.router.navigate(['/user-details', user.id]);
+    this.router.navigate(['/user-details', user.uuid]);
   }
   showEdit(user: any): void {
-    this.router.navigate(['/user-edit', user.id]);
+    this.router.navigate(['/user-edit', user.uuid]);
   }
 
   search() {

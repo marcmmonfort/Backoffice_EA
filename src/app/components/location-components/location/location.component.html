@@ -30,23 +30,23 @@
       <tr
         *ngFor="let location of filteredLocations"
       >
-        <td class="text-center">{{ location._id }}</td>
+        <td class="text-center">{{ location.uuid }}</td>
         <td class="text-center">{{ location.nameLocation }}</td>
         <td class="text-center">{{ location.latLocation }}</td>
         <td class="text-center">{{ location.lonLocation }}</td>
         <td>
-          <a [routerLink]="['/location-details', location._id]"
+          <a [routerLink]="['/location-details', location.uuid]"
             ><button
               type="button"
               class="button-arounder"
-              (click)="showDetails(location.id)"
+              (click)="showDetails(location.uuid)"
             >
               Details
             </button></a
           >
         </td>
         <td>
-          <a [routerLink]="['/location-edit', location._id]"
+          <a [routerLink]="['/location-edit', location.uuid]"
             ><button
             type="button"
             class="button-arounder"

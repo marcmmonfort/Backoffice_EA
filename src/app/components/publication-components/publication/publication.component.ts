@@ -33,11 +33,11 @@ export class PublicationComponent implements OnInit{
   }
 
   showDetails(publication: any): void {
-    this.router.navigate(['/publication-details', publication._id]);
+    this.router.navigate(['/publication-details', publication.uuid]);
   }
 
   showEdit(publication: any): void {
-    this.router.navigate(['/publication-edit', publication._id]);
+    this.router.navigate(['/publication-edit', publication.uuid]);
   }
 
   search() {

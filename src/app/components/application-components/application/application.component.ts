@@ -32,10 +32,10 @@ export class ApplicationComponent implements OnInit {
   }
 
   showDetails(application: any): void {
-    this.router.navigate(['/application-details', application._id]);
+    this.router.navigate(['/application-details', application.uuid]);
   }
   showEdit(application: any): void {
-    this.router.navigate(['/application-edit', application._id]);
+    this.router.navigate(['/application-edit', application.uuid]);
   }
 
   search() {

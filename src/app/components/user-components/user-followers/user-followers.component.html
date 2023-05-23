@@ -22,15 +22,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of filteredUsers" [ngClass]="{ 'table-danger': user.deletedUser, 'table-success': !user.deletedUser }">
-        <td class="text-center">{{ user._id }}</td>
+        <td class="text-center">{{ user.uuid }}</td>
         <td class="text-center">{{ user.nameUser }}</td>
         <td class="text-center">{{ user.mailUser }}</td>
         <td class="text-center">
           <span *ngIf="!user.deletedUser" class="badge badge-success" class="font-weight-bold">Activated <i class="fas fa-check" style="color: green;"></i></span>
           <span *ngIf="user.deletedUser" class="badge badge-danger" class="font-weight-bold">Desactivated <i class="fas fa-times" style="color: red;"></i></span>
         </td>
-        <td><a [routerLink]="['/user-details', user._id]"><button type="button" class="button-arounder" (click)="showDetails(user.id)">DETAILS</button></a></td>
-        <td><a [routerLink]="['/user-edit', user._id]"><button type="button" class="button-arounder" (click)="showEdit(user.id)">EDIT</button></a></td>
+        <td><a [routerLink]="['/user-details', user.uuid]"><button type="button" class="button-arounder" (click)="showDetails(user.uuid)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/user-edit', user.uuid]"><button type="button" class="button-arounder" (click)="showEdit(user.uuid)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>

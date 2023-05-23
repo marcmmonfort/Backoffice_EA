@@ -38,10 +38,10 @@ export class CommentResponseComponent implements OnInit {
   }
 
   showDetails(comment: any): void {
-    this.router.navigate(['/comment-details', comment._id]);
+    this.router.navigate(['/comment-details', comment.uuid]);
   }
   showEdit(comment: any): void {
-    this.router.navigate(['/comment-edit', comment._id]);
+    this.router.navigate(['/comment-edit', comment.uuid]);
   }
 
   search() {

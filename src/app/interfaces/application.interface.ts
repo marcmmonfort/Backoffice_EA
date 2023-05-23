@@ -1,5 +1,5 @@
 export interface Application {
-    _id?: string
+    uuid?:string;
     idSender: string;
     idReceiver: string;
     typeApplication: string; 

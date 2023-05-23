@@ -3,7 +3,7 @@ export interface User {
     latLocation: string;
     lonLocation: string; 
     descriptionLocation: string;
-    _id: string;
+    uuid: string;
     createdAt: string;
     updatedAt: string;
   }

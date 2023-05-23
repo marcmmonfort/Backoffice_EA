@@ -27,8 +27,8 @@
       >
         <td class="text-center">{{ comment.idUserComment }}</td>
         <td class="text-center">{{ comment.textComment }}</td>
-        <td><a [routerLink]="['/comment-details', comment._id]"><button type="button" class="button-arounder" (click)="showDetails(comment.id)">DETAILS</button></a></td>
-        <td><a [routerLink]="['/comment-edit', comment._id]"><button type="button" class="button-arounder" (click)="showEdit(comment.id)">EDIT</button></a></td>
+        <td><a [routerLink]="['/comment-details', comment.uuid]"><button type="button" class="button-arounder" (click)="showDetails(comment.uuid)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/comment-edit', comment.uuid]"><button type="button" class="button-arounder" (click)="showEdit(comment.uuid)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>

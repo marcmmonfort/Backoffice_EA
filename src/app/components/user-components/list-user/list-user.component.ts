@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-list-user',
@@ -25,11 +26,11 @@ export class ListUserComponent implements OnInit {
     this.numPage="1";
   }
 
-  showDetails(user: any): void {
-    this.router.navigate(['/user-details', user.id]);
+  showDetails(user: User): void {
+    this.router.navigate(['/user-details', user.uuid]);
   }
-  showEdit(user: any): void {
-    this.router.navigate(['/user-edit', user.id]);
+  showEdit(user: User): void {
+    this.router.navigate(['/user-edit', user.uuid]);
   }
 
   search() {

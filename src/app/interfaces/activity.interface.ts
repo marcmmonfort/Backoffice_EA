@@ -1,15 +1,15 @@
 export interface Activity {
-    _id?: string
-    nameActivity: string
-    creatorActivity: string
-    participantsActivity?: string[]
-    photoActivity?: string[]
-    dateActivity: string
-    hoursActivity: string[]
-    idLocation?: string
-    descriptionActivity?: string
-    privacyActivity: boolean
-    roleActivity: string
+    uuid?:string;
+    nameActivity: string;
+    creatorActivity: string;
+    participantsActivity?: [string];
+    publicationActivity?: string;
+    dateActivity: Date;
+    hoursActivity: [string];
+    idLocation?: string;
+    descriptionActivity?: string;
+    privacyActivity: boolean;
+    roleActivity:string;
     createdAt: string;
     updatedAt: string;
 }

@@ -9,7 +9,7 @@
           <div class="card-body">
             <div *ngIf="applicationData">
               <ul class="list-group">
-                <li class="list-group-item"><strong>ID:</strong> {{ applicationData._id }}</li>
+                <li class="list-group-item"><strong>ID:</strong> {{ applicationData.uuid }}</li>
                 <li class="list-group-item"><strong>Creator ID:</strong> {{ applicationData.idSender }}</li>
                 <li class="list-group-item"><strong>Receiver ID:</strong> {{ applicationData.idReceiver }}</li>
                 <li class="list-group-item"><strong>Type:</strong> {{ applicationData.typeApplication }}</li>

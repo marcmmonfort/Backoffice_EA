@@ -34,8 +34,8 @@
         <td class="text-center">{{ application.typeApplication }}</td>
         <td class="text-center"> <a  [routerLink]="['/activity-details',  application.idActivity  ]"> {{ application.idActivity }}</a></td>
         <td class="text-center">{{ application.descriptionApplication }}</td>
-        <td><a [routerLink]="['/application-details', application._id]"><button type="button" class="button-arounder" (click)="showDetails(application.id)">DETAILS</button></a></td>
-        <td><a [routerLink]="['/application-edit', application._id]"><button type="button" class="button-arounder" (click)="showEdit(application.id)">EDIT</button></a></td>
+        <td><a [routerLink]="['/application-details', application.uuid]"><button type="button" class="button-arounder" (click)="showDetails(application.uuid)">DETAILS</button></a></td>
+        <td><a [routerLink]="['/application-edit', application.uuid]"><button type="button" class="button-arounder" (click)="showEdit(application.uuid)">EDIT</button></a></td>
       </tr>
     </tbody>
   </table>

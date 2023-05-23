@@ -26,10 +26,10 @@ export class LocationComponent implements OnInit {
   }
 
   showDetails(location: any): void {
-    this.router.navigate(['/location-details', location.id]);
+    this.router.navigate(['/location-details', location.uuid]);
   }
   showEdit(location: any): void {
-    this.router.navigate(['/location-edit', location.id]);
+    this.router.navigate(['/location-edit', location.uuid]);
   }
 
   search() {

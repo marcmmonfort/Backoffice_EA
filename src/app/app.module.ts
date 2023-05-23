@@ -49,38 +49,38 @@ const routes: Routes = [
   { path: 'app', component: AppComponent, canActivate:[AuthGuard] },
   { path: 'comment', component: CommentComponent, canActivate:[AuthGuard] },
   { path: 'comment-create', component: CommentCreateComponent, canActivate:[AuthGuard] },
-  { path: 'comment-details/:id', component: CommentDetailsComponent, canActivate:[AuthGuard] },
-  { path: 'comment-edit/:id', component: CommentEditComponent, canActivate:[AuthGuard] },
+  { path: 'comment-details/:uuid', component: CommentDetailsComponent, canActivate:[AuthGuard] },
+  { path: 'comment-edit/:uuid', component: CommentEditComponent, canActivate:[AuthGuard] },
   { path: 'location', component: LocationComponent, canActivate:[AuthGuard] },
-  { path: 'user-details/:id', component: UserDetailsComponent, canActivate:[AuthGuard] },
-  { path: 'user-edit/:id', component: UserEditComponent, canActivate:[AuthGuard] },
+  { path: 'user-details/:uuid', component: UserDetailsComponent, canActivate:[AuthGuard] },
+  { path: 'user-edit/:uuid', component: UserEditComponent, canActivate:[AuthGuard] },
   { path: 'user-create', component: UserCreateComponent, canActivate:[AuthGuard] },
 
   { path: 'location-create', component: LocationCreateComponent, canActivate:[AuthGuard] },
-  { path: 'location-details/:id', component: LocationDetailsComponent, canActivate:[AuthGuard] },
-  { path: 'location-edit/:id', component: LocationEditComponent, canActivate:[AuthGuard] },
+  { path: 'location-details/:uuid', component: LocationDetailsComponent, canActivate:[AuthGuard] },
+  { path: 'location-edit/:uuid', component: LocationEditComponent, canActivate:[AuthGuard] },
 
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LogInComponent },
 
-  { path:'comment-details/responses/:id/:aux', component: CommentResponseComponent, canActivate:[AuthGuard] },
-  { path:'user-details/followers/:id',component: UserFollowersComponent, canActivate:[AuthGuard] },
-  { path:'user-details/followed/:id',component: UserFollowedComponent, canActivate:[AuthGuard] },
+  { path:'comment-details/responses/:uuid/:aux', component: CommentResponseComponent, canActivate:[AuthGuard] },
+  { path:'user-details/followers/:uuid',component: UserFollowersComponent, canActivate:[AuthGuard] },
+  { path:'user-details/followed/:uuid',component: UserFollowedComponent, canActivate:[AuthGuard] },
   { path:'publication',component: PublicationComponent, canActivate:[AuthGuard] },
   { path:'publication-create',component: PublicationCreateComponent, canActivate:[AuthGuard] },
-  { path:'publication-details/:id',component: PublicationDetailsComponent, canActivate:[AuthGuard] },
-  { path:'publication-edit/:id',component: PublicationEditComponent, canActivate:[AuthGuard] },
+  { path:'publication-details/:uuid',component: PublicationDetailsComponent, canActivate:[AuthGuard] },
+  { path:'publication-edit/:uuid',component: PublicationEditComponent, canActivate:[AuthGuard] },
 
   { path:'activity',component: ActivityComponent, canActivate:[AuthGuard] },
   { path:'activity-create',component: ActivityCreateComponent, canActivate:[AuthGuard] },
-  { path:'activity-details/:id',component: ActivityDetailsComponent, canActivate:[AuthGuard] },
-  { path:'activity-edit/:id',component: ActivityEditComponent, canActivate:[AuthGuard] },
-  { path:'activity-participants/:id',component: ActivityParticipantsComponent, canActivate:[AuthGuard] },
+  { path:'activity-details/:uuid',component: ActivityDetailsComponent, canActivate:[AuthGuard] },
+  { path:'activity-edit/:uuid',component: ActivityEditComponent, canActivate:[AuthGuard] },
+  { path:'activity-participants/:uuid',component: ActivityParticipantsComponent, canActivate:[AuthGuard] },
 
   { path:'application',component: ApplicationComponent, canActivate:[AuthGuard] },
   { path:'application-create',component: ApplicationCreateComponent, canActivate:[AuthGuard] },
-  { path:'application-details/:id',component: ApplicationDetailsComponent, canActivate:[AuthGuard] },
-  { path:'application-edit/:id',component: ApplicationEditComponent, canActivate:[AuthGuard] }
+  { path:'application-details/:uuid',component: ApplicationDetailsComponent, canActivate:[AuthGuard] },
+  { path:'application-edit/:uuid',component: ApplicationEditComponent, canActivate:[AuthGuard] }
 
 ];
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user.interface';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent {
-  userData: any;
+  userData!: User;
   userId!: string;
   isModalOpen:boolean=false;
   
@@ -24,6 +25,7 @@ export class UserEditComponent {
     this.userId = parts[parts.length - 1];
     console.log(this.userId);
     this.userService.getUser(this.userId).subscribe(userData=>{
+      console.log(userData);
       this.userData=userData;
     });
   }
@@ -73,7 +75,7 @@ export class UserEditComponent {
   showFollowed(user:any):void{
     this.router.navigate(['user-details/followed',user.id])
   }
-  formatDate(dateString: string): string {
+  formatDate(dateString: Date): string {
     const date = new Date(dateString);
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   }

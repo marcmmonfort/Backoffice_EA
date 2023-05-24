@@ -51,6 +51,7 @@ export class CommentComponent implements OnInit {
 
   printeaTodos() {
     this.commentService.getAllPaginatedComments(this.numPage).subscribe((comments) => {
+      console.log(comments);
       if(comments.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
         

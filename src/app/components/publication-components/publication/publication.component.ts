@@ -50,6 +50,7 @@ export class PublicationComponent implements OnInit{
 
   printeaTodos() {
     this.publicationService.getNumPublications(this.numPage).subscribe((publication) => {
+      console.log(publication);
       if(publication.length==0){
         this.numPage = (parseInt(this.numPage, 10) - 1).toString();
         

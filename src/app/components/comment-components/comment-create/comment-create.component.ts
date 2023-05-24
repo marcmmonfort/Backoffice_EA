@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommentService } from 'src/app/services/comment.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-comment-create',
@@ -37,6 +38,20 @@ export class CommentCreateComponent {
     console.log(commentData);
     this.commentService.addComment(commentData).subscribe(
       (response) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'Comentario creado correctamente!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
         console.log('Localización guardada correctamente:', response);
         // Aquí podrías redirigir a la página de éxito, por ejemplo
       },

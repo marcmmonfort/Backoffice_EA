@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PublicationService } from 'src/app/services/publication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-publication-create',
@@ -37,7 +38,21 @@ export class PublicationCreateComponent {
     console.log(publicationData);
     this.publicationService.addPublication(publicationData).subscribe(
       (response) => {
-        console.log('Localización guardada correctamente:', response);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          customClass: {
+            icon: 'swal-icon-color'
+          },
+          title: 'Publicación creada correctamente!',
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,0.8)
+          `
+        })
+        console.log('Publicación creada correctamente:', response);
         // Aquí podrías redirigir a la página de éxito, por ejemplo
       },
       (error) => {
